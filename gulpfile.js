@@ -1,5 +1,6 @@
-//gulp
+//gulp constants
 var gulp = require('gulp');
+var browserSync = require('browser-sync');
 
 //plugins
 var header = require('gulp-header');
@@ -8,6 +9,9 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglifyjs');
 
 var currDate = new Date();	
+
+//default 'gulp' task
+gulp.task('default', ['sass']);
 
 //sass task
 gulp.task('sass', function(){
@@ -42,10 +46,25 @@ gulp.task('watch', function(){
 
 	//js watch
 	gulp.watch('assets/js/*.js', ['js']) //watch only root-level .js file change :: don't care about lib or plugin folders
+
+
+	gulp.watch(['/']).on('change', function(file){
+		server.changed(file.path);
+	})
 });
 
-//default 'gulp' task
-gulp.task('default', ['sass']);
+//browserSync
+gulp.task('browser-sync', function(){
+	var files = [
+		'**/**/*'
+	];
+
+	browserSync.init(files, {
+		server: {
+			baseDir: './'
+		}
+	});
+});
 
 // NOTES:
 // 		gulp.dest is relative to the folder that gulp was installed in
