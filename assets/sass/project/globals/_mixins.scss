@@ -1,0 +1,237 @@
+// Default Mix-ins
+
+
+// Clearfix - use @extend %clearfix;
+%clearfix {
+	&:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+
+// Transitions
+@mixin transition($speed: .15s, $delay: 0) {
+	-webkit-transition: all $speed ease-in-out $delay;
+	-moz-transition: all $speed ease-in-out $delay;
+	transition: all $speed ease-in-out $delay;
+}
+
+@mixin transition-more($transition...) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	transition: $transition;
+}
+
+
+// Gradients
+@mixin gradient($origin: top, $start: #e1e1e1, $stop: #353535) {
+	background-color: $start;
+	background-image: -webkit-linear-gradient($origin, $start, $stop);
+	background-image: -moz-linear-gradient($origin, $start, $stop);
+	background-image: -o-linear-gradient($origin, $start, $stop);
+	background-image: -ms-linear-gradient($origin, $start, $stop);
+	background-image: linear-gradient($origin, $start, $stop);
+}
+
+
+// Rounded Corners
+@mixin radius($radius: 3px) {
+	border-radius: $radius;
+}
+
+
+// Rotate
+@mixin rotate($rotate) {
+	-webkit-transform: rotate($rotate);
+	transform: rotate($rotate);
+}
+
+
+// Scale
+@mixin scale($scale) {
+	-webkit-transform: scale($scale);
+	transform: scale($scale);
+}
+
+
+// Translate
+@mixin translate($translate) {
+	-webkit-transform: translate($translate);
+	transform: translate($translate);
+}
+
+
+// Backface Visibility
+@mixin backface($backface: hidden) {
+	-webkit-backface-visibility: $backface;
+	backface-visibility: $backface;
+}
+
+// Translate3d
+@mixin translate3d($translate3d) {
+	-webkit-transform: translate3d($translate3d);
+	transform: translate3d($translate3d);
+	@include backface;
+}
+
+
+// Animation
+@mixin animate($name, $speed: .2s, $ease: ease-in, $delay: .5s, $when: both) {
+	-webkit-animation: $name $speed $ease $delay $when;
+	animation: $name $speed $ease $delay $when;
+}
+
+
+// Keyframes
+@mixin keyframes($name) {
+	@-webkit-keyframes $name {
+		@content;
+	}
+	
+	@keyframes $name {
+		@content;
+	}
+}
+
+
+// Width and Height
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+
+// Box Sizing
+@mixin box-sizing($box: border-box) {
+	-webkit-box-sizing: $box;
+	-moz-box-sizing: $box;
+	box-sizing: $box;
+}
+
+
+// Triangles
+@mixin triangle-base {
+	position: absolute;
+	@include size(0);
+	content: '';
+}
+
+@mixin triangle($direction, $size, $color) {
+	@if ($direction == "up") {
+		@include triangle-base();
+		border: {
+			left: $size solid transparent;
+			right: $size solid transparent;
+			bottom: $size solid $color;
+		}
+	}
+	
+	@else if ($direction == "down") {
+		@include triangle-base();
+		border: {
+			left: $size solid transparent;
+			right: $size solid transparent;
+			top: $size solid $color;
+		}
+	}
+	
+	@else if ($direction == "left") {
+		@include triangle-base();
+		border: {
+			top: $size solid transparent;
+			bottom: $size solid transparent;
+			right: $size solid $color;
+		}
+	}
+	
+	@else if ($direction == "right") {
+		@include triangle-base();
+		border: {
+			top: $size solid transparent;
+			bottom: $size solid transparent;
+			left: $size solid $color;
+		}
+	}
+}
+
+
+// Effects
+@mixin shadow($shadow...) {
+	box-shadow: $shadow;
+}
+
+@mixin fade($fade: 0.6) {
+	@include transition;
+  	opacity: 1.0;
+  	
+  	&:hover {
+	  	opacity: $fade;
+	}
+}
+
+
+// Retina Images
+@mixin background-image($image, $extension: jpg, $width: 100%, $height: 100%) {
+	background-image: url(#{$image}.#{$extension});
+	
+	@media #{$retina} {
+		background: {
+			image: url(#{$image}@2x.#{$extension});
+			size: $width $height;
+		}
+	}
+}
+
+
+// SVG Background Image
+@mixin svg($image, $width, $height) {
+	display: inline-block;
+	@include size($width, $height);
+	background: url(#{$image}.svg) no-repeat center center;
+	background-size: $width $height;
+}
+
+
+// Font Face
+@mixin font-face-mixin($font-name, $font-path, $font-file) {
+	@font-face {
+	    font-family: '#{$font-name}';
+	    src: url('#{$font-path}/#{$font-file}.eot');
+	    src: url('#{$font-path}/#{$font-file}?#iefix') format('embedded-opentype'),
+	         url('#{$font-path}/#{$font-file}.woff') format('woff'),
+	         url('#{$font-path}/#{$font-file}.ttf') format('truetype'),
+	         url('#{$font-path}/#{$font-file}.svg##{$font-name}') format('svg');
+	}	
+}
+
+@mixin font-styles {
+	font: {
+		weight: normal;
+		style: normal;
+	}
+}
+
+
+// REM Units with px fallback (assumes html is set to font-size: 62.5%)
+@mixin font-size($value: 1.6) {
+	font-size: $value + px;
+	font-size: ($value / 10) + rem;
+}
+
+
+// Media Queries for Mobile First Design
+$mobile: '(max-width: 599px)'; // Only Phone
+$small-tablet: '(min-width: 600px)';
+$tablet: '(min-width: 768px)';
+$device: '(max-width: 959px)'; // All Devices
+$desktop: '(min-width: 960px)';
+$large-desktop: '(min-width: 1280px)';
+$retina: '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'; // Only Retina Screens
+
+
+// Media Queries to Target Device Only
+$small-tablet-only: '(min-width: 600px) and (max-width: 767px)';
+$tablet-only: '(min-width: 768px) and (max-width: 959px)';
+$desktop-only: '(min-width: 960px) and (max-width: 1279px)';

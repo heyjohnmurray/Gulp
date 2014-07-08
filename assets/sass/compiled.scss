@@ -1,0 +1,12 @@
+// Project Settings & Variables (Do NOT Remove)
+@import 'project/_project-variables';
+
+// Base (Do NOT Remove)
+@import 'project/globals/_mixins';
+@import 'project/_project-fonts';
+@import 'project/globals/_reset';
+@import 'project/globals/_base';
+
+
+// Main Project Specific CSS
+@import 'project/_project-styles'; // Located in the Project Folder
