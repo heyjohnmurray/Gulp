@@ -10,4 +10,5 @@ $(document).on('ready', function() {
 	});
 
 	$('.gulp-watch-js').addClass('active');
+	
 });
