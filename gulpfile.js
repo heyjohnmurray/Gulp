@@ -5,28 +5,43 @@ var gulp = require('gulp');
 var header = require('gulp-header');
 var notify = require('gulp-notify');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglifyjs');
 
-var currDate = new Date();
+var currDate = new Date();	
 
 //sass task
 gulp.task('sass', function(){
-	return gulp.src('assets/sass/*.scss')
+
+	return gulp.src('assets/sass/**/*.scss')
 		.pipe(sass())
-		//.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
+		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
 		.pipe(gulp.dest('assets/css/'))
-		.pipe(notify({ message: 'SASS task complete' }));
+		.pipe(notify({
+			message: 'SASS has been compiled'
+		}));
 })
 
-//time stamp
-gulp.task('task'), function(){
-  	//return gulp.src('assets/') come back to this
-}
+//js task
+gulp.task('js', function(){
+  	return gulp.src('assets/js/**/*.js')//right now this compiles everything in the js folder, but you could pass an array of files like   gulp.src(['public/js/*.js', 'bower_components/**/*.js'])
+  		.pipe(uglify('project.min.js', {
+  			outSourceMap: true
+  		}))
+  		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
+  		.pipe(gulp.dest('assets/js/'))
+  		.pipe(notify({
+  			message: 'JS has been compiled' //no 'message' parameter defaults to list of files affected
+  		}));
+})
 
 //watch
 gulp.task('watch', function(){
 
 	//sass watch
-	gulp.watch('assets/sass/*.scss', ['sass']);
+	gulp.watch('assets/sass/**/*.scss', ['sass']); //watch any sass file change
+
+	//js watch
+	gulp.watch('assets/js/*.js', ['js']) //watch only root-level .js file change :: don't care about lib or plugin folders
 });
 
 //default 'gulp' task
