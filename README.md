@@ -19,3 +19,4 @@ https://www.npmjs.org/package/gulp-header
 https://www.npmjs.org/package/gulp-notify
 https://www.npmjs.org/package/gulp-uglifyjs
 http://www.browsersync.io/docs/gulp/
+https://github.com/shakyShane/gulp-browser-sync#usage
