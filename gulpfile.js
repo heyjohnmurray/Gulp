@@ -3,11 +3,8 @@
 // jshint/lint
 // jsuglify
 // image minify
-// generate sprite sheets (optional)
+// generate sprite sheets (optional) :: USE https://github.com/aslansky/css-sprite :: i think if you had a folder in images called sprites then only have it look at that folder
 // bourbon compatiblity (optional)
-
-// WHAT SHOULD BE A DEFAULT TASK AND WHAT SHOULD BE ONLY ON default/build
-// image minify (?) 
 
 //gulp constants
 var gulp = require('gulp');
@@ -19,14 +16,9 @@ var changed = require('gulp-changed');
 
 //core plugins
 var sass = require('gulp-sass');
-
 var uglify = require('gulp-uglifyjs');
-
 var imagemin = require('gulp-imagemin');
-
 var livereload = require('gulp-livereload');
-
-
 
 var currDate = new Date();
 
@@ -79,13 +71,8 @@ gulp.task('watch', function(){
 
 	//js watch
 	gulp.watch('assets/js/*.js', ['js']) //watch only root-level .js file change :: don't care about lib or plugin folders
-
-
-	gulp.watch(['/']).on('change', function(file){
-		server.changed(file.path);
-	})
+	
 });
-
 
 
 //	NOTES:
