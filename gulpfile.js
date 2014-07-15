@@ -46,7 +46,7 @@ gulp.task('sass', function(){
 		}));
 });
 
-//js task
+//js task :: this task could probably have gulp-changed added to it so it only compresses changed js files
 gulp.task('js', function(){
   	return gulp.src('assets/js/**/*.js')//right now this compiles everything in the js folder, but you could pass an array of files like   gulp.src(['public/js/*.js', 'bower_components/**/*.js'])
   		.pipe(uglify('project.min.js', {
