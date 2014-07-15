@@ -1,15 +1,30 @@
+// WHAT SHOULD RV GULP INCLUDE
+// sass
+// jshint/lint
+// jsuglify
+// image minify
+// generate sprite sheets (optional)
+// bourbon compatiblity (optional)
+
 //gulp constants
 var gulp = require('gulp');
 
-//plugins
+//utility plugins
 var header = require('gulp-header');
 var notify = require('gulp-notify');
+
+//core plugins
 var sass = require('gulp-sass');
+
 var uglify = require('gulp-uglifyjs');
+
+var imagemin = require('gulp-imagemin');
+
 var livereload = require('gulp-livereload');
 
 
-var currDate = new Date();	
+
+var currDate = new Date();
 
 //default 'gulp' task
 gulp.task('default', ['sass']);
@@ -25,7 +40,7 @@ gulp.task('sass', function(){
 		.pipe(notify({
 			message: 'SASS has been compiled'
 		}));
-})
+});
 
 //js task
 gulp.task('js', function(){
@@ -38,7 +53,14 @@ gulp.task('js', function(){
   		.pipe(notify({
   			message: 'JS has been compiled' //no 'message' parameter defaults to list of files affected
   		}));
-})
+});
+
+//images
+gulp.task('images', function () {
+    return gulp.src('assets/images/**/*')
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest('assets/images-min/'));
+});
 
 //watch
 gulp.task('watch', function(){
@@ -57,5 +79,5 @@ gulp.task('watch', function(){
 
 
 
-// NOTES:
-// 		gulp.dest is relative to the folder that gulp was installed in
+//	NOTES:
+//	gulp.dest is relative to the folder that gulp was installed in

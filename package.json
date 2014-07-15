@@ -6,6 +6,9 @@
     "gulp-notify": "^1.4.0",
     "gulp-uglifyjs": "^0.4.2",
     "browser-sync": "^1.1.2",
-    "gulp-livereload": "^2.1.0"
+    "gulp-livereload": "^2.1.0",
+    "gulp-imagemin": "^0.6.1",
+    "image-min": "^0.4.5",
+    "imagemin": "^0.4.6"
   }
 }
