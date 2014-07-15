@@ -75,7 +75,7 @@ gulp.task('js', function(){
 // [15:46:56] Finished 'images' after 3.1 min
 
 
-gulp.task('jpegs', function () {
+gulp.task('images', function () {
     return gulp.src('assets/images/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest('assets/images-min/'));
