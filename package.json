@@ -12,6 +12,7 @@
     "imagemin": "^0.4.6",
     "imagemin-gifsicle": "^0.1.1",
     "imagemin-jpegtran": "^0.1.0",
-    "imagemin-optipng": "^0.1.0"
+    "imagemin-optipng": "^0.1.0",
+    "gulp-changed": "^0.4.0"
   }
 }

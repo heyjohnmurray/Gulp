@@ -6,12 +6,16 @@
 // generate sprite sheets (optional)
 // bourbon compatiblity (optional)
 
+// WHAT SHOULD BE A DEFAULT TASK AND WHAT SHOULD BE ONLY ON default/build
+// image minify (?) 
+
 //gulp constants
 var gulp = require('gulp');
 
 //utility plugins
 var header = require('gulp-header');
 var notify = require('gulp-notify');
+var changed = require('gulp-changed');
 
 //core plugins
 var sass = require('gulp-sass');
@@ -56,28 +60,14 @@ gulp.task('js', function(){
 });
 
 //images
-// gulp.task('images', function () {
-//     return gulp.src('assets/images/**/*')
-//         .pipe(imagemin({ 
-//         	optimizationLevel: 3, 
-//         	progressive: true, 
-//         	interlaced: true
-//         	}))
-//         .pipe(gulp.dest('assets/images-min/'));
-// });
-
-// working syntax for reference :: https://github.com/jgable/gulp-cache/issues/9
-// trying to figure out if i can shorten the compression time:
-// rv-clt-jmurray [jmurray] ~/GitProjects/Gulp (master) : gulp images
-// [15:43:49] Using gulpfile ~/GitProjects/Gulp/gulpfile.js
-// [15:43:49] Starting 'images'...
-// [15:46:56] gulp-imagemin: Minified 1619 images (saved 24.82 MB - 35.2%)
-// [15:46:56] Finished 'images' after 3.1 min
-
-
 gulp.task('images', function () {
     return gulp.src('assets/images/**/*')
-        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(changed('assets/images-min/'))
+        .pipe(imagemin({ 
+        	optimizationLevel: 3, 
+        	progressive: true, 
+        	interlaced: true
+        	}))
         .pipe(gulp.dest('assets/images-min/'));
 });
 
