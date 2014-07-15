@@ -66,7 +66,16 @@ gulp.task('js', function(){
 //         .pipe(gulp.dest('assets/images-min/'));
 // });
 
-gulp.task('images', function () {
+// working syntax for reference :: https://github.com/jgable/gulp-cache/issues/9
+// trying to figure out if i can shorten the compression time:
+// rv-clt-jmurray [jmurray] ~/GitProjects/Gulp (master) : gulp images
+// [15:43:49] Using gulpfile ~/GitProjects/Gulp/gulpfile.js
+// [15:43:49] Starting 'images'...
+// [15:46:56] gulp-imagemin: Minified 1619 images (saved 24.82 MB - 35.2%)
+// [15:46:56] Finished 'images' after 3.1 min
+
+
+gulp.task('jpegs', function () {
     return gulp.src('assets/images/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest('assets/images-min/'));
