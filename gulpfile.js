@@ -56,6 +56,16 @@ gulp.task('js', function(){
 });
 
 //images
+// gulp.task('images', function () {
+//     return gulp.src('assets/images/**/*')
+//         .pipe(imagemin({ 
+//         	optimizationLevel: 3, 
+//         	progressive: true, 
+//         	interlaced: true
+//         	}))
+//         .pipe(gulp.dest('assets/images-min/'));
+// });
+
 gulp.task('images', function () {
     return gulp.src('assets/images/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
