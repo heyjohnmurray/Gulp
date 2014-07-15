@@ -1,12 +1,13 @@
 //gulp constants
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
 
 //plugins
 var header = require('gulp-header');
 var notify = require('gulp-notify');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglifyjs');
+var livereload = require('gulp-livereload');
+
 
 var currDate = new Date();	
 
@@ -20,6 +21,7 @@ gulp.task('sass', function(){
 		.pipe(sass())
 		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
 		.pipe(gulp.dest('assets/css/'))
+		.pipe(livereload())
 		.pipe(notify({
 			message: 'SASS has been compiled'
 		}));
@@ -53,18 +55,7 @@ gulp.task('watch', function(){
 	})
 });
 
-//browserSync
-gulp.task('browser-sync', function(){
-	var files = [
-		'**/**/*'
-	];
 
-	browserSync.init(files, {
-		server: {
-			baseDir: './'
-		}
-	});
-});
 
 // NOTES:
 // 		gulp.dest is relative to the folder that gulp was installed in
