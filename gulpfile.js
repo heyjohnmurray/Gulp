@@ -1,8 +1,8 @@
 // WHAT SHOULD RV GULP INCLUDE
-// sass
-// jshint/lint
-// jsuglify
-// image minify
+// sass :: ADDED
+// jshint/lint ------ add this next
+// jsuglify :: ADDED
+// image minify :: ADDED
 // generate sprite sheets (optional) :: USE https://github.com/aslansky/css-sprite :: i think if you had a folder in images called sprites then only have it look at that folder
 // bourbon compatiblity (optional)
 
