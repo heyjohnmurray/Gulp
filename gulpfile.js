@@ -18,7 +18,6 @@ var changed = require('gulp-changed');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglifyjs');
 var imagemin = require('gulp-imagemin');
-var pngcrush = require('imagemin-pngcrush');
 var livereload = require('gulp-livereload');
 
 var currDate = new Date();
@@ -59,8 +58,7 @@ gulp.task('images', function () {
         .pipe(imagemin({ 
         	optimizationLevel: 3, 
         	progressive: true, 
-        	interlaced: true,
-          use: [pngcrush()]
+        	interlaced: true
         	}))
         .pipe(gulp.dest('assets/images-min/'));
 });
