@@ -2,7 +2,7 @@
 // sass :: ADDED
 // jshint/lint ------ add this next
 // jsuglify :: ADDED
-// image minify :: ADDED
+// image minify :: ADDED (got png crush to work but not pngquant, seems to use optipng by default)
 // generate sprite sheets (optional) :: USE https://github.com/aslansky/css-sprite :: i think if you had a folder in images called sprites then only have it look at that folder
 // bourbon compatiblity (optional)
 
@@ -18,6 +18,7 @@ var changed = require('gulp-changed');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglifyjs');
 var imagemin = require('gulp-imagemin');
+var pngcrush = require('imagemin-pngcrush');
 var livereload = require('gulp-livereload');
 
 var currDate = new Date();
@@ -58,7 +59,8 @@ gulp.task('images', function () {
         .pipe(imagemin({ 
         	optimizationLevel: 3, 
         	progressive: true, 
-        	interlaced: true
+        	interlaced: true,
+          use: [pngcrush()]
         	}))
         .pipe(gulp.dest('assets/images-min/'));
 });
