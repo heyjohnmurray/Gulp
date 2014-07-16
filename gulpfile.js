@@ -65,15 +65,28 @@ gulp.task('images', function () {
 });
 
 //sprites
+
+// THIS SYNTAX WORKS BUT IT'S NOT WHAT I USE FOR EVERYTHING ELSE
 gulp.task('sprites', function () {
-  return gulp.src('assets/images/sprites/')
-    .pipe(spritesmith({
-      imgName: 'sprites.png',
-      cssName: '_sprites.scss'
-    }))
-    .pipe(gulp.dest('assets/images/'))
-    .pipe(gulp.dest('assets/sass/project/partials/'));
+  var spriteData = gulp.src('assets/images/sprites/**/*')
+  .pipe(spritesmith({
+    imgName: 'assets/images/sprite.png',
+    cssName: '_sprites.scss'
+  }));
+  spriteData.img.pipe(gulp.dest('assets/images/'));
+  spriteData.css.pipe(gulp.dest('assets/sass/project/partials/'));
 });
+
+// THIS IS THE SYNTAX I WANT BUT IT'S NOT WORKING QUITE RIGHT. 
+// gulp.task('sprites', function () {
+//   return gulp.src('assets/images/sprites/')
+//     .pipe(spritesmith({
+//       imgName: 'sprites.png',
+//       cssName: '_sprites.scss'
+//       }))
+//     .pipe(gulp.dest('assets/images/'))
+//     .pipe(gulp.dest('assets/sass/project/partials/'));
+// });
 
 //watch
 gulp.task('watch', function(){
