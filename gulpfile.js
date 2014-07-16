@@ -13,12 +13,13 @@ var gulp = require('gulp');
 var header = require('gulp-header');
 var notify = require('gulp-notify');
 var changed = require('gulp-changed');
+var livereload = require('gulp-livereload');
 
 //core plugins
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglifyjs');
 var imagemin = require('gulp-imagemin');
-var livereload = require('gulp-livereload');
+var spritesmith = require("gulp.spritesmith");
 
 var currDate = new Date();
 
@@ -40,27 +41,38 @@ gulp.task('sass', function(){
 
 //js task :: this task could probably have gulp-changed added to it so it only compresses changed js files
 gulp.task('js', function(){
-  	return gulp.src('assets/js/**/*.js')//right now this compiles everything in the js folder, but you could pass an array of files like   gulp.src(['public/js/*.js', 'bower_components/**/*.js'])
-  		.pipe(uglify('project.min.js', {
-  			outSourceMap: true
-  		}))
-  		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
-  		.pipe(gulp.dest('assets/js/'))
-  		.pipe(notify({
-  			message: 'JS has been compiled' //no 'message' parameter defaults to list of files affected
-  		}));
+	return gulp.src('assets/js/**/*.js')//right now this compiles everything in the js folder, but you could pass an array of files like   gulp.src(['public/js/*.js', 'bower_components/**/*.js'])
+		.pipe(uglify('project.min.js', {
+			outSourceMap: true
+		}))
+		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
+		.pipe(gulp.dest('assets/js/'))
+		.pipe(notify({
+			message: 'JS has been compiled' //no 'message' parameter defaults to list of files affected
+		}));
 });
 
 //images
 gulp.task('images', function () {
-    return gulp.src('assets/images/**/*')
-        .pipe(changed('assets/images-min/'))
-        .pipe(imagemin({ 
-        	optimizationLevel: 3, 
-        	progressive: true, 
-        	interlaced: true
-        	}))
-        .pipe(gulp.dest('assets/images-min/'));
+  return gulp.src('assets/images/**/*')
+    .pipe(changed('assets/images-min/'))
+    .pipe(imagemin({ 
+    	optimizationLevel: 3, 
+    	progressive: true, 
+    	interlaced: true
+    	}))
+    .pipe(gulp.dest('assets/images-min/'));
+});
+
+//sprites
+gulp.task('sprites', function () {
+  return gulp.src('assets/images/sprites/')
+    .pipe(spritesmith({
+      imgName: 'sprites.png',
+      cssName: '_sprites.scss'
+    }))
+    .pipe(gulp.dest('assets/images/'))
+    .pipe(gulp.dest('assets/sass/project/partials/'));
 });
 
 //watch
