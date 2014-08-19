@@ -7,78 +7,17 @@
 
 <head>
 <meta charset="UTF-8">
-
-<!-- META -->
-<?
-	// default meta are $metaRobots, $metaDescription, $metaKeywords, $canonicalURL, $headerTitle
-	include(RV_LandingPage::find('includes/base/_header-meta.php'));
-	
-	 // if you need additional meta (ie: viewport), add it here
-	include(RV_LandingPage::find('includes/base/_header-meta-additional.php')); 
-?>
+<meta name="robots" content="noindex,nofollow,noodp" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- CSS -->
-<? 
-	/*
-	 * this is now an include so that in the instance we test a completely different site, ie: mobile, tablet, redesign,
-	 * we don't need to split header.php to use all new CSS files.
-	 *
-	 * however, this still may not be necessary thanks to using try_find_web inside of this file. but it's here if you need it.
-	 */
-	include(RV_LandingPage::find('includes/base/_header-css.php'));
-?>
+<link href="/assets/css/compiled.css" rel="stylesheet">
 
 <!-- JAVASCRIPT -->
-<? 
-	/*
-	 * this is now an include so that in the instance we test a completely different site, ie: mobile, tablet, redesign
-	 * we don't need to split header.php to use all new js files.
-	 */
-	include(RV_LandingPage::find('includes/base/_header-js.php'));
-?>
-
-<? 
-	// this is so we can split test to add additional CSS/JS/etc. without having to split header.php/_header-css.php/_header-js.php.
-	include_once(RV_LandingPage::find('includes/base/_header-assets-additional.php'));
-?>
-
-<script>
-
-	$(document).ready(function() {
-	
-		/*
-		 * add a class of 'error' to each bad field so we can style with CSS.
-		 * by default, this will add a class of 'error' on the invalid input field.
-		 *
-		 * @required: input field must have class name that is identical to its name attribute (stored in $_SESSION['bad_fields'])
-		 * 
-		 * @example: <input type="text" name="FirstName" class="FirstName">
-		 */
-        <?
-        	if($_SESSION['bad_fields']) {
-        	
-				foreach($_SESSION['bad_fields'] as $fieldName) {
-		?>
-				$(".<?= $fieldName ?>").addClass('error');
-		<?		
-				}
-			} 
-		?>
-	});
-
-</script>
-
-<?
-	// init hailo
-	echo isset($hailoJs) ? $hailoJs : '';
-	
-	// check for bots
-	echo RV_webTools::get_js_enabled_script($siteParams->CompanyID);
-	
-	// tracking
-	include_once(INCLUDE_DIR . "/ga_async.inc");
-?>
+<script src="/global_js/jQuery/jquery-1.8.3.min.js"></script>
+<script src="/assets/js/jquery.mobile.custom.min.js"></script>
+<script src="/global_js/modernizr/modernizr-2.8.2.min.js"></script>
 
 </head>
 
-<body class="page-<?= str_replace(array('.html', '.php', '_'), array('', '', '-'), basename($_SERVER['SCRIPT_NAME'])); ?>">
+<body>
