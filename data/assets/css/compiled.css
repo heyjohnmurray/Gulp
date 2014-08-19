@@ -408,4 +408,8 @@ select { width: 100%; }
 
 .h-phone a { color: inherit; cursor: default; }
 
-.page { background-color: #f00; }
+body { color: #fff; }
+
+.signup { background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
+
+.quiz { background-color: green; }
