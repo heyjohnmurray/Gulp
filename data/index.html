@@ -1,4 +1,19 @@
-<?
-require_once( $_SERVER['DOCUMENT_ROOT'] . "define.php" );
-include_once( RV_LandingPage::find() );
-?>
+<? include('includes/base/_header.php'); ?>
+<body>
+	<!-- Start of first page -->
+	<div data-role="page" id="foo" class="page">
+		
+			<p>View internal page called <a href="#bar" data-transition="slide">bar</a></p>
+		
+	</div><!-- /page -->
+
+	<!-- Start of second page -->
+	<div data-role="page" id="bar" class="page">
+
+		
+			<p><a href="#foo" data-transition="slide">Back to foo</a></p>
+		
+	</div><!-- /page -->
+</body>
+
+<? include('includes/base/_footer.php'); ?>

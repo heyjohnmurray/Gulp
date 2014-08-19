@@ -1,4 +1,19 @@
-<?
-require_once( "define.php" );
-include_once( RV_LandingPage::find() );
-?>
+<? include(RV_LandingPage::find('includes/base/_header.php')); ?>
+
+<? include(RV_LandingPage::find('includes/masthead/_masthead.php')); ?>
+
+<? include(RV_LandingPage::find('includes/heroes/_hero-landing.php')); ?>
+
+<main role="main">
+
+	<h1>Thank You!</h1>
+	
+	<p>Thank you for your interest in our products and services!</p>
+	
+	<p>One of our specialists will be contacting you shortly.</p>
+
+</main><!-- /<main> -->
+
+<? include(RV_LandingPage::find('includes/mastfoot/_mastfoot.php')); ?>
+
+<? include(RV_LandingPage::find('includes/base/_footer.php')); ?>
