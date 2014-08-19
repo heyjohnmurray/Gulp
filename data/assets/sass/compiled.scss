@@ -3,10 +3,10 @@
 
 // Base (Do NOT Remove)
 @import 'project/globals/_reset';
+@import 'project/globals/foundation';
 @import 'bourbon'; // Mixins
 @import 'project/_project-fonts';
 @import 'project/globals/_base';
-
 
 // Main Project Specific CSS
 @import 'project/_project-styles'; // Located in the Project Folder
