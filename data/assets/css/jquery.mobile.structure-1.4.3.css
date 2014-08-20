@@ -13,8 +13,7 @@
 /* Some unsets */
 .ui-mobile,
 .ui-mobile body {
-	/*height: 99.9%;*/
-	height: 100%;
+	height: 99.9%;
 }
 .ui-mobile fieldset,
 .ui-page {
