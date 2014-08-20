@@ -7,27 +7,12 @@ h1 {
 	font-size: 85px;
 	line-height: 95px;
 	text-align: right;
+	color: #fff;
 	text-transform: uppercase;
 }
 
 form {
 	padding: 30px 0;
-
-	button {
-		@extend .proxima-regular;
-		font-size: 25px;
-		line-height: 30px;
-		text-transform: uppercase;
-		border: 2px solid #fff;
-		color: #fff;
-		background: none;
-		margin: 0;
-
-		span {
-			display: inline-block;
-			@include triangle(12px, #fff, right);
-		}
-	}
 }
 
 input {
@@ -39,6 +24,21 @@ input {
 
 	&[type=text] {
 		color: $font-color;
+	}
+
+	&[type=submit] {
+		@extend .proxima-regular;
+		font-size: 25px;
+		line-height: 30px;
+		text-transform: uppercase;
+		border: 2px solid #fff;
+		color: #fff;
+		background: none;
+		margin: 0;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
