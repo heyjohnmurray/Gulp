@@ -1,10 +1,4 @@
 // Project Fonts
-
-
-// Below is an example of how a font would be created - REMOVE THIS LINE
-
-
-// Create Font-face Fonts
 //@include font-face-mixin('DINLight', '/assets/fonts/din', 'din-light');
 
 
@@ -14,3 +8,19 @@
 	//font-family: 'DINLight';
 	//@include font-styles;
 //}
+
+@include font-face(proxima-nova-extra-bold, '/assets/fonts/proxima/proxima-nova-regular', normal, normal);
+@include font-face(proxima-nova-bold, '/assets/fonts/proxima/proxima-nova-bold', normal, normal);
+@include font-face(proxima-nova-extra-bold, '/assets/fonts/proxima/proxima-nova-extra-bold', normal, normal);
+
+.proxima-regular {
+	font-family: 'proxima-nova-regular', sans-serif;
+}
+
+.proxima-bold {
+	font-family: 'proxima-nova-bold', sans-serif;
+}
+
+.proxima-black {
+	font-family: 'proxima-nova-extra-bold', sans-serif;
+}

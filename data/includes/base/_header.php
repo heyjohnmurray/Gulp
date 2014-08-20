@@ -12,12 +12,22 @@
 
 <!-- CSS -->
 <link href="/assets/css/compiled.css" rel="stylesheet">
-<link href="/assets/css/jquery.mobile.custom.structure.min.css" rel="stylesheet">
+<link href="/assets/css/jquery.mobile-1.4.3.css" rel="stylesheet">
+<!-- <link href="/assets/css/jquery.mobile.custom.structure.min.css" rel="stylesheet"> -->
 <!-- <link href="/assets/css/jquery.mobile.custom.theme.min.css" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> -->
 
 <!-- JAVASCRIPT -->
-<script src="/global_js/jQuery/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="/assets/js/jquery.mobile.min.js"></script>
-<script src="/global_js/modernizr/modernizr-2.8.2.min.js"></script>
+<!-- <script src="/global_js/jQuery/jquery-1.8.3.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 
+<script type="text/javascript">
+	$('#signup').live('pagecreate',function(event) { 
+		$('.signup-form').submit( function (e) {
+			e.preventDefault();
+			$.mobile.changePage('#questions');
+		});
+	});
+</script>
 </head>

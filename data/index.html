@@ -1,19 +1,31 @@
 <? include('includes/base/_header.php'); ?>
 <body>
 	<!-- Start of first page -->
-	<div data-role="page" id="foo" class="signup">
-		<div class="row">
-			<div class="small-16 column">
-				<p>View internal page called <a href="#bar" data-transition="slide">bar</a></p>	
+	<div data-role="page" id="signup" class="signup">
+		<div class="content">
+			<div class="row">
+				<div class="small-4 small-offset-2 column">
+					<h1>Which Test Won?</h1>
+					<!-- <p>View internal page called <a href="#bar" data-transition="slide">bar</a></p>	 -->
+				</div>
+				<div class="small-4 small-pull-2 column">
+					<form class="signup-form" method="POST" action="mainpage" data-ajax="false">
+						<input type="text" name="first-name" value="" placeholder="First Name" required>
+						<input type="text" name="last-name" value="" placeholder="Last Name" required>
+						<input type="email" name="email-address" value="" placeholder="Email Address" required>
+						<input type="submit" value="Submit">
+						<input type="submit" class="signup-submit" value="Get Started" data-role="none">
+					</form>
+				</div>
 			</div>
 		</div>
 	</div><!-- /page -->
 
 	<!-- Start of second page -->
-	<div data-role="page" id="bar" class="quiz">
+	<div data-role="page" id="questions" class="quiz">
 		<div class="row">
 			<div class="small-16 column">
-				<p><a href="#foo" data-transition="slide">Back to foo</a></p>
+				<p><a href="#signup" data-transition="slide">Back to foo</a></p>
 			</div>
 		</div>
 	</div><!-- /page -->

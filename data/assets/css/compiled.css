@@ -404,12 +404,32 @@ select { width: 100%; }
   .large-block-grid-12 > li { width: 8.33333%; list-style: none; }
   .large-block-grid-12 > li:nth-of-type(1n) { clear: none; }
   .large-block-grid-12 > li:nth-of-type(12n+1) { clear: both; } }
+@font-face { font-family: proxima-nova-extra-bold; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-regular.eot"); src: url("/assets/fonts/proxima/proxima-nova-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-regular.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-regular.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-regular.svg#proxima-nova-extra-bold") format("svg"); }
+
+@font-face { font-family: proxima-nova-bold; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-bold.eot"); src: url("/assets/fonts/proxima/proxima-nova-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-bold.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-bold.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-bold.svg#proxima-nova-bold") format("svg"); }
+
+@font-face { font-family: proxima-nova-extra-bold; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-extra-bold.eot"); src: url("/assets/fonts/proxima/proxima-nova-extra-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-extra-bold.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-extra-bold.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-extra-bold.svg#proxima-nova-extra-bold") format("svg"); }
+
+.proxima-regular, form button, input { font-family: 'proxima-nova-regular', sans-serif; }
+
+.proxima-bold, h1 { font-family: 'proxima-nova-bold', sans-serif; }
+
+.proxima-black { font-family: 'proxima-nova-extra-bold', sans-serif; }
+
 *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .h-phone a { color: inherit; cursor: default; }
 
 body { color: #fff; }
 
-.signup { background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
+h1 { font-size: 85px; line-height: 95px; text-align: right; text-transform: uppercase; }
 
-.quiz { background-color: green; }
+form { padding: 30px 0; }
+form button { font-size: 25px; line-height: 30px; text-transform: uppercase; border: 2px solid #fff; color: #fff; background: none; margin: 0; }
+form button span { display: inline-block; height: 0; width: 0; border-color: transparent; border-style: solid; border-width: 6px; border-left-color: white; }
+
+input { font-size: 22px; padding: 12px 20px; border: none; width: 100%; }
+input[type=text] { color: #5b5b5b; }
+
+.signup { position: relative; background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
+.signup .content { position: absolute; top: 30%; }
