@@ -15,12 +15,14 @@
 <script src="/assets/js/jquery.mobile-1.4.3.js"></script>
 
 <script type="text/javascript">
-	$( window ).on( "orientationchange", function( event ) {
-		//$( "#orientation" ).text( "This device is in " + event.orientation + " mode!" );
-		if (event.orientation === 'portrait') {
-			alert('please view this app in landscape mode');
-		};
-	});
+	// $( window ).on( "orientationchange", function( event ) {
+	// 	//$( "#orientation" ).text( "This device is in " + event.orientation + " mode!" );
+	// 	if (event.orientation === 'portrait') {
+	// 		alert('please view this app in landscape mode');
+	// 	};
+	// });
+
+	$( window ).orientationchange();
 
 	$('#signup').live('pagecreate',function(event) { 
 		$('.signup-form').submit( function (e) {
