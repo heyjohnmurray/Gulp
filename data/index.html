@@ -1,18 +1,18 @@
 <? include('includes/base/_header.php'); ?>
 <body>
 	<!-- Start of first page -->
-	<div data-role="page" id="signup" class="signup">
-		<div class="content">
+	<div data-role="page" id="signup" class="signup slide-template">
+		<div class="slide-content">
 			<div class="row">
-				<div class="small-4 small-offset-2 column">
+				<div class="small-4 small-offset-2 column border-divider">
 					<h1>Which Test Won?</h1>
-					<!-- <p>View internal page called <a href="#bar" data-transition="slide">bar</a></p>	 -->
 				</div>
 				<div class="small-4 small-pull-2 column">
 					<form class="signup-form" method="POST" action="mainpage" data-ajax="false">
-						<input type="text" name="first-name" value="" placeholder="First Name" required data-role="none">
-						<input type="text" name="last-name" value="" placeholder="Last Name" required data-role="none">
-						<input type="email" name="email-address" value="" placeholder="Email Address" required data-role="none">
+<!-- required is turned off for now. make sure it's on in the end -->
+						<input type="text" name="first-name" value="" placeholder="First Name" data-role="none">
+						<input type="text" name="last-name" value="" placeholder="Last Name" data-role="none">
+						<input type="email" name="email-address" value="" placeholder="Email Address" data-role="none">
 						<input type="submit" class="signup-submit" value="Get Started" data-role="none">
 					</form>
 				</div>
@@ -21,13 +21,51 @@
 	</div><!-- /page -->
 
 	<!-- Start of second page -->
-	<div data-role="page" id="questions" class="quiz">
-		<div class="row">
-			<div class="small-16 column">
-				<p><a href="#signup" data-transition="slide">Back to foo</a></p>
+	<div data-role="page" id="slide1" class="intro-slide slide-template">
+		<div class="slide-content">
+			<div class="row">
+				<div class="small-6 column border-divider title">
+					<h2>Safeco Lead Form Experience</h2>
+				</div>
+				<div class="small-6 column brief-description">
+					<p>A brief description about the test and its intended objectives will go here. This is dummy text, obviously.</p>
+					<div class="row">
+						<div class="small-8 small-push-3">
+							<a href="#slide2" data-transition="slide" class="button">Continue <span></span></a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div><!-- /page -->
+
+	<div data-role="page" id="slide2" class="screen-shot-full slide-template">
+		<img src="/assets/images/full-screen/full-screen-left-placeholder.jpg" width="1024" height="768" alt="">
+		<a href="#slide3" data-transition="slide" class="button">Touch to Continue <span></span></a>				
+	</div>
+
+	<div data-role="page" id="slide3" class="screen-shot-full slide-template">
+		<img src="/assets/images/full-screen/full-screen-right-placeholder.jpg" width="1024" height="768" alt="">
+		<a href="#slide4" data-transition="slide" class="button">Touch to Continue <span></span></a>				
+	</div>
+
+	<div data-role="page" id="slide4" class="vote-slide slide-template">
+		<div class="slide-content">
+			<div class="row">
+				<div class="small-6 small-centered column">
+					<h3>Which Test Won?</h3>
+				</div>
+			</div>
+			<div class="row vote-wrap">
+				<div class="small-6 column left-vote">
+					<a href="" class="js-vote-choice"><img src="/assets/images/vote-thumbnails/thumb-left.jpg" width="" height="" alt=""></a>
+				</div>
+				<div class="small-6 column right-vote">
+					<a href="" class="js-vote-choice"><img src="/assets/images/vote-thumbnails/thumb-right.jpg" width="" height="" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</div><!-- /page -->	
 </body>
 
 <? include('includes/base/_footer.php'); ?>

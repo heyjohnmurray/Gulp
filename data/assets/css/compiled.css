@@ -410,26 +410,60 @@ select { width: 100%; }
 
 @font-face { font-family: proxima-nova-extra-bold; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-extra-bold.eot"); src: url("/assets/fonts/proxima/proxima-nova-extra-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-extra-bold.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-extra-bold.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-extra-bold.svg#proxima-nova-extra-bold") format("svg"); }
 
-.proxima-regular, input, input[type=submit] { font-family: 'proxima-nova-regular', sans-serif; }
+.proxima-regular, .button-styles, .button, input[type=submit], input { font-family: 'proxima-nova-regular', sans-serif; }
 
-.proxima-bold, h1 { font-family: 'proxima-nova-bold', sans-serif; }
+.proxima-bold, h1, h2, h3, h4, h5, h6 { font-family: 'proxima-nova-bold', sans-serif; }
 
 .proxima-black { font-family: 'proxima-nova-extra-bold', sans-serif; }
+
+/* latin-ext */
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 300; src: local("Merriweather Light"), local("Merriweather-Light"), url(http://fonts.gstatic.com/s/merriweather/v7/ZvcMqxEwPfh2qDWBPxn6ngbhkFHsrh0kR6Vt9NCEXFA.woff2) format("woff2"), url(http://fonts.gstatic.com/s/merriweather/v7/ZvcMqxEwPfh2qDWBPxn6nuHI62qVOK5UeNHEnA5WJLY.woff) format("woff"); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+
+/* latin */
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 300; src: local("Merriweather Light"), local("Merriweather-Light"), url(http://fonts.gstatic.com/s/merriweather/v7/ZvcMqxEwPfh2qDWBPxn6nkZRWJQ0UjzR2Uv6RollX_g.woff2) format("woff2"), url(http://fonts.gstatic.com/s/merriweather/v7/ZvcMqxEwPfh2qDWBPxn6nmB7wJ9CoPCp9n30ZBThZ1I.woff) format("woff"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
 
 *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .h-phone a { color: inherit; cursor: default; }
 
-body { color: #fff; }
+.button-styles, .button, input[type=submit] { font-size: 25px; line-height: 30px; text-transform: uppercase; border: 2px solid #fff; color: #fff; background: none; margin: 5px 0; }
 
-h1 { font-size: 85px; line-height: 95px; text-align: right; color: #fff; text-transform: uppercase; }
+a { color: #fff; text-decoration: none; }
+
+p { color: #fff; font-family: 'Merriweather', serif; font-size: 20px; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.border-divider { border-right: 4px solid #fff; min-height: 255px; }
+
+h1, h2, h3, h4, h5, h6 { text-align: right; color: #fff; text-transform: uppercase; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+h1 { font-size: 85px; line-height: 95px; }
+
+h2 { font-size: 70px; line-height: 85px; }
+
+h3 { font-size: 45px; line-height: 60px; }
+
+a.button { width: 100%; display: inline-block; }
+
+.button span { display: inline-block; height: 0; width: 0; border-color: transparent; border-style: solid; border-width: 6px; border-left-color: white; }
 
 form { padding: 30px 0; }
 
 input { font-size: 22px; padding: 12px 20px; border: none; width: 100%; }
 input[type=text] { color: #5b5b5b; }
-input[type=submit] { font-size: 25px; line-height: 30px; text-transform: uppercase; border: 2px solid #fff; color: #fff; background: none; margin: 0; }
 input[type=submit]:hover { cursor: pointer; }
 
-.signup { position: relative; background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
-.signup .content { position: absolute; top: 30%; }
+.slide-template { position: relative; }
+.slide-template .slide-content { position: absolute; top: 30%; }
+
+.signup { background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
+
+.intro-slide { background: url(/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat; }
+.intro-slide .brief-description { padding: 30px; }
+.intro-slide .button { padding: 10px; margin-top: 20px; text-align: center; }
+
+.screen-shot-full .button { position: absolute; right: 0; bottom: 0; width: 300px; padding: 20px; border: 0; text-align: center; background-color: #b92619; }
+
+.vote-slide { background: url(/assets/images/backgrounds/bkg-vote-slide.jpg) no-repeat; }
+.vote-slide .slide-content { position: relative; top: 50px; }
+.vote-slide h3 { text-align: center; border-bottom: 1px solid #fff; }
+.vote-slide .vote-wrap { margin-top: 50px; padding: 0.9375rem 0; background-color: rgba(112, 8, 6, 0.6); }
