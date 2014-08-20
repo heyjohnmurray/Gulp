@@ -44,28 +44,150 @@
 		<a href="#slide3" data-transition="slide" class="button">Touch to Continue <span></span></a>				
 	</div>
 
+	<!-- FULL-WIDTH SCREENSHOT -->
 	<div data-role="page" id="slide3" class="screen-shot-full slide-template">
 		<img src="/assets/images/full-screen/full-screen-right-placeholder.jpg" width="1024" height="768" alt="">
 		<a href="#slide4" data-transition="slide" class="button">Touch to Continue <span></span></a>				
 	</div>
 
+	<!-- FULL-WIDTH SCREENSHOT -->
 	<div data-role="page" id="slide4" class="vote-slide slide-template">
 		<div class="slide-content">
 			<div class="row">
 				<div class="small-6 small-centered column">
-					<h3>Which Test Won?</h3>
+					<h4>Which Test Won?</h4>
 				</div>
 			</div>
 			<div class="row vote-wrap">
 				<div class="small-6 column left-vote">
-					<a href="/" class="js-vote-choice"><img src="/assets/images/vote-thumbnails/thumb-left.jpg" width="" height="" alt="" data-choice="1"></a>
+					<a href="#slide5" class="js-vote-choice"><img src="/assets/images/vote-thumbnails/thumb-left.jpg" width="" height="" alt="" data-choice="1"></a>
 				</div>
 				<div class="small-6 column right-vote">
-					<a href="/" class="js-vote-choice"><img src="/assets/images/vote-thumbnails/thumb-right.jpg" width="" height="" alt="" data-choice="2"></a>
+					<a href="#slide5" class="js-vote-choice"><img src="/assets/images/vote-thumbnails/thumb-right.jpg" width="" height="" alt="" data-choice="2"></a>
 				</div>
 			</div>
 		</div>
 	</div><!-- /page -->
+
+	<!-- INTRO SLIDE :: SECOND SLIDE FOR TRANSITION TEST -->
+	<div data-role="page" id="slide5" class="intro-slide slide-template">
+		<div class="slide-content">
+			<div class="row">
+				<div class="small-6 column border-divider title">
+					<h2>Question 2</h2>
+				</div>
+				<div class="small-6 column brief-description">
+					<p>A brief description about the test and its intended objectives will go here. This is dummy text, obviously.</p>
+					<div class="row">
+						<div class="small-8 small-push-3">
+							<a href="#slide26" data-transition="slide" class="button">Continue <span></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- /page -->
+
+	<!-- USER SCORE SCREEN -->
+	<div data-role="page" id="slide6" class="final-score slide-template">
+		<div class="slide-content">
+			<div class="row">
+				<div class="small-4 small-offset-2 column border-divider">
+					<h2>You Scored #/10</h2>
+				</div>
+				<div class="small-5 small-pull-1 column">
+					<p>Congratulations! Your score has been posted to our leaderboard and you've been entered to win a MacBook Air.</p>
+					<a href="#slide7" data-transition="slide" class="button">View Leaderboard <span></span></a>
+				</div>
+			</div>
+		</div>
+	</div><!-- /page -->
+
+	<!-- LEADERBOARD -->
+	<div data-role="page" id="slide7" class="leaderboard slide-template">
+		<div class="row">
+			<div class="small-16 column">
+				<h3>Who Knows Their Stuff?</h3>
+				<h5>These 10 people are the cream of the crop!</h5>
+				<div class="table-wrap">
+					<table border="0" cellspacing="0" cellpadding="0" align="center">
+						<thead>
+							<tr>
+								<th>&nbsp;</th>
+								<th>Name</th>
+								<th>Percent Correct</th>
+								<th>Completion Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+					 			<td width="10%">1</td>
+					 			<td width="40%">John Doe</td>
+					 			<td width="25%">80</td>
+					 			<td width="25%">08:08</td>
+							</tr>
+							<tr>
+					 			<td>2</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>3</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>4</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>5</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>6</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>7</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>8</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>9</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+							<tr>
+					 			<td>10</td>
+					 			<td>John Doe</td>
+					 			<td>80</td>
+					 			<td>08:08</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div><!-- /page -->
+
 </body>
 
 <? include('includes/base/_footer.php'); ?>

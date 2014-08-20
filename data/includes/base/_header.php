@@ -24,7 +24,7 @@
 		    e.preventDefault();
 		});
 	});
-	
+
 	$(function() {
 		//orientation warning
 		$( window ).on( "orientationchange", function( event ) {
@@ -40,11 +40,14 @@
 			var choice = $(e.target).data('choice');
 			
 			if (choice != null) {
-				$('<div class="answer-confirm"/>').appendTo($(e.target).parent());
-				console.log(choice);
+				$(e.target).addClass('answer-confirm');
+				$(e.target).parent().parent().siblings().addClass('is-faded');
+				//console.log(choice);
 			}
-			e.preventDefault();
+			e.preventDefault(); //to allow it to choose the next slide, the default will have to be returned after tap somehow. i just don't know how.
 		});
+
+		//$('.js-vote-choice').unbind('tap');
 	//close jquery	
 	});
 </script>

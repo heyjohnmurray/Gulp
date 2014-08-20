@@ -3,29 +3,12 @@
 	font-size: 25px;
 	line-height: 30px;
 	text-transform: uppercase;
+	text-align: center;
 	border: 2px solid #fff;
 	color: #fff;
 	background: none;
 	margin: 5px 0;
-}
-
-a {
-	color: #fff;
-	text-decoration: none;
-}
-
-p {
-	color: #fff;
-	font-family: 'Merriweather', serif;
-	font-size: 20px;
-	font-weight: 300;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
-}
-
-.border-divider {
-	border-right: 4px solid #fff;
-	min-height: 255px;
+	padding: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,8 +31,39 @@ h2 {
 }
 
 h3 {
+	font-size: 60px;
+	line-height: 75px;
+}
+
+h4 {
 	font-size: 45px;
 	line-height: 60px;
+}
+
+h5 {
+	font-size: 30px;
+	line-height: 45px;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+p {
+	color: #fff;
+	font-family: 'Merriweather', serif;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 300;
+	margin: 10px 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
+}
+
+.border-divider {
+	border-right: 4px solid #fff;
+	min-height: 255px;
 }
 
 a.button {
@@ -90,6 +104,38 @@ input {
 	}
 }
 
+table{
+	width: 100%;
+
+	thead {
+		border-bottom: 5px solid $red;
+	}
+
+	th {
+		color: $red;
+		text-align: center;
+
+		&:nth-child(2) {
+			text-align: left;
+		}
+	}
+
+	tr {
+		&:nth-child(even) {
+			background-color: $grey-dark;
+		}
+	}
+
+	td {
+		text-align: center;
+		padding: 8px 0;
+
+		&:nth-child(2) {
+			text-align: left;
+		}
+	}
+}
+
 .slide-template {
 	position: relative;
 
@@ -107,12 +153,15 @@ input {
 	
 	background: url(/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat;
 
+	.title {
+		padding: 15px 30px;
+	}
+
 	.brief-description {
-		padding: 30px;
+		padding: 15px 30px;
 	}
 
 	.button {
-		padding: 10px;
 		margin-top: 20px;
 		text-align: center;
 	}
@@ -140,11 +189,10 @@ input {
 		top: 50px;
 	}
 
-	h3 {
+	h4 {
 		text-align: center;
 		border-bottom: 1px solid #fff;
 	}
-	
 	.vote-wrap {
 		margin-top: 50px;
 		padding: 0.9375rem 0;
@@ -157,13 +205,41 @@ input {
 	}
 
 	.answer-confirm {
-		position: absolute;
-		top: 30%;
-		left: 40%;
-		z-index: 100;
-		width: 135px;
-		height: 135px;
-		border-radius: 135px;
-		background: url('/assets/images/icon-checkmark-white.png') center center $green no-repeat;
+		border: 4px solid $green;
+	}
+
+	.is-faded {
+		opacity: .5;
+	}
+}
+
+.final-score {
+	background: url(/assets/images/backgrounds/bkg-final-score.jpg) no-repeat;
+
+	.button {
+		margin-top: 50px;
+	}
+}
+
+.leaderboard {
+	background: url(/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat;
+
+	h3, h5 {
+		text-align: center;
+	}
+
+	h3 {
+		margin-top: 50px;
+	}
+
+	h5 {
+		font-family: 'Merriweather', serif;
+		text-transform: none;
+	}
+
+	.table-wrap {
+		margin-top: 50px;
+		background-color: #fff;
+		padding: 30px;
 	}
 }

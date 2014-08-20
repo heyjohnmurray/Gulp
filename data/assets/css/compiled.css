@@ -426,13 +426,7 @@ select { width: 100%; }
 
 .h-phone a { color: inherit; cursor: default; }
 
-.button-styles, .button, input[type=submit] { font-size: 25px; line-height: 30px; text-transform: uppercase; border: 2px solid #fff; color: #fff; background: none; margin: 5px 0; }
-
-a { color: #fff; text-decoration: none; }
-
-p { color: #fff; font-family: 'Merriweather', serif; font-size: 20px; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-.border-divider { border-right: 4px solid #fff; min-height: 255px; }
+.button-styles, .button, input[type=submit] { font-size: 25px; line-height: 30px; text-transform: uppercase; text-align: center; border: 2px solid #fff; color: #fff; background: none; margin: 5px 0; padding: 10px; }
 
 h1, h2, h3, h4, h5, h6 { text-align: right; color: #fff; text-transform: uppercase; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
@@ -440,7 +434,17 @@ h1 { font-size: 85px; line-height: 95px; }
 
 h2 { font-size: 70px; line-height: 85px; }
 
-h3 { font-size: 45px; line-height: 60px; }
+h3 { font-size: 60px; line-height: 75px; }
+
+h4 { font-size: 45px; line-height: 60px; }
+
+h5 { font-size: 30px; line-height: 45px; }
+
+a { color: #fff; text-decoration: none; }
+
+p { color: #fff; font-family: 'Merriweather', serif; font-size: 20px; line-height: 30px; font-weight: 300; margin: 10px 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.border-divider { border-right: 4px solid #fff; min-height: 255px; }
 
 a.button { width: 100%; display: inline-block; }
 
@@ -452,20 +456,39 @@ input { font-size: 22px; padding: 12px 20px; border: none; width: 100%; }
 input[type=text] { color: #5b5b5b; }
 input[type=submit]:hover { cursor: pointer; }
 
+table { width: 100%; }
+table thead { border-bottom: 5px solid #9e0b0b; }
+table th { color: #9e0b0b; text-align: center; }
+table th:nth-child(2) { text-align: left; }
+table tr:nth-child(even) { background-color: #e7e7e7; }
+table td { text-align: center; padding: 8px 0; }
+table td:nth-child(2) { text-align: left; }
+
 .slide-template { position: relative; }
 .slide-template .slide-content { position: absolute; top: 30%; }
 
 .signup { background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
 
 .intro-slide { background: url(/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat; }
-.intro-slide .brief-description { padding: 30px; }
-.intro-slide .button { padding: 10px; margin-top: 20px; text-align: center; }
+.intro-slide .title { padding: 15px 30px; }
+.intro-slide .brief-description { padding: 15px 30px; }
+.intro-slide .button { margin-top: 20px; text-align: center; }
 
-.screen-shot-full .button { position: absolute; right: 0; bottom: 0; width: 300px; padding: 20px; border: 0; text-align: center; background-color: #b92619; }
+.screen-shot-full .button { position: absolute; right: 0; bottom: 0; width: 300px; padding: 20px; border: 0; text-align: center; background-color: #9e0b0b; }
 
 .vote-slide { background: url(/assets/images/backgrounds/bkg-vote-slide.jpg) no-repeat; }
 .vote-slide .slide-content { position: relative; top: 50px; }
-.vote-slide h3 { text-align: center; border-bottom: 1px solid #fff; }
+.vote-slide h4 { text-align: center; border-bottom: 1px solid #fff; }
 .vote-slide .vote-wrap { margin-top: 50px; padding: 0.9375rem 0; background-color: rgba(112, 8, 6, 0.6); }
 .vote-slide .vote-choice { position: relative; z-index: 10; }
-.vote-slide .answer-confirm { position: absolute; top: 30%; left: 40%; z-index: 100; width: 135px; height: 135px; border-radius: 135px; background: url("/assets/images/icon-checkmark-white.png") center center #1a7e2d no-repeat; }
+.vote-slide .answer-confirm { border: 4px solid #1a7e2d; }
+.vote-slide .is-faded { opacity: .5; }
+
+.final-score { background: url(/assets/images/backgrounds/bkg-final-score.jpg) no-repeat; }
+.final-score .button { margin-top: 50px; }
+
+.leaderboard { background: url(/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat; }
+.leaderboard h3, .leaderboard h5 { text-align: center; }
+.leaderboard h3 { margin-top: 50px; }
+.leaderboard h5 { font-family: 'Merriweather', serif; text-transform: none; }
+.leaderboard .table-wrap { margin-top: 50px; background-color: #fff; padding: 30px; }
