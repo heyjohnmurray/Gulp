@@ -15,15 +15,14 @@
 <script src="/assets/js/jquery.mobile-1.4.3.js"></script>
 
 <script type="text/javascript">
-	// $( window ).on( "orientationchange", function( event ) {
-	// 	//$( "#orientation" ).text( "This device is in " + event.orientation + " mode!" );
-	// 	if (event.orientation === 'portrait') {
-	// 		alert('please view this app in landscape mode');
-	// 	};
-	// });
+	//orientation warning
+	$( window ).on( "orientationchange", function( event ) {
+		if (event.orientation === 'portrait') {
+			alert('please view this app in landscape mode');
+		};
+	});
 
-	$( window ).orientationchange();
-
+	//example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 	$('#signup').live('pagecreate',function(event) { 
 		$('.signup-form').submit( function (e) {
 			$(':mobile-pagecontainer').pagecontainer('change', '#slide1', {
@@ -33,6 +32,11 @@
 		});
 	});
 
+	//vote choice logic
+	$('.js-vote-choice').on('tap', function(e){
+		alert('tap');
+		e.preventDefault();
+	})
 
 </script>
 </head>
