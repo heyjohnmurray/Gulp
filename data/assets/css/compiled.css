@@ -467,3 +467,5 @@ input[type=submit]:hover { cursor: pointer; }
 .vote-slide .slide-content { position: relative; top: 50px; }
 .vote-slide h3 { text-align: center; border-bottom: 1px solid #fff; }
 .vote-slide .vote-wrap { margin-top: 50px; padding: 0.9375rem 0; background-color: rgba(112, 8, 6, 0.6); }
+.vote-slide .vote-choice { position: relative; z-index: 10; }
+.vote-slide .answer-confirm { position: absolute; top: 30%; left: 40%; z-index: 100; width: 135px; height: 135px; border-radius: 135px; background: url("/assets/images/icon-checkmark-white.png") center center #1a7e2d no-repeat; }

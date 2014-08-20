@@ -150,4 +150,20 @@ input {
 		padding: 0.9375rem 0;
 		background-color: rgba(112, 8, 6, .6);
 	}
+
+	.vote-choice {
+		position: relative;
+		z-index: 10;
+	}
+
+	.answer-confirm {
+		position: absolute;
+		top: 30%;
+		left: 40%;
+		z-index: 100;
+		width: 135px;
+		height: 135px;
+		border-radius: 135px;
+		background: url('/assets/images/icon-checkmark-white.png') center center $green no-repeat;
+	}
 }
