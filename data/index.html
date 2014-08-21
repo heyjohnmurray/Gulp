@@ -15,25 +15,31 @@
 <script src="/assets/js/jquery.mobile-1.4.3.js"></script>
 
 <script>
-	//example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
+	// for some reason this block doesn't work when it's inside the jquery wrapper
+	// example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 	$('#signup').live('pagecreate',function(event) { 
-		$('.signup-form').submit( function (e) {
+		$('.js-signup-form').submit( function (e) {
 			$(':mobile-pagecontainer').pagecontainer('change', '#slide1', {
-		        transition: 'slide'
-		    });
-		    e.preventDefault();
+				transition: 'slide'
+			});
+			e.preventDefault();
 		});
 	});
 
+	//full screen auto transitioning
+	$('.js-start-auto-slides').on('tap', function(e){
+		alert('tap');
+	});
+
 	$(function() {
-		//orientation warning
+		// orientation warning
 		$( window ).on( "orientationchange", function( event ) {
 			if (event.orientation === 'portrait') {
 				alert('please view this app in landscape mode');
 			};
 		});
 
-		//vote choice logic
+		// vote choice logic
 		var choice = null;
 
 		$('.js-vote-choice').on('tap', function(e){
@@ -42,9 +48,9 @@
 			if (choice != null) {
 				$(e.target).addClass('answer-confirm');
 				$(e.target).parent().parent().siblings().addClass('is-faded');
-				//console.log(choice);
+				// console.log(choice);
 			}
-			e.preventDefault(); //to allow it to choose the next slide, the default will have to be returned after tap somehow. i just don't know how.
+			e.preventDefault(); // to allow it to choose the next slide, the default will have to be returned after tap somehow. i just don't know how.
 		});
 
 		//$('.js-vote-choice').unbind('tap');
@@ -62,8 +68,7 @@
 					<h1>Which Test Won?</h1>
 				</div>
 				<div class="small-4 small-pull-2 column">
-					<form class="signup-form" method="POST" action="mainpage" data-ajax="false">
-<!-- required is turned off for now. make sure it's on in the end -->
+					<form class="signup-form js-signup-form" method="POST" action="mainpage" data-ajax="false">
 						<input type="text" name="first-name" value="" placeholder="First Name" data-role="none">
 						<input type="text" name="last-name" value="" placeholder="Last Name" data-role="none">
 						<input type="email" name="email-address" value="" placeholder="Email Address" data-role="none">
@@ -85,7 +90,7 @@
 					<p>A brief description about the test and its intended objectives will go here. This is dummy text, obviously.</p>
 					<div class="row">
 						<div class="small-8 small-push-3">
-							<a href="#slide2" data-transition="slide" class="button">Continue <span></span></a>
+							<a href="#slide2" data-transition="slide" class="button js-start-auto-slides">Continue <span></span></a>
 						</div>
 					</div>
 				</div>

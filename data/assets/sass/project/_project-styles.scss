@@ -11,6 +11,22 @@
 	padding: 10px;
 }
 
+::-webkit-input-placeholder {
+	color: $font-color;
+}
+
+:-moz-placeholder {
+	color: $font-color;
+}
+
+::-moz-placeholder {
+	color: $font-color;
+}
+
+:-ms-input-placeholder {
+	color: $font-color;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	@extend .proxima-bold;
 	text-align: right;
@@ -51,7 +67,6 @@ a {
 }
 
 p {
-	color: #fff;
 	font-family: 'Merriweather', serif;
 	font-size: 20px;
 	line-height: 30px;
@@ -61,9 +76,23 @@ p {
 	-moz-osx-font-smoothing: grayscale;	
 }
 
+p {
+	color: #fff;
+}
+
 .border-divider {
 	border-right: 4px solid #fff;
 	min-height: 255px;
+}
+
+.errors {
+	position: absolute;
+	top: -60px;
+	color: yellow;
+	font-size: 18px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
+	@extend .proxima-bold;
 }
 
 a.button {

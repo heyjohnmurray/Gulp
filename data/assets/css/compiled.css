@@ -412,7 +412,7 @@ select { width: 100%; }
 
 .proxima-regular, .button-styles, .button, input[type=submit], input { font-family: 'proxima-nova-regular', sans-serif; }
 
-.proxima-bold, h1, h2, h3, h4, h5, h6 { font-family: 'proxima-nova-bold', sans-serif; }
+.proxima-bold, h1, h2, h3, h4, h5, h6, .errors { font-family: 'proxima-nova-bold', sans-serif; }
 
 .proxima-black { font-family: 'proxima-nova-extra-bold', sans-serif; }
 
@@ -428,6 +428,14 @@ select { width: 100%; }
 
 .button-styles, .button, input[type=submit] { font-size: 25px; line-height: 30px; text-transform: uppercase; text-align: center; border: 2px solid #fff; color: #fff; background: none; margin: 5px 0; padding: 10px; }
 
+::-webkit-input-placeholder { color: #5b5b5b; }
+
+:-moz-placeholder { color: #5b5b5b; }
+
+::-moz-placeholder { color: #5b5b5b; }
+
+:-ms-input-placeholder { color: #5b5b5b; }
+
 h1, h2, h3, h4, h5, h6 { text-align: right; color: #fff; text-transform: uppercase; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 h1 { font-size: 85px; line-height: 95px; }
@@ -442,9 +450,13 @@ h5 { font-size: 30px; line-height: 45px; }
 
 a { color: #fff; text-decoration: none; }
 
-p { color: #fff; font-family: 'Merriweather', serif; font-size: 20px; line-height: 30px; font-weight: 300; margin: 10px 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+p { font-family: 'Merriweather', serif; font-size: 20px; line-height: 30px; font-weight: 300; margin: 10px 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+p { color: #fff; }
 
 .border-divider { border-right: 4px solid #fff; min-height: 255px; }
+
+.errors { position: absolute; top: -60px; color: yellow; font-size: 18px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 a.button { width: 100%; display: inline-block; }
 
