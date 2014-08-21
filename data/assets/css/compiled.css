@@ -412,7 +412,7 @@ select { width: 100%; }
 
 .proxima-regular, .button-styles, .button, input[type=submit], input { font-family: 'proxima-nova-regular', sans-serif; }
 
-.proxima-bold, h1, h2, h3, h4, h5, h6, .errors { font-family: 'proxima-nova-bold', sans-serif; }
+.proxima-bold, h1, h2, h3, h4, h5, h6, .errors, .vote-slide .question-tracker { font-family: 'proxima-nova-bold', sans-serif; }
 
 .proxima-black { font-family: 'proxima-nova-extra-bold', sans-serif; }
 
@@ -495,6 +495,8 @@ table td:nth-child(2) { text-align: left; }
 .vote-slide .vote-choice { position: relative; z-index: 10; }
 .vote-slide .answer-confirm { border: 4px solid #1a7e2d; }
 .vote-slide .is-faded { opacity: .5; }
+.vote-slide .question-tracker { position: fixed; right: 0; bottom: 5px; color: #fff; font-size: 25px; line-height: 40px; text-align: center; }
+.vote-slide .question-tracker span { font-size: 45px; }
 
 .final-score { background: url(/assets/images/backgrounds/bkg-final-score.jpg) no-repeat; }
 .final-score .button { margin-top: 50px; }
