@@ -56,9 +56,9 @@ gulp.task('js', function(){
 gulp.task('images', function () {
   return gulp.src('assets/images/**/*')
     .pipe(changed('assets/images-min/'))
-    .pipe(imagemin({ 
-    	optimizationLevel: 3, 
-    	progressive: true, 
+    .pipe(imagemin({
+    	optimizationLevel: 3,
+    	progressive: true,
     	interlaced: true
     	}))
     .pipe(gulp.dest('assets/images-min/'));
@@ -77,7 +77,7 @@ gulp.task('sprites', function () {
   spriteData.css.pipe(gulp.dest('assets/sass/project/partials/'));
 });
 
-// THIS IS THE SYNTAX I WANT BUT IT'S NOT WORKING QUITE RIGHT. 
+// THIS IS THE SYNTAX I WANT BUT IT'S NOT WORKING QUITE RIGHT.
 // gulp.task('sprites', function () {
 //   return gulp.src('assets/images/sprites/')
 //     .pipe(spritesmith({
@@ -90,13 +90,18 @@ gulp.task('sprites', function () {
 
 //watch
 gulp.task('watch', function(){
+  livereload.listen();
 
-	//sass watch
+  // watch our files that we don't build but run through the webserver.
+  gulp.watch('**/*.html').on('change', livereload.changed);
+  gulp.watch('**/*.php').on('change', livereload.changed);
+
+  //sass watch
 	gulp.watch('assets/sass/**/*.scss', ['sass']); //watch any sass file change
-
 	//js watch
-	gulp.watch('assets/js/*.js', ['js']) //watch only root-level .js file change :: don't care about lib or plugin folders
-	
+  //watch only root-level .js file change :: don't care about lib or plugin folders
+	gulp.watch('assets/js/*.js', ['js']);
+
 });
 
 
