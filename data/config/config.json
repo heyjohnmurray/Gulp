@@ -1,0 +1,9 @@
+{
+    "*": {
+        "blendconf": {
+            "host": "localhost",
+            "user": "rv-marketing",
+            "password": "Soft8Volt"
+        }
+    }
+}

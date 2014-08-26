@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="robots" content="noindex,nofollow,noodp" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link href="/assets/css/compiled.css" rel="stylesheet">
+	<!-- <link href="/assets/css/jquery.mobile-1.4.3.css" rel="stylesheet"> -->
+	<link href="/assets/css/jquery.mobile.structure-1.4.3.css" rel="stylesheet">
+	<!-- <link href="/assets/css/jquery.mobile.theme-1.4.3.css" rel="stylesheet"> -->
+	
+	<!-- ANGULAR SPECIFIC -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+	<script src="/js/controllers/main.js"></script>
+	<script src="/js/appRoutes.js"></script>
+	<script src="/js/core.js"></script>
+
+</head>
+<body ng-app="blendConfApp" ng-controller="mainController">	
+
+	<!-- ANGULAR DYNAMIC CONTENT -->
+	<div ng-view></div>
+	
+</body>
+</html>
