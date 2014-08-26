@@ -167,6 +167,9 @@ table{
 
 .slide-template {
 	position: relative;
+	width: 1024px !important;
+	height: 768px !important;
+	overflow: hidden !important;
 
 	.slide-content {
 		position: absolute;

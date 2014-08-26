@@ -404,7 +404,7 @@ select { width: 100%; }
   .large-block-grid-12 > li { width: 8.33333%; list-style: none; }
   .large-block-grid-12 > li:nth-of-type(1n) { clear: none; }
   .large-block-grid-12 > li:nth-of-type(12n+1) { clear: both; } }
-@font-face { font-family: proxima-nova-extra-bold; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-regular.eot"); src: url("/assets/fonts/proxima/proxima-nova-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-regular.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-regular.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-regular.svg#proxima-nova-extra-bold") format("svg"); }
+@font-face { font-family: proxima-nova-extra-regular; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-regular.eot"); src: url("/assets/fonts/proxima/proxima-nova-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-regular.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-regular.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-regular.svg#proxima-nova-extra-regular") format("svg"); }
 
 @font-face { font-family: proxima-nova-bold; font-weight: normal; font-style: normal; src: url("/assets/fonts/proxima/proxima-nova-bold.eot"); src: url("/assets/fonts/proxima/proxima-nova-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-bold.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-bold.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-bold.svg#proxima-nova-bold") format("svg"); }
 
@@ -476,7 +476,7 @@ table tr:nth-child(even) { background-color: #e7e7e7; }
 table td { text-align: center; padding: 8px 0; }
 table td:nth-child(2) { text-align: left; }
 
-.slide-template { position: relative; }
+.slide-template { position: relative; width: 1024px !important; height: 768px !important; overflow: hidden !important; }
 .slide-template .slide-content { position: absolute; top: 30%; }
 
 .signup { background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
