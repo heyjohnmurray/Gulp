@@ -4,7 +4,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'rv-marketing'@'localhost' WITH GRANT OPTION;
 
 CREATE DATABASE `BlendConf`;
 
-CREATE TABLE `Users` (
+CREATE TABLE `BlendConf`.`Users` (
   `UserID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(255) DEFAULT NULL,
   `LastName` varchar(255) DEFAULT NULL,
