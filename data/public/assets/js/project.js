@@ -133,16 +133,17 @@ $(function() {
 
 	function setChoice(choice) {
 		var choices = getCookie('choices');
-		var choiceArray = [];
+		var choiceObj = {};
 
 		if(choices) {
-			choiceArray = JSON.parse(choices);
+			choiceObj = JSON.parse(choices);
 		}
 
-		choice = choice.split(".");
-		choiceArray[choice[0]] = choice[1];
+		console.log(choice);
+		var choiceSplit = choice.toString().split(".");
+		choiceObj[choiceSplit[0]] = choiceSplit[1];
 
-		document.cookie = "choices=" + JSON.stringify(choiceArray) + ";";
+		document.cookie = "choices=" + JSON.stringify(choiceObj) + ";";
 
 	}
 
