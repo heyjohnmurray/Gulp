@@ -11,7 +11,16 @@ $('#signup').live('pagecreate',function(event) {
 			});
         })
 	        .fail(function(data) {
-	                console.log('Error: ' + data);
+	        		var response = $.parseJSON(data.responseText);
+
+	                console.log('Error: ' + response.message);
+
+	                if(response.error && response.detail && response.error == "Validation Error"){
+	                	for (var key in response.detail) {
+	                		$('input[name="'+key+'"]').addClass('error');
+	                	}
+	                	$('.invalid-inputs').html('Please fix the highlighted fields');
+	                }
 	        });
 		
 		e.preventDefault();

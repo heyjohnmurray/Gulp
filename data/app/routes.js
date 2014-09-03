@@ -4,6 +4,13 @@ module.exports = function(app) {
 
 	app.post('/login/', function(req, res, next){
 
+		req.assert('FirstName', 'First Name required').notEmpty();
+		req.assert('LastName', 'Last Name required').notEmpty();
+		req.assert('Email', 'Email required').notEmpty();
+		req.assert('Email', 'Invalid email').isEmail();
+		var errors = req.validationErrors(true);
+		if (errors) return next({'name':'Validation Error', 'message':'There have been validation errors', 'errors':errors});
+
 		userController.isUserAuthenticated(req.body.FirstName, req.body.LastName, function(err, user){
 		    if (err) return next(err);
 
