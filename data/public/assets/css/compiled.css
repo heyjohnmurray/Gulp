@@ -1430,22 +1430,22 @@ select {
   font-family: proxima-nova-extra-regular;
   font-weight: normal;
   font-style: normal;
-  src: url("/public/assets/fonts/proxima/proxima-nova-regular.eot");
-  src: url("/public/assets/fonts/proxima/proxima-nova-regular.eot?#iefix") format("embedded-opentype"), url("/public/assets/fonts/proxima/proxima-nova-regular.woff") format("woff"), url("/public/assets/fonts/proxima/proxima-nova-regular.ttf") format("truetype"), url("/public/assets/fonts/proxima/proxima-nova-regular.svg#proxima-nova-extra-regular") format("svg"); }
+  src: url("/assets/fonts/proxima/proxima-nova-regular.eot");
+  src: url("/assets/fonts/proxima/proxima-nova-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-regular.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-regular.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-regular.svg#proxima-nova-extra-regular") format("svg"); }
 
 @font-face {
   font-family: proxima-nova-bold;
   font-weight: normal;
   font-style: normal;
-  src: url("/public/assets/fonts/proxima/proxima-nova-bold.eot");
-  src: url("/public/assets/fonts/proxima/proxima-nova-bold.eot?#iefix") format("embedded-opentype"), url("/public/assets/fonts/proxima/proxima-nova-bold.woff") format("woff"), url("/public/assets/fonts/proxima/proxima-nova-bold.ttf") format("truetype"), url("/public/assets/fonts/proxima/proxima-nova-bold.svg#proxima-nova-bold") format("svg"); }
+  src: url("/assets/fonts/proxima/proxima-nova-bold.eot");
+  src: url("/assets/fonts/proxima/proxima-nova-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-bold.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-bold.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-bold.svg#proxima-nova-bold") format("svg"); }
 
 @font-face {
   font-family: proxima-nova-extra-bold;
   font-weight: normal;
   font-style: normal;
-  src: url("/public/assets/fonts/proxima/proxima-nova-extra-bold.eot");
-  src: url("/public/assets/fonts/proxima/proxima-nova-extra-bold.eot?#iefix") format("embedded-opentype"), url("/public/assets/fonts/proxima/proxima-nova-extra-bold.woff") format("woff"), url("/public/assets/fonts/proxima/proxima-nova-extra-bold.ttf") format("truetype"), url("/public/assets/fonts/proxima/proxima-nova-extra-bold.svg#proxima-nova-extra-bold") format("svg"); }
+  src: url("/assets/fonts/proxima/proxima-nova-extra-bold.eot");
+  src: url("/assets/fonts/proxima/proxima-nova-extra-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/proxima/proxima-nova-extra-bold.woff") format("woff"), url("/assets/fonts/proxima/proxima-nova-extra-bold.ttf") format("truetype"), url("/assets/fonts/proxima/proxima-nova-extra-bold.svg#proxima-nova-extra-bold") format("svg"); }
 
 .proxima-regular, .button-styles, .button, input[type=submit], input {
   font-family: 'proxima-nova-regular', sans-serif; }
@@ -1614,10 +1614,10 @@ table {
     top: 30%; }
 
 .signup {
-  background: url(/public/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
+  background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat; }
 
 .intro-slide {
-  background: url(/public/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat; }
+  background: url(/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat; }
   .intro-slide .title {
     padding: 15px 30px; }
   .intro-slide .brief-description {
@@ -1637,7 +1637,7 @@ table {
   background-color: #9e0b0b; }
 
 .vote-slide {
-  background: url(/public/assets/images/backgrounds/bkg-vote-slide.jpg) no-repeat; }
+  background: url(/assets/images/backgrounds/bkg-vote-slide.jpg) no-repeat; }
   .vote-slide .slide-content {
     position: relative;
     top: 50px; }
@@ -1667,12 +1667,12 @@ table {
       font-size: 45px; }
 
 .final-score {
-  background: url(/public/assets/images/backgrounds/bkg-final-score.jpg) no-repeat; }
+  background: url(/assets/images/backgrounds/bkg-final-score.jpg) no-repeat; }
   .final-score .button {
     margin-top: 50px; }
 
 .leaderboard {
-  background: url(/public/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat; }
+  background: url(/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat; }
   .leaderboard h3, .leaderboard h5 {
     text-align: center; }
   .leaderboard h3 {
