@@ -25,6 +25,12 @@ module.exports = function(app) {
 
 	});
 
+	app.get('/leaderboard/', function(req, res) {
+				
+		res.sendFile('/public/leaderboard.html', {root: __dirname+'/../'}); // load our public/leaderboard.html file
+
+	});
+
 	app.get('*', function(req, res) {
 				
 		res.sendFile('/public/index.html', {root: __dirname+'/../'}); // load our public/index.html file
