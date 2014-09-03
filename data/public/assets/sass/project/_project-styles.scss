@@ -1,3 +1,7 @@
+body {
+	overflow: hidden;
+}
+
 .button-styles {
 	@extend .proxima-regular;
 	font-size: 25px;
