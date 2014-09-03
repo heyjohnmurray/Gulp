@@ -91,14 +91,20 @@ $(function() {
 		setSlideCookie(nextSlide);
 
 		if (choice != null) {
+			setChoice(choice);
 			$(e.target).addClass('answer-confirm');
 			$(e.target).parent().parent().siblings().addClass('is-faded');
 		}
 		e.preventDefault();
 
-		$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
-			transition: 'slide'
-		});
+		if(nextSlide !== "#slide49"){
+			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
+				transition: 'slide'
+			});
+		} else {
+
+		}
+		
 	});
 
 	function setSlideCookie(slide) {
@@ -123,6 +129,21 @@ $(function() {
 				autoSlide(slide);
 			}
 		}
+	}
+
+	function setChoice(choice) {
+		var choices = getCookie('choices');
+		var choiceArray = [];
+
+		if(choices) {
+			choiceArray = JSON.parse(choices);
+		}
+
+		choice = choice.split(".");
+		choiceArray[choice[0]] = choice[1];
+
+		document.cookie = "choices=" + JSON.stringify(choiceArray) + ";";
+
 	}
 
 	function getCookie(cname) {
