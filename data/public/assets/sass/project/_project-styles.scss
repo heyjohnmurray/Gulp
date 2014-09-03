@@ -2,6 +2,17 @@ body {
 	overflow: hidden;
 }
 
+.invalid-inputs {
+	background-color: #ff0;
+	display: block;
+	line-height: 2;
+	text-align: center;
+}
+
+input[type=text].error {
+	color: #f00;
+}
+
 .button-styles {
 	@extend .proxima-regular;
 	font-size: 25px;
@@ -182,12 +193,12 @@ table{
 }
 
 .signup {
-	background: url(/public/assets/images/backgrounds/bkg-signup.jpg) no-repeat;
+	background: url(/assets/images/backgrounds/bkg-signup.jpg) no-repeat;
 }
 
 .intro-slide {
 	
-	background: url(/public/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat;
+	background: url(/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat;
 
 	.title {
 		padding: 15px 30px;
@@ -218,7 +229,7 @@ table{
 }
 
 .vote-slide {
-	background: url(/public/assets/images/backgrounds/bkg-vote-slide.jpg) no-repeat;
+	background: url(/assets/images/backgrounds/bkg-vote-slide.jpg) no-repeat;
 
 	.slide-content {
 		position: relative;
@@ -266,7 +277,7 @@ table{
 }
 
 .final-score {
-	background: url(/public/assets/images/backgrounds/bkg-final-score.jpg) no-repeat;
+	background: url(/assets/images/backgrounds/bkg-final-score.jpg) no-repeat;
 
 	.button {
 		margin-top: 50px;
@@ -274,7 +285,7 @@ table{
 }
 
 .leaderboard {
-	background: url(/public/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat;
+	background: url(/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat;
 
 	h3, h5 {
 		text-align: center;

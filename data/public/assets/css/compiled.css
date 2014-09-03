@@ -1486,6 +1486,15 @@ select {
 body {
   overflow: hidden; }
 
+.invalid-inputs {
+  background-color: #ff0;
+  display: block;
+  line-height: 2;
+  text-align: center; }
+
+input[type=text].error {
+  color: #f00; }
+
 .button-styles, .button, input[type=submit] {
   font-size: 25px;
   line-height: 30px;
