@@ -1483,9 +1483,6 @@ select {
   color: inherit;
   cursor: default; }
 
-body {
-  overflow: hidden; }
-
 .button-styles, .button, input[type=submit] {
   font-size: 25px;
   line-height: 30px;
