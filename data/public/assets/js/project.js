@@ -2,10 +2,18 @@
 // example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 $('#signup').live('pagecreate',function(event) { 
 	$('.js-signup-form').submit( function (e) {
-		$(':mobile-pagecontainer').pagecontainer('change', '#slide1', {
-			transition: 'slide'
-			//, changeHash: false // this lets you disable has appearance in the browser window
-		});
+		
+		$.post('/login/', $('.js-signup-form').serialize(), function(data) {
+	        
+           	$(':mobile-pagecontainer').pagecontainer('change', '#slide1', {
+				transition: 'slide'
+				, changeHash: false // this lets you disable has appearance in the browser window
+			});
+        })
+	        .fail(function(data) {
+	                console.log('Error: ' + data);
+	        });
+		
 		e.preventDefault();
 	});
 });
