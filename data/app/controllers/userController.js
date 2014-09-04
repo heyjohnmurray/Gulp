@@ -40,6 +40,19 @@ function getUserResult(userID, callback) {
 	});
 }
 
+function getTopUsers(callback) {
+	var userQuery = "SELECT CONCAT(FirstName,' ',LastName) AS Name, PollResult, TIMEDIFF(Completed,Started) AS TimeCompleted, TIME_FORMAT(TIMEDIFF(Completed,Started), '%i:%s') AS FormatedTimeCompleted FROM BlendConf.Users WHERE PollResult IS NOT NULL AND Completed IS NOT NULL HAVING TimeCompleted > 0 ORDER BY PollResult DESC, TimeCompleted ASC LIMIT 10";
+
+	deps.db.query(userQuery, function(err, rows) {
+			if (err) return callback(err);
+			if (!rows[0]) return callback({'message':'No Results'});
+
+		    callback(null, {'topResults':rows});		 
+		
+	});
+}
+
 module.exports.isUserAuthenticated = isUserAuthenticated;
 module.exports.setUserAuthenticated = setUserAuthenticated;
 module.exports.getUserResult = getUserResult;
+module.exports.getTopUsers = getTopUsers;

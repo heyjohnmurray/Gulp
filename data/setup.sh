@@ -6,3 +6,5 @@ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --
 mysql.server start
 cat default.sql | mysql -u root -h localhost
 reset.sh
+
+npm install

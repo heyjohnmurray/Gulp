@@ -3,6 +3,18 @@ var voteController = require('./controllers/voteController');
 
 module.exports = function(app) {
 
+	io.sockets.on('connection', function (socket) {
+        socket.on('ready', function() {
+            userController.getTopUsers(function(err,users){
+            	if (err) return socket.emit('TopUserResponse', err);;
+
+            	socket.emit('TopUserResponse', users);
+            });
+
+            
+        });
+    });
+
 	app.post('/login/', function(req, res, next){
 
 		req.assert('FirstName', 'First Name required').notEmpty();
