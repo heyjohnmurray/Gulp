@@ -4,6 +4,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'rv-marketing'@'localhost' WITH GRANT OPTION;
 
 CREATE DATABASE `BlendConf`;
 
+DROP TABLE IF EXISTS BlendConf.Users;
 CREATE TABLE `BlendConf`.`Users` (
   `UserID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(255) DEFAULT NULL,
@@ -18,7 +19,8 @@ CREATE TABLE `BlendConf`.`Users` (
   KEY `Validated` (`Validated`)
 );
 
-CREATE TABLE `UserVotes` (
+DROP TABLE IF EXISTS BlendConf.UserVotes;
+CREATE TABLE BlendConf.`UserVotes` (
   `UserVoteID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `UserID` int(11) DEFAULT NULL,
   `PollID` int(11) DEFAULT NULL,
@@ -27,13 +29,14 @@ CREATE TABLE `UserVotes` (
   UNIQUE KEY `UserID_PollID` (`UserID`,`PollID`)
 );
 
-CREATE TABLE `Polls` (
+DROP TABLE IF EXISTS BlendConf.Polls;
+CREATE TABLE BlendConf.`Polls` (
   `PollID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `Answer` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`PollID`)
 );
 
-INSERT INTO `Polls` (`PollID`, `Answer`)
+INSERT INTO BlendConf.`Polls` (`PollID`, `Answer`)
 VALUES
 	(1,1),
 	(2,2),
