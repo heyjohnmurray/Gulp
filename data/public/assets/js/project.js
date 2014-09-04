@@ -56,22 +56,24 @@ $(function() {
 
 	//same as above but add more time to show videos
 	$('.js-start-video-slide').on('tap', function(e){
-		setSlideCookie($(e.target).attr('href'));
 		var nextSlide = $(e.target).data('next-slide');
-		var secondSlide = $(e.target).data('second-slide');
 
-		setTimeout(function(){
-			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
-				transition: 'slide'
-			});
-			setSlideCookie(nextSlide);
-			setTimeout(function(){
-				$(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
-					transition: 'slide'
-				});
-				setSlideCookie(secondSlide);
-			}, 3000);
-		}, 5000);
+		$('#test').play();
+		$("video").bind("ended", function() {
+		   alert("I'm done!");
+		});
+		// setTimeout(function(){
+		// 	$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
+		// 		transition: 'slide'
+		// 	})
+		// 	setSlideCookie(nextSlide);
+		// 	setTimeout(function(){
+		// 		$(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
+		// 			transition: 'slide'
+		// 		});
+		// 		setSlideCookie(secondSlide);
+		// 	}, 3000);
+		// }, 5000);
 	});
 
 	// orientation warning

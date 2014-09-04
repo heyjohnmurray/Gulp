@@ -14,7 +14,7 @@
 
 	<script>
 		$( document ).on( "mobileinit", function() {
-		  $.mobile.hashListeningEnabled = false;
+		  // $.mobile.hashListeningEnabled = false;
 		});
 	</script>
 
@@ -590,7 +590,7 @@
 				<p>This test used a tutorial-style overlay to direct the user's interaction with the hope of getting more calls.</p>
 				<div class="row">
 					<div class="small-8 small-push-3">
-						<a href="#slide42" data-transition="slide" data-next-slide="#slide43" data-second-slide="#slide44" class="button js-start-auto-slides">Continue <span></span></a>
+						<a href="#slide42" data-transition="slide" data-next-slide="#slide43" data-second-slide="#slide44" class="button">Continue <span></span></a>
 					</div>
 				</div>
 			</div>
@@ -600,7 +600,16 @@
 
 <!-- FULL-WIDTH SCREENSHOT 1 -->
 <div data-role="page" id="slide42" class="screen-shot-full js-full-first slide-template">
-	<img src="/assets/images/full-screen/full-screen-dtv-slide-11-test.jpg" width="1024" height="768" alt="">
+	<a href="#slide43" data-transition="slide" data-next-slide="#slide44" class="js-start-video-slide">
+		<video id="test" width="1024" height="720" controls>
+			<source src="/assets/videos/dtv-video-overlay.mp4" type="video/mp4"></source>
+		</video>
+	</a>
+
+	<!-- <img src="/assets/images/dtv-video-overlay.gif" width="" height="" alt=""> -->
+	<!-- <video id="slide42-video" width="1024" height="720" controls>
+		<source src="/assets/videos/dtv-video-overlay.mp4" type="video/mp4"></source>
+	</video> -->
 </div>
 
 <!-- FULL-WIDTH SCREENSHOT 2 -->
