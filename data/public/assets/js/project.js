@@ -40,7 +40,7 @@ $(function() {
 	});
 
 	$('.leaderboard').on('tap', function(e){
-		$.mobile.navigate( this.attr( "href" ));
+		window.location = this.attr( "href" );
 		e.preventDefault();
 	});
 
@@ -66,13 +66,14 @@ $(function() {
 
 	//same as above but add more time to show videos
 	$('.js-start-video-slide').on('tap', function(e){
+		setSlideCookie($(e.target).attr('href'));
 		var nextSlide = $(e.target).data('next-slide');
 		var secondSlide = $(e.target).data('second-slide');
 		var vidID = $(e.target).data('video-name');
 
 		var myVideo=document.getElementById(vidID); 
 		myVideo.play();
-		
+
 		$('#' + vidID).bind("ended", function(){
 			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
 				transition: 'slide'
