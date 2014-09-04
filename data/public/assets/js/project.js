@@ -34,6 +34,11 @@ $(function() {
 		e.preventDefault();
 	});
 
+	$('.leaderboard').on('tap', function(e){
+		$.mobile.navigate( this.attr( "href" ));
+		e.preventDefault();
+	});
+
 	//full screen auto transitioning
 	$('.js-start-auto-slides').on('tap', function(e){
 		setSlideCookie($(e.target).attr('href'));

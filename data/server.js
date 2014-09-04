@@ -30,10 +30,12 @@ app.use(expressValidator());
 
 app.use( express.static(__dirname + '/public') );
 
-require('./app/routes')(app);
-
-app.use(onError);
-
 var server = app.listen(3000, function() {
     console.log('Listening on port %d', server.address().port);
 });
+
+io = require('socket.io').listen(server);
+
+require('./app/routes')(app);
+
+app.use(onError);
