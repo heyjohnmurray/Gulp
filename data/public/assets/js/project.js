@@ -1,3 +1,8 @@
+function vidPlay(daVideo){
+	var myVideo=document.getElementById(daVideo); 
+	myVideo.play();
+}
+
 // example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 $(function() {
 
@@ -62,23 +67,24 @@ $(function() {
 	//same as above but add more time to show videos
 	$('.js-start-video-slide').on('tap', function(e){
 		var nextSlide = $(e.target).data('next-slide');
+		var secondSlide = $(e.target).data('second-slide');
+		var vidID = $(e.target).data('video-name');
 
-		$('#test').play();
-		$("video").bind("ended", function() {
-		   alert("I'm done!");
+		var myVideo=document.getElementById(vidID); 
+		myVideo.play();
+		
+		$('#' + vidID).bind("ended", function(){
+			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
+				transition: 'slide'
+			});
+			setSlideCookie(nextSlide);
+			setTimeout(function(){
+				$(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
+					transition: 'slide'
+				});
+				setSlideCookie(secondSlide);
+			}, 3000);
 		});
-		// setTimeout(function(){
-		// 	$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
-		// 		transition: 'slide'
-		// 	})
-		// 	setSlideCookie(nextSlide);
-		// 	setTimeout(function(){
-		// 		$(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
-		// 			transition: 'slide'
-		// 		});
-		// 		setSlideCookie(secondSlide);
-		// 	}, 3000);
-		// }, 5000);
 	});
 
 	// orientation warning
