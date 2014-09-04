@@ -1,6 +1,7 @@
 // example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 $(function() {
 
+	// Check to see if they are logged in and if they are switch to the slide they last saw
 	isLoggedIn();
 
 	$('.js-signup-form').submit( function (e) {
@@ -102,23 +103,49 @@ $(function() {
 				transition: 'slide'
 			});
 		} else {
-
+			postVotes();
 		}
 		
 	});
 
+	// Post the votes
+	function postVotes(){
+		var choices = getCookie('choices'); 
+		var userID = getCookie('userID'); 
+
+		clearCookies();
+
+		$.post('/vote/', {'PollData': choices, 'UserID': userID}, function(data) {
+			$('#score').html(data.pollResult);
+		})
+			.fail(function() {
+	        	$('#score').html('0');
+	        })
+	        .always(function() {
+			    $(':mobile-pagecontainer').pagecontainer('change', '#slide49', {
+					transition: 'slide'
+				});
+			});
+	}
+
+	// keep track of what slide they are on
 	function setSlideCookie(slide) {
 		document.cookie = "currentSlide=" + slide + ";";
 	}
 
+	// keep track of our user
 	function setUserCookie(userID) {
 		document.cookie = "userID=" + userID + ";";
 	}
 
+	// clear everything
 	function clearCookies() {
-		document.cookie = "currentSlide=;userID=;";
+		document.cookie = "currentSlide=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+		document.cookie = "userID=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+		document.cookie = "choices=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
 	}
 
+	// are they logged in and switch to their last slide
 	function isLoggedIn() {
 		var userID = getCookie('userID');
 
@@ -131,6 +158,7 @@ $(function() {
 		}
 	}
 
+	// keep track of their selected votes
 	function setChoice(choice) {
 		var choices = getCookie('choices');
 		var choiceObj = {};
@@ -139,7 +167,6 @@ $(function() {
 			choiceObj = JSON.parse(choices);
 		}
 
-		console.log(choice);
 		var choiceSplit = choice.toString().split(".");
 		choiceObj[choiceSplit[0]] = choiceSplit[1];
 
@@ -147,6 +174,7 @@ $(function() {
 
 	}
 
+	// get cookies --- yummy
 	function getCookie(cname) {
 	    var name = cname + "=";
 	    var ca = document.cookie.split(';');
@@ -158,6 +186,7 @@ $(function() {
 	    return "";
 	}
 
+	// slide to the last slide they were on and if it was and if it was an auto slide set the timeout
 	function autoSlide(slide) {
 
 		var nextSlide = false
@@ -181,7 +210,7 @@ $(function() {
 		}
 
 		if(secondSlide){
-
+			// two slides to auto slide
 			setTimeout(function(){
 				$(':mobile-pagecontainer').pagecontainer('change', '#' + nextSlide, {
 					transition: 'slide'
@@ -196,6 +225,7 @@ $(function() {
 					}, 3000);
 			}, 3000);
 		} else if(nextSlide){
+			// only one slide to auto slide
 			setTimeout(function(){
 				$(':mobile-pagecontainer').pagecontainer('change', '#' + nextSlide, {
 					transition: 'slide'

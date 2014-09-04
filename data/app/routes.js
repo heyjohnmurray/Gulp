@@ -1,4 +1,5 @@
 var userController = require('./controllers/userController');
+var voteController = require('./controllers/voteController');
 
 module.exports = function(app) {
 
@@ -23,6 +24,21 @@ module.exports = function(app) {
 		    });
 		});
 
+	});
+
+	app.post('/vote/', function(req, res, next){
+
+		// store individual poll votes and if that is successful then they have not voted yet -- just in case
+		voteController.storeUserVote(req.body.PollData, req.body.UserID, function(err, result){
+			if (err) return next(err);
+
+			// store their final results and return them
+			userController.getUserResult(req.body.UserID, function(err, userResult){
+				if (err) return next(err);
+
+				res.send(userResult);
+			});
+		});
 	});
 
 	app.get('/leaderboard/', function(req, res) {

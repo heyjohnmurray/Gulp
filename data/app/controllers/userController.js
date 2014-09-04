@@ -17,7 +17,7 @@ function isUserAuthenticated(firstName, lastName, callback) {
 
 function setUserAuthenticated(email, userID, callback) {
 
-	deps.db.query('UPDATE BlendConf.Users SET Email = ?, Validated = 1 WHERE UserID = ? ', [email,userID],function(err, row) {
+	deps.db.query('UPDATE BlendConf.Users SET Email = ?, Validated = 1, Started = NOW() WHERE UserID = ? ', [email,userID],function(err, row) {
 			if (err) return callback(err);
 			if (row.changedRows === 0) return callback({'message':'Could not update User'});
 
@@ -25,5 +25,21 @@ function setUserAuthenticated(email, userID, callback) {
 	});
 }
 
+function getUserResult(userID, callback) {
+
+	deps.db.query('SELECT PollResult FROM BlendConf.Users WHERE UserID = ? AND PollResult IS NOT NULL', [userID],function(err, row) {
+			if (err) return callback(err);
+			if (!row[0]) return callback({'message':'No Results for user'});
+
+			try {
+		      	callback(null, {'pollResult':row[0].PollResult});
+		    } catch (e) {
+		      callback(e);
+		    }			 
+		
+	});
+}
+
 module.exports.isUserAuthenticated = isUserAuthenticated;
 module.exports.setUserAuthenticated = setUserAuthenticated;
+module.exports.getUserResult = getUserResult;
