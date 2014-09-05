@@ -11,7 +11,9 @@ $(function() {
 
 	$('.js-signup-form').submit( function (e) {
 		
+		// Matt this is where you do the magic :)
 		$.post('/login/', $('.js-signup-form').serialize(), function(data) {
+		//$.post('/user/', $('.js-signup-form').serialize(), function(data) {
 
 			if(data.userID){
 		        setUserCookie(data.userID);

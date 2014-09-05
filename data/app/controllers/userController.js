@@ -52,7 +52,22 @@ function getTopUsers(callback) {
 	});
 }
 
+function addUser(firstName, lastName, email, callback) {
+
+	deps.db.query('INSERT INTO BlendConf.Users (FirstName, LastName, Email, Validated, Started) VALUES (?,?,?,1,NOW())', [firstName,lastName,email],function(err, rows) {
+			if (err) return callback(err);
+
+			try {
+		      	callback(null, {'userID':rows.insertId});
+		    } catch (e) {
+		      callback(e);
+		    }			 
+		
+	});
+}
+
 module.exports.isUserAuthenticated = isUserAuthenticated;
 module.exports.setUserAuthenticated = setUserAuthenticated;
 module.exports.getUserResult = getUserResult;
 module.exports.getTopUsers = getTopUsers;
+module.exports.addUser = addUser;

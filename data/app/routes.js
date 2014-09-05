@@ -38,6 +38,25 @@ module.exports = function(app) {
 
 	});
 
+	// Just add a user and return userID
+	app.post('/user/', function(req, res, next){
+
+		req.assert('FirstName', 'First Name required').notEmpty();
+		req.assert('LastName', 'Last Name required').notEmpty();
+		req.assert('Email', 'Email required').notEmpty();
+		req.assert('Email', 'Invalid email').isEmail();
+		var errors = req.validationErrors(true);
+		if (errors) return next({'name':'Validation Error', 'message':'There have been validation errors', 'errors':errors});
+
+		userController.addUser(req.body.FirstName, req.body.LastName, req.body.Email ,function(err, user){
+		    if (err) return next(err);
+
+		    // User is valid set email and validated = 1 so they can't login again
+		    res.send(user);
+		});
+
+	});
+
 	app.post('/vote/', function(req, res, next){
 
 		// store individual poll votes and if that is successful then they have not voted yet -- just in case
