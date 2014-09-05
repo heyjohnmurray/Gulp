@@ -34,7 +34,12 @@
 					$('#leaderboard tbody').append('<tr><td>' + i++ + '</td><td>' + results[key].Name + '</td><td>' + results[key].PollResult + '</td><td>' + results[key].FormatedTimeCompleted + '</td></tr>');
 				}
 			}
-		    //$('body').append('<p>New visitor, hooray! ' + new Date().toString() +'</p>')
+		});
+
+		$(function() {
+			document.cookie = "currentSlide=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+			document.cookie = "userID=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+			document.cookie = "choices=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
 		});
 	</script>
 
