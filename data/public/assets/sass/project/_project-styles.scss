@@ -115,6 +115,11 @@ a.button {
 	display: inline-block;
 }
 
+a.vote-button {
+	width: auto;
+	position: absolute;
+}
+
 .button {
 	@extend .button-styles;
 

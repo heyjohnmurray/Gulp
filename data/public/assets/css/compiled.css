@@ -1577,6 +1577,10 @@ a.button {
   width: 100%;
   display: inline-block; }
 
+a.vote-button {
+  width: auto;
+  position: absolute; }
+
 .button span {
   display: inline-block;
   height: 0;
