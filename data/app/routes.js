@@ -92,6 +92,16 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/admin/reset/", function(req, res) {
+    userController.resetUser(req.body, function(err) {
+      if (err) {
+        return res.status(400).send({message: err.message});
+      }
+
+      res.status(200).end();
+    });
+  });
+
 	app.get('*', function(req, res) {
 
 		res.sendFile('/public/index.html', {root: __dirname+'/../'}); // load our public/index.html file

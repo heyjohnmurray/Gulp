@@ -84,6 +84,17 @@ function addNewUser(firstName, lastName, callback) {
   });
 }
 
+function resetUser(user, callback) {
+  deps.db.query("UPDATE BlendConf.Users SET Email='', Validated=0, PollResult=NULL, Started=NULL, Completed=NULL WHERE FirstName = ? AND LastName = ?", [user.FirstName, user.LastName], function(err, rows) {
+    if (err) return callback(err);
+
+    if (rows.changedRows === 0) {
+      return callback(new Error("User not found or already reset"));
+    }
+
+    callback(null);
+  });
+}
 
 module.exports.isUserAuthenticated = isUserAuthenticated;
 module.exports.setUserAuthenticated = setUserAuthenticated;
@@ -91,3 +102,4 @@ module.exports.getUserResult = getUserResult;
 module.exports.getTopUsers = getTopUsers;
 module.exports.addUser = addUser;
 module.exports.addNewUser = addNewUser;
+module.exports.resetUser = resetUser;

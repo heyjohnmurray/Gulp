@@ -14,18 +14,26 @@
 	<div data-role="page" id="slide50" class="leaderboard slide-template">
 		<div class="row">
 
-			<div class="small-16 column">
+			<div class="small-16 column" id="add-user-section">
 				<h3>Manually Add a User</h3>
 				<input type="text" data-bind="value: firstName" placeholder="John" />
 				<input type="text" data-bind="value: lastName" placeholder="Smith" />
 				<button data-bind="click: save">Add User</button>
 				<div data-bind="text: message"></div>
 			</div>
+			<div class="small-16 column" id="reset-user">
+				<h3>Reset a User</h3>
+				<input type="text" data-bind="value: firstName" placeholder="First Name" />
+				<input type="text" data-bind="value: lastName" placeholder="Last Name" />
+				<button data-bind="click: reset">Reset User</button>
+				<div data-bind="text: message"></div>
+			</div>
 		</div>
 	</div><!-- /page -->
 
 	<script>
-		ko.applyBindings(new RV.AddUserViewModel());
+		ko.applyBindings(new RV.AddUserViewModel(), document.getElementById("add-user-section"));
+		ko.applyBindings(new RV.ResetUserViewModel(), document.getElementById("reset-user"));
 	</script>
 </body>
 </html>
