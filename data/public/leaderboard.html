@@ -31,7 +31,7 @@
 				results = data.topResults;
 				var i = 1;
 				for(key in results){
-					$('#leaderboard tbody').append('<tr><td>' + i++ + '</td><td>' + results[key].Name + '</td><td>' + results[key].PollResult + '</td><td>' + results[key].FormatedTimeCompleted + '</td></tr>');
+					$('#leaderboard tbody').append('<tr><td>' + i++ + '</td><td>' + results[key].Name + '</td><td>' + results[key].PollResult + '/12</td><td>' + results[key].FormatedTimeCompleted + '</td></tr>');
 				}
 			}
 		});
@@ -59,7 +59,7 @@
 							<tr>
 								<th>&nbsp;</th>
 								<th>Name</th>
-								<th>Percent Correct</th>
+								<th>Number Correct</th>
 								<th>Completion Time</th>
 							</tr>
 						</thead>
