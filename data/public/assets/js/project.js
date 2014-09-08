@@ -39,8 +39,10 @@ $(function() {
           }
           $('.invalid-inputs').html('Please fix the highlighted fields');
         } else {
-          if (response.message == "Invalid User") {
+          if (response.message == "Already Voted") {
             $('.invalid-inputs').html("It looks like you've already voted.");
+          } else if (response.message === "Unknown User") {
+            $('.invalid-inputs').html("It looks like we don't have an account for you. See an attendant to get set up.");
           }
         }
     });

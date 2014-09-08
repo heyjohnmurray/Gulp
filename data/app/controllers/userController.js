@@ -2,9 +2,10 @@ var deps = require('../../config/db');
 
 function isUserAuthenticated(firstName, lastName, callback) {
 
-	deps.db.query('SELECT UserID FROM BlendConf.Users WHERE FirstName = ? AND LastName = ? AND Validated = 0', [firstName,lastName],function(err, rows) {
+	deps.db.query('SELECT UserID, Validated FROM BlendConf.Users WHERE FirstName = ? AND LastName = ?', [firstName,lastName],function(err, rows) {
 			if (err) return callback(err);
-			if (!rows[0]) return callback({'message':'Invalid User'});
+			if (!rows[0]) return callback({'message':'Unknown User'});
+			if (rows[0].Validated) return callback({message: 'Already Voted'});
 
 			try {
 		      	callback(null, {'userID':rows[0].UserID});
