@@ -3,11 +3,11 @@ var deps = require('../../config/db');
 function storeUserVote(pollData, user, callback) {
 	pollArr = JSON.parse(pollData);
 	var values = new Array();
-	
+
 	for(key in pollArr){
 		values.push([user,key,pollArr[key]]);
 	}
-	
+
 	deps.db.query('INSERT INTO BlendConf.UserVotes (UserID, PollID, Vote) VALUES ?', [values],function(err, row) {
 		if (err) return callback(err);
 
@@ -16,9 +16,9 @@ function storeUserVote(pollData, user, callback) {
 
 			return callback(null, results);
 		});
-		
+
 	});
-	
+
 }
 
 function updateUser(pollArr, user, callback) {
@@ -27,7 +27,7 @@ function updateUser(pollArr, user, callback) {
 
 	getPollData( function(err, polls) {
 		if(err) return callback(err);
-		
+
 		for(poll in polls){
 
 			theirAnswer = pollArr[polls[poll].PollID];
@@ -41,7 +41,7 @@ function updateUser(pollArr, user, callback) {
 			if (err) return callback(err);
 			if (row.changedRows === 0) return callback({'message':'Could not update User'});
 
-		    callback(null, row);		    	 
+		    callback(null, row);
 		});
 	});
 }
@@ -49,7 +49,7 @@ function updateUser(pollArr, user, callback) {
 function getPollData(callback) {
 	deps.db.query('SELECT * FROM BlendConf.Polls',function(err, rows) {
 		if (err) return callback(err);
-		
+
 		return callback(null, rows);
 	});
 }
