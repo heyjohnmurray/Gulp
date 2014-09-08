@@ -1,250 +1,257 @@
 function vidPlay(daVideo){
-	var myVideo=document.getElementById(daVideo); 
-	myVideo.play();
+  var myVideo=document.getElementById(daVideo);
+  myVideo.play();
 }
 
 // example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 $(function() {
 
-	// Check to see if they are logged in and if they are switch to the slide they last saw
-	isLoggedIn();
+  // Check to see if they are logged in and if they are switch to the slide they last saw
+  isLoggedIn();
 
-	$('.js-signup-form').submit( function (e) {
-		
-		// Matt this is where you do the magic :)
-		$.post('/login/', $('.js-signup-form').serialize(), function(data) {
-		//$.post('/user/', $('.js-signup-form').serialize(), function(data) {
+  $('.js-signup-form').submit( function (e) {
+    var $this = $(this);
+    $this.find("input").removeClass('error');
 
-			if(data.userID){
-		        setUserCookie(data.userID);
-				setSlideCookie('#slide1');
+    // Matt this is where you do the magic :)
+    $.post('/login/', $('.js-signup-form').serialize(), function(data) {
+    //$.post('/user/', $('.js-signup-form').serialize(), function(data) {
+    //
 
-	           	$(':mobile-pagecontainer').pagecontainer('change', '#slide1', {
-					transition: 'slide'
-					, changeHash: false // this lets you disable has appearance in the browser window
-				});
-           	}
-        })
-	        .fail(function(data) {
-	        		var response = $.parseJSON(data.responseText);
+      if(data.userID) {
+        setUserCookie(data.userID);
+        setSlideCookie('#slide1');
 
-	                console.log('Error: ' + response.message);
+        $(':mobile-pagecontainer').pagecontainer('change', '#slide1', {
+          transition: 'slide'
+          , changeHash: false // this lets you disable has appearance in the browser window
+        });
+      }
+    })
+    .fail(function(data) {
+      var response = $.parseJSON(data.responseText);
 
-	                if(response.error && response.detail && response.error == "Validation Error"){
-	                	for (var key in response.detail) {
-	                		$('input[name="'+key+'"]').addClass('error');
-	                	}
-	                	$('.invalid-inputs').html('Please fix the highlighted fields');
-	                }
-	        });
-		
-		e.preventDefault();
-	});
+        console.log('Error: ' + response.message);
 
-	//full screen auto transitioning
-	$('.js-start-auto-slides').on('tap', function(e){
-		setSlideCookie($(e.target).attr('href'));
-		var nextSlide = $(e.target).data('next-slide');
-		var secondSlide = $(e.target).data('second-slide');
+        if(response.error && response.detail && response.error == "Validation Error"){
+          for (var key in response.detail) {
+            $('input[name="'+key+'"]').addClass('error');
+          }
+          $('.invalid-inputs').html('Please fix the highlighted fields');
+        } else {
+          if (response.message == "Invalid User") {
+            $('.invalid-inputs').html("It looks like you've already voted.");
+          }
+        }
+    });
 
-		setTimeout(function(){
-			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
-				transition: 'slide'
-			});
-			setSlideCookie(nextSlide);
-			setTimeout(function(){
-				$(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
-					transition: 'slide'
-				});
-				setSlideCookie(secondSlide);
-			}, 3000);
-		}, 3000);
-	});
+    e.preventDefault();
+  });
 
-	//same as above but add more time to show videos
-	$('.js-start-video-slide').on('tap', function(e){
-		setSlideCookie($(e.target).attr('href'));
-		var nextSlide = $(e.target).data('next-slide');
-		var secondSlide = $(e.target).data('second-slide');
-		var vidID = $(e.target).data('video-name');
+  //full screen auto transitioning
+  $('.js-start-auto-slides').on('tap', function(e){
+    setSlideCookie($(e.target).attr('href'));
+    var nextSlide = $(e.target).data('next-slide');
+    var secondSlide = $(e.target).data('second-slide');
 
-		var myVideo=document.getElementById(vidID); 
-		myVideo.play();
+    setTimeout(function(){
+      $(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
+        transition: 'slide'
+      });
+      setSlideCookie(nextSlide);
+      setTimeout(function(){
+        $(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
+          transition: 'slide'
+        });
+        setSlideCookie(secondSlide);
+      }, 3000);
+    }, 3000);
+  });
 
-		$('#' + vidID).bind("ended", function(){
-			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
-				transition: 'slide'
-			});
-			setSlideCookie(nextSlide);
-			setTimeout(function(){
-				$(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
-					transition: 'slide'
-				});
-				setSlideCookie(secondSlide);
-			}, 3000);
-		});
-	});
+  //same as above but add more time to show videos
+  $('.js-start-video-slide').on('tap', function(e){
+    setSlideCookie($(e.target).attr('href'));
+    var nextSlide = $(e.target).data('next-slide');
+    var secondSlide = $(e.target).data('second-slide');
+    var vidID = $(e.target).data('video-name');
 
-	// orientation warning
-	$( window ).on( "orientationchange", function( event ) {
-		if (event.orientation === 'portrait') {
-			alert('please view this app in landscape mode');
-		};
-	});
+    var myVideo=document.getElementById(vidID);
+    myVideo.play();
 
-	// vote choice logic 
-	var choice = null;
+    $('#' + vidID).bind("ended", function(){
+      $(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
+        transition: 'slide'
+      });
+      setSlideCookie(nextSlide);
+      setTimeout(function(){
+        $(':mobile-pagecontainer').pagecontainer('change', secondSlide, {
+          transition: 'slide'
+        });
+        setSlideCookie(secondSlide);
+      }, 3000);
+    });
+  });
 
-	// vote choice logic for desktop slides
-	$('.js-vote-choice').on('tap', function(e){
-		var choice = $(e.target).data('choice');
-		var nextSlide = $(e.target).data('next-slide');
+  // orientation warning
+  $( window ).on( "orientationchange", function( event ) {
+    if (event.orientation === 'portrait') {
+      alert('please view this app in landscape mode');
+    };
+  });
 
-		setSlideCookie(nextSlide);
+  // vote choice logic
+  var choice = null;
 
-		if (choice != null) {
-			setChoice(choice);
-			$(e.target).addClass('answer-confirm');
-			$(e.target).parent().parent().siblings().addClass('is-faded');
-		}
-		e.preventDefault();
+  // vote choice logic for desktop slides
+  $('.js-vote-choice').on('tap', function(e){
+    var choice = $(e.target).data('choice');
+    var nextSlide = $(e.target).data('next-slide');
 
-		if(nextSlide !== "#slide49"){
-			$(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
-				transition: 'slide'
-			});
-		} else {
-			postVotes();
-		}
-		
-	});
+    setSlideCookie(nextSlide);
 
-	// Post the votes
-	function postVotes(){
-		var choices = getCookie('choices'); 
-		var userID = getCookie('userID'); 
+    if (choice != null) {
+      setChoice(choice);
+      $(e.target).addClass('answer-confirm');
+      $(e.target).parent().parent().siblings().addClass('is-faded');
+    }
+    e.preventDefault();
 
-		clearCookies();
+    if(nextSlide !== "#slide49"){
+      $(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
+        transition: 'slide'
+      });
+    } else {
+      postVotes();
+    }
 
-		$.post('/vote/', {'PollData': choices, 'UserID': userID}, function(data) {
-			$('#score').html(data.pollResult);
-		})
-			.fail(function() {
-	        	$('#score').html('0');
-	        })
-	        .always(function() {
-			    $(':mobile-pagecontainer').pagecontainer('change', '#slide49', {
-					transition: 'slide'
-				});
-			});
-	}
+  });
 
-	// keep track of what slide they are on
-	function setSlideCookie(slide) {
-		document.cookie = "currentSlide=" + slide + ";";
-	}
+  // Post the votes
+  function postVotes(){
+    var choices = getCookie('choices');
+    var userID = getCookie('userID');
 
-	// keep track of our user
-	function setUserCookie(userID) {
-		document.cookie = "userID=" + userID + ";";
-	}
+    clearCookies();
 
-	// clear everything
-	function clearCookies() {
-		document.cookie = "currentSlide=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
-		document.cookie = "userID=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
-		document.cookie = "choices=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
-	}
+    $.post('/vote/', {'PollData': choices, 'UserID': userID}, function(data) {
+      $('#score').html(data.pollResult);
+    })
+      .fail(function() {
+            $('#score').html('0');
+          })
+          .always(function() {
+          $(':mobile-pagecontainer').pagecontainer('change', '#slide49', {
+          transition: 'slide'
+        });
+      });
+  }
 
-	// are they logged in and switch to their last slide
-	function isLoggedIn() {
-		var userID = getCookie('userID');
+  // keep track of what slide they are on
+  function setSlideCookie(slide) {
+    document.cookie = "currentSlide=" + slide + ";";
+  }
 
-		if(userID){
-			var slide = getCookie('currentSlide');
+  // keep track of our user
+  function setUserCookie(userID) {
+    document.cookie = "userID=" + userID + ";";
+  }
 
-			if(slide){
-				autoSlide(slide);
-			}
-		}
-	}
+  // clear everything
+  function clearCookies() {
+    document.cookie = "currentSlide=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+    document.cookie = "userID=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+    document.cookie = "choices=; expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+  }
 
-	// keep track of their selected votes
-	function setChoice(choice) {
-		var choices = getCookie('choices');
-		var choiceObj = {};
+  // are they logged in and switch to their last slide
+  function isLoggedIn() {
+    var userID = getCookie('userID');
 
-		if(choices) {
-			choiceObj = JSON.parse(choices);
-		}
+    if(userID){
+      var slide = getCookie('currentSlide');
 
-		var choiceSplit = choice.toString().split(".");
-		choiceObj[choiceSplit[0]] = choiceSplit[1];
+      if(slide){
+        autoSlide(slide);
+      }
+    }
+  }
 
-		document.cookie = "choices=" + JSON.stringify(choiceObj) + ";";
+  // keep track of their selected votes
+  function setChoice(choice) {
+    var choices = getCookie('choices');
+    var choiceObj = {};
 
-	}
+    if(choices) {
+      choiceObj = JSON.parse(choices);
+    }
 
-	// get cookies --- yummy
-	function getCookie(cname) {
-	    var name = cname + "=";
-	    var ca = document.cookie.split(';');
-	    for(var i=0; i<ca.length; i++) {
-	        var c = ca[i];
-	        while (c.charAt(0)==' ') c = c.substring(1);
-	        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
-	    }
-	    return "";
-	}
+    var choiceSplit = choice.toString().split(".");
+    choiceObj[choiceSplit[0]] = choiceSplit[1];
 
-	// slide to the last slide they were on and if it was and if it was an auto slide set the timeout
-	function autoSlide(slide) {
+    document.cookie = "choices=" + JSON.stringify(choiceObj) + ";";
 
-		var nextSlide = false
-		,secondSlide = false;
+  }
 
-		$(':mobile-pagecontainer').pagecontainer('change', slide, {
-			transition: 'slide'
-			, changeHash: false // this lets you disable has appearance in the browser window
-		});
+  // get cookies --- yummy
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+      }
+      return "";
+  }
 
-		// see if this is an auto slide
-		var classes = $(slide).attr('class');
-		
-		if(classes && classes.indexOf("js-full-first") !== -1){
-			// need to auto slide 2 slides
-			var nextSlide = $(slide + " + div").attr('id');
-			var secondSlide = $("#" + nextSlide + " + div").attr('id');
-		} else if(classes && classes.indexOf("js-full-second") !== -1){
-			// else we only need to autoslide one
-			var nextSlide = $(slide + " + div").attr('id');
-		}
+  // slide to the last slide they were on and if it was and if it was an auto slide set the timeout
+  function autoSlide(slide) {
 
-		if(secondSlide){
-			// two slides to auto slide
-			setTimeout(function(){
-				$(':mobile-pagecontainer').pagecontainer('change', '#' + nextSlide, {
-					transition: 'slide'
-				});
-				setSlideCookie('#' + nextSlide);
+    var nextSlide = false
+    ,secondSlide = false;
 
-					setTimeout(function(){
-						$(':mobile-pagecontainer').pagecontainer('change', '#' + secondSlide, {
-							transition: 'slide'
-						});
-						setSlideCookie('#' + secondSlide);
-					}, 3000);
-			}, 3000);
-		} else if(nextSlide){
-			// only one slide to auto slide
-			setTimeout(function(){
-				$(':mobile-pagecontainer').pagecontainer('change', '#' + nextSlide, {
-					transition: 'slide'
-				});
-				setSlideCookie('#' + nextSlide);
-			}, 3000);
-		}
-		
-	}
-//close jquery	
+    $(':mobile-pagecontainer').pagecontainer('change', slide, {
+      transition: 'slide'
+      , changeHash: false // this lets you disable has appearance in the browser window
+    });
+
+    // see if this is an auto slide
+    var classes = $(slide).attr('class');
+
+    if(classes && classes.indexOf("js-full-first") !== -1){
+      // need to auto slide 2 slides
+      var nextSlide = $(slide + " + div").attr('id');
+      var secondSlide = $("#" + nextSlide + " + div").attr('id');
+    } else if(classes && classes.indexOf("js-full-second") !== -1){
+      // else we only need to autoslide one
+      var nextSlide = $(slide + " + div").attr('id');
+    }
+
+    if(secondSlide){
+      // two slides to auto slide
+      setTimeout(function(){
+        $(':mobile-pagecontainer').pagecontainer('change', '#' + nextSlide, {
+          transition: 'slide'
+        });
+        setSlideCookie('#' + nextSlide);
+
+          setTimeout(function(){
+            $(':mobile-pagecontainer').pagecontainer('change', '#' + secondSlide, {
+              transition: 'slide'
+            });
+            setSlideCookie('#' + secondSlide);
+          }, 3000);
+      }, 3000);
+    } else if(nextSlide){
+      // only one slide to auto slide
+      setTimeout(function(){
+        $(':mobile-pagecontainer').pagecontainer('change', '#' + nextSlide, {
+          transition: 'slide'
+        });
+        setSlideCookie('#' + nextSlide);
+      }, 3000);
+    }
+
+  }
+//close jquery
 });
