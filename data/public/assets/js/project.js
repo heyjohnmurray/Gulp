@@ -6,6 +6,8 @@ function vidPlay(daVideo){
 // example of page transition on form submit :: http://api.jquerymobile.com/pagecontainer/#method-change
 $(function() {
 
+  var SLIDE_TIMEOUT = 3000;
+
   // Check to see if they are logged in and if they are switch to the slide they last saw
   isLoggedIn();
 
@@ -66,8 +68,8 @@ $(function() {
           transition: 'slide'
         });
         setSlideCookie(secondSlide);
-      }, 3000);
-    }, 3000);
+      }, SLIDE_TIMEOUT);
+    }, SLIDE_TIMEOUT);
   });
 
   //same as above but add more time to show videos
@@ -90,7 +92,7 @@ $(function() {
           transition: 'slide'
         });
         setSlideCookie(secondSlide);
-      }, 3000);
+      }, SLIDE_TIMEOUT);
     });
   });
 
@@ -242,8 +244,8 @@ $(function() {
               transition: 'slide'
             });
             setSlideCookie('#' + secondSlide);
-          }, 3000);
-      }, 3000);
+          }, SLIDE_TIMEOUT);
+      }, SLIDE_TIMEOUT);
     } else if(nextSlide){
       // only one slide to auto slide
       setTimeout(function(){
@@ -251,7 +253,7 @@ $(function() {
           transition: 'slide'
         });
         setSlideCookie('#' + nextSlide);
-      }, 3000);
+      }, SLIDE_TIMEOUT);
     }
 
   }
