@@ -87,14 +87,21 @@ function addNewUser(firstName, lastName, callback) {
 
 function resetUser(user, callback) {
 
-  deps.db.query("UPDATE BlendConf.Users SET Email='', Validated=0, PollResult=NULL, Started=NULL, Completed=NULL WHERE FirstName = ? AND LastName = ?", [user.FirstName, user.LastName], function(err, rows) {
+  deps.db.query("SELECT UserID FROM BlendConf.Users WHERE FirstName = ? AND LastName = ? LIMIT 1", [user.FirstName, user.LastName], function(err, rows) {
     if (err) return callback(err);
+    if (rows.length === 0) return callback(new Error("Could not locate user"));
 
-    if (rows.changedRows === 0) {
-      return callback(new Error("User not found or already reset"));
-    }
+    var userID = rows[0].UserID;
 
-    callback(null);
+    deps.db.query("UPDATE BlendConf.Users SET Email='', Validated=0, PollResult=NULL, Started=NULL, Completed=NULL WHERE UserID = ?", [userID], function(err, rows) {
+      if (err) return callback(err);
+
+      deps.db.query("DELETE FROM BlendConf.UserVotes WHERE UserID = ?", [userID], function(err, rows) {
+        if (err) return callback(err);
+
+        callback(null);
+      });
+    });
   });
 }
 
