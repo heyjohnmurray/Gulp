@@ -1,1 +1,0 @@
-angular.module('blendConfApp', ['ngRoute', 'appRoutes', 'mainController']);
