@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="robots" content="noindex,nofollow,noodp" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<script src="/assets/js/jquery-1.8.3.min.js"></script>
+  <script src="/assets/js/knockout-3.2.0.js"></script>
+  <script src="/assets/js/admin.js"></script>
+</head>
+<body>
+	<!-- LEADERBOARD -->
+	<div data-role="page" id="slide50" class="leaderboard slide-template">
+		<div class="row">
+
+			<div class="small-16 column">
+				<h3>Manually Add a User</h3>
+				<input type="text" data-bind="value: firstName" placeholder="John" />
+				<input type="text" data-bind="value: lastName" placeholder="Smith" />
+				<button data-bind="click: save">Add User</button>
+				<div data-bind="text: message"></div>
+			</div>
+		</div>
+	</div><!-- /page -->
+
+	<script>
+		ko.applyBindings(new RV.AddUserViewModel());
+	</script>
+</body>
+</html>

@@ -10,8 +10,8 @@ function isUserAuthenticated(firstName, lastName, callback) {
 		      	callback(null, {'userID':rows[0].UserID});
 		    } catch (e) {
 		      callback(e);
-		    }			 
-		
+		    }
+
 	});
 }
 
@@ -21,7 +21,7 @@ function setUserAuthenticated(email, userID, callback) {
 			if (err) return callback(err);
 			if (row.changedRows === 0) return callback({'message':'Could not update User'});
 
-		    callback(null, row);		    	 
+		    callback(null, row);
 	});
 }
 
@@ -35,8 +35,8 @@ function getUserResult(userID, callback) {
 		      	callback(null, {'pollResult':row[0].PollResult});
 		    } catch (e) {
 		      callback(e);
-		    }			 
-		
+		    }
+
 	});
 }
 
@@ -47,8 +47,8 @@ function getTopUsers(callback) {
 			if (err) return callback(err);
 			if (!rows[0]) return callback({'message':'No Results'});
 
-		    callback(null, {'topResults':rows});		 
-		
+		    callback(null, {'topResults':rows});
+
 	});
 }
 
@@ -61,13 +61,33 @@ function addUser(firstName, lastName, email, callback) {
 		      	callback(null, {'userID':rows.insertId});
 		    } catch (e) {
 		      callback(e);
-		    }			 
-		
+		    }
+
 	});
 }
+
+function addNewUser(firstName, lastName, callback) {
+  deps.db.query("SELECT * FROM BlendConf.Users WHERE FirstName = ? AND LastName = ?", [firstName, lastName], function(err, rows) {
+    if (rows.length > 0) {
+      return callback(new Error("User already exists"));
+    }
+
+    deps.db.query("INSERT INTO BlendConf.Users(FirstName, LastName) VALUES(?,?)", [firstName, lastName], function(err, rows) {
+      if (err) return callback(err);
+
+      try {
+        callback(null, {'userID': rows.insertID});
+      } catch(e) {
+        callback(e);
+      }
+    });
+  });
+}
+
 
 module.exports.isUserAuthenticated = isUserAuthenticated;
 module.exports.setUserAuthenticated = setUserAuthenticated;
 module.exports.getUserResult = getUserResult;
 module.exports.getTopUsers = getTopUsers;
 module.exports.addUser = addUser;
+module.exports.addNewUser = addNewUser;

@@ -11,7 +11,7 @@ module.exports = function(app) {
             	socket.emit('TopUserResponse', users);
             });
 
-            
+
         });
     });
 
@@ -28,7 +28,7 @@ module.exports = function(app) {
 		    if (err) return next(err);
 
 		    // User is valid set email and validated = 1 so they can't login again
-		    
+
 		    userController.setUserAuthenticated(req.body.Email,user.userID, function(err,auth){
 		    	if (err) return next(err);
 
@@ -73,13 +73,27 @@ module.exports = function(app) {
 	});
 
 	app.get('/leaderboard/', function(req, res) {
-				
+
 		res.sendFile('/public/leaderboard.html', {root: __dirname+'/../'}); // load our public/leaderboard.html file
 
 	});
 
+  app.get('/admin/', function(req, res) {
+    res.sendFile('/public/admin.html', {root: __dirname+'/..'});
+  });
+
+  app.post('/admin/user/', function(req, res) {
+    userController.addNewUser(req.body.FirstName, req.body.LastName, function(err, user) {
+      if (err) {
+        res.status(400).send({message: err.message});
+      }
+
+      res.send(user);
+    });
+  });
+
 	app.get('*', function(req, res) {
-				
+
 		res.sendFile('/public/index.html', {root: __dirname+'/../'}); // load our public/index.html file
 
 	});
