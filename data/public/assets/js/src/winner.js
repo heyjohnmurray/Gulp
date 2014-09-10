@@ -3,14 +3,18 @@
 
   function Winner() {
     this.name = ko.observable("");
-    this.score = ko.observable("");
+    this.numCorrect = ko.observable("");
     this.completionTime = ko.observable("");
+
+    this.score = ko.computed(function() {
+      return this.numCorrect() + "/12";
+    }, this);
   }
 
   Winner.fromSocketIOResponse = function(response) {
     var winner = new Winner();
     winner.name(response.Name);
-    winner.score(response.PollResult);
+    winner.numCorrect(response.PollResult);
     winner.completionTime(response.FormatedTimeCompleted);
     return winner;
   };
