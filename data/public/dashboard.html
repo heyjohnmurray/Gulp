@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noodp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link href="/assets/css/compiled.css" rel="stylesheet">
+  <!-- <link href="/assets/css/jquery.mobile-1.4.3.css" rel="stylesheet"> -->
+  <!-- <link href="/assets/css/jquery.mobile.theme-1.4.3.css" rel="stylesheet"> -->
+
+  <script src="/assets/js/jquery-1.8.3.min.js"></script>
+
+  <script src="/assets/js/socket.io-1.1.0.js"></script>
+  <script src="/assets/js/knockout-3.2.0.js"></script>
+  <script src="/assets/js/dashboard.js"></script>
+
+  <script>
+
+    $(function() {
+      document.cookie = "currentSlide=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+      document.cookie = "userID=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+      document.cookie = "choices=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+    });
+  </script>
+
+</head>
+<body>
+  <!-- LEADERBOARD -->
+  <div class="dashboard">
+    <div class="row">
+
+      <div class="small-16 column">
+        <h3>Who Knows Their Stuff?</h3>
+        <h5>These 10 people are the cream of the crop!</h5>
+        <div class="table-wrap" data-bind="visible: dashboardVisible">
+          <table id="leaderboard" border="0" cellspacing="0" cellpadding="0" align="center">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Number Correct</th>
+                <th>Completion Time</th>
+              </tr>
+            </thead>
+            <tbody data-bind="foreach: winners">
+              <tr>
+                <td></td>
+                <td data-bind="text: name"></td>
+                <td data-bind="text: score"></td>
+                <td data-bind="text: completionTime"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div data-bind="visible: promoVisible">
+            PROMO!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /page -->
+
+</body>
+</html>

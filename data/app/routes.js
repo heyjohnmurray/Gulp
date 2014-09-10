@@ -78,6 +78,10 @@ module.exports = function(app) {
 
 	});
 
+  app.get('/dashboard/', function(req, res) {
+    res.sendFile('/public/dashboard.html', {root: __dirname+'/../'});
+  });
+
   app.get('/admin/', function(req, res) {
     res.sendFile('/public/admin.html', {root: __dirname+'/..'});
   });
