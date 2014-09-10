@@ -9,6 +9,11 @@ body {
 	text-align: center;
 }
 
+input.error {
+  color: red;
+  background-color: pink
+}
+
 input[type=text].error {
 	color: #f00;
 }
@@ -279,6 +284,11 @@ table{
 			font-size: 45px;
 		}
 	}
+}
+
+.reset-link {
+  position: absolute;
+  top: 694px;
 }
 
 .final-score {

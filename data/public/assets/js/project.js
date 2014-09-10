@@ -7,9 +7,18 @@ function vidPlay(daVideo){
 $(function() {
 
   var SLIDE_TIMEOUT = 3000;
+  var LOGIN_PAGE = "/poll";
 
   // Check to see if they are logged in and if they are switch to the slide they last saw
   isLoggedIn();
+
+  $(".reset-link a").on('click', function(e) {
+    e.preventDefault();
+
+    clearCookies();
+
+    window.location = LOGIN_PAGE;
+  });
 
   $('.js-signup-form').submit( function (e) {
     var $this = $(this);
