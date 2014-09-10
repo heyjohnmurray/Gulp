@@ -26,7 +26,7 @@
 			ko.applyBindings(model);
 			RV.SocketIO.start(model);
 
-			$(".button.vote-button").on("click", function(e) {
+			$("#home").on("click", function(e) {
 				e.preventDefault();
 				window.location = "/poll";
 			});
@@ -40,7 +40,7 @@
 		<div class="row">
 
 			<div class="small-16 column">
-			<a href="/poll" class="button vote-button" data-role="none">Vote Now!</a>
+				<a href="/poll" class="" data-role="none" id="home"><img src="/assets/images/home-icon.png"></a>
 				<h3>Who Knows Their Stuff?</h3>
 				<h5>These 10 people are the cream of the crop!</h5>
 				<div class="table-wrap">
