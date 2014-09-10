@@ -299,6 +299,25 @@ table{
 	}
 }
 
+$dashboard-bg-color: black;
+
+.dashboard {
+  background-color: $dashboard-bg-color;
+
+  h3,h5 {
+    color: white;
+    text-align: center;
+  }
+
+  .table-wrap {
+    background-color: white;
+  }
+
+  .promo {
+    margin: auto;
+  }
+}
+
 .leaderboard {
 	background: url(/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat;
 

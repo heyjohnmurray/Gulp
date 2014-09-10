@@ -13,7 +13,7 @@
 
   <script src="/assets/js/socket.io-1.1.0.js"></script>
   <script src="/assets/js/knockout-3.2.0.js"></script>
-  <script src="/assets/js/dashboard.js"></script>
+  <script src="/assets/js/dist/leaderboard.js"></script>
 
   <script>
 
@@ -25,15 +25,14 @@
   </script>
 
 </head>
-<body>
+<body class="dashboard">
   <!-- LEADERBOARD -->
-  <div class="dashboard">
-    <div class="row">
-
-      <div class="small-16 column">
+  <div>
+      <div data-bind="visible: dashboardVisible">
         <h3>Who Knows Their Stuff?</h3>
         <h5>These 10 people are the cream of the crop!</h5>
-        <div class="table-wrap" data-bind="visible: dashboardVisible">
+
+        <div class="table-wrap" >
           <table id="leaderboard" border="0" cellspacing="0" cellpadding="0" align="center">
             <thead>
               <tr>
@@ -52,13 +51,28 @@
               </tr>
             </tbody>
           </table>
-          <div data-bind="visible: promoVisible">
-            PROMO!
-          </div>
         </div>
       </div>
+
+      <div class="promo" data-bind="visible: promoVisible">
+        <img src="/assets/images/promo.jpeg">
+      </div>
+
     </div>
   </div><!-- /page -->
+
+  <!--<button data-bind="click: toggle">Toggle</button>-->
+  <script type="text/javascript">
+    var model = new RV.DashboardViewModel();
+
+    $(function() {
+      ko.applyBindings(model);
+      RV.SocketIO.start(model);
+      RV.DashboardToggle.start(model);
+      //model.dashboardVisible(false);
+      //model.promoVisible(true);
+    });
+  </script>
 
 </body>
 </html>
