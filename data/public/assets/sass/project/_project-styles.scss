@@ -346,6 +346,44 @@ $dashboard-bg-color: black;
   }
 }
 
+@mixin toggle-animation {
+  transition: all 2s ease;
+}
+
+.anim-wrapper {
+
+  position: relative;
+
+  .dashboard, .promo {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+  }
+
+  &.dash {
+    .dashboard {
+      opacity: 1;
+      @include toggle-animation;
+    }
+
+    .promo {
+      opacity: 0;
+      @include toggle-animation;
+    }
+  }
+
+  .dashboard {
+    opacity: 0;
+    @include toggle-animation;
+  }
+
+  .promo {
+    opacity: 1;
+    @include toggle-animation;
+  }
+}
+
 .leaderboard {
 	background: url(/assets/images/backgrounds/bkg-leaderboard.jpg) no-repeat;
 

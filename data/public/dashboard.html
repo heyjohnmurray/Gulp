@@ -26,9 +26,10 @@
 
 </head>
 <body class="dashboard">
+  <button data-bind="click: toggle">Toggle</button>
   <!-- LEADERBOARD -->
-  <div>
-      <div data-bind="visible: dashboardVisible">
+  <div class='anim-wrapper' data-bind="css: { dash: dashboardVisible }" >
+      <div class="dashboard">
         <h3>Who Knows Their Stuff?</h3>
         <h5>These <span data-bind="text: winners().length">10</span> people are the cream of the crop!</h5>
 
@@ -54,14 +55,13 @@
         </div>
       </div>
 
-      <div class="promo" data-bind="visible: promoVisible">
+      <div class="promo">
         <img src="/assets/images/promo.jpeg">
       </div>
 
     </div>
   </div><!-- /page -->
 
-  <!--<button data-bind="click: toggle">Toggle</button>-->
   <script type="text/javascript">
     var model = new RV.DashboardViewModel();
 
