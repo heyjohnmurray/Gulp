@@ -17,8 +17,20 @@ $dashboard-bg-color: black;
     background-color: white;
   }
 
+  thead th {
+    height: 60px;
+    vertical-align: bottom;
+    text-align: center;
+    padding-bottom: 7px;
+  }
+
   tr {
     margin: 10px;
+  }
+
+  td {
+    vertical-align: middle;
+    height: 70px;
   }
 
   table {
@@ -26,7 +38,7 @@ $dashboard-bg-color: black;
   }
 
   .score {
-    font-size: 64px;
+    font-size: 40px;
   }
 
   .slash, .denom {
