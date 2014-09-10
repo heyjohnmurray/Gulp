@@ -93,7 +93,7 @@ p {
 	font-weight: 300;
 	margin: 10px 0;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
+	-moz-osx-font-smoothing: grayscale;
 }
 
 p {
@@ -111,7 +111,7 @@ p {
 	color: yellow;
 	font-size: 18px;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
+	-moz-osx-font-smoothing: grayscale;
 	@extend .proxima-bold;
 }
 
@@ -207,7 +207,7 @@ table{
 }
 
 .intro-slide {
-	
+
 	background: url(/assets/images/backgrounds/bkg-intro-slide.jpg) no-repeat;
 
 	.title {
@@ -269,7 +269,7 @@ table{
 	.is-faded {
 		opacity: .5;
 	}
-	
+
 	.question-tracker {
 		position: fixed;
 		right: 0;
@@ -288,7 +288,12 @@ table{
 
 .reset-link {
   position: absolute;
-  top: 694px;
+  top: 744px;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .final-score {
