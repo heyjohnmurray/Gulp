@@ -2,6 +2,11 @@ body {
 	overflow: hidden;
 }
 
+body.ipad-size {
+  width: 1024px;
+  height: 768px;
+}
+
 .invalid-inputs {
 	background-color: #ff0;
 	display: block;
