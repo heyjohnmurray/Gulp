@@ -288,7 +288,8 @@ table{
 
 .reset-link {
   position: absolute;
-  top: 744px;
+  bottom: 0px;
+  z-index: 99999;
 
   img {
     width: 16px;
