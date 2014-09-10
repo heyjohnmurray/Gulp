@@ -33,7 +33,7 @@
         <h5>These <span data-bind="text: winners().length">10</span> people are the cream of the crop!</h5>
 
         <div class="table-wrap" >
-          <table id="leaderboard" border="0" cellspacing="0" cellpadding="0" align="center">
+          <table id="leaderboard">
             <thead>
               <tr>
                 <th>&nbsp;</th>
@@ -46,7 +46,7 @@
               <tr>
                 <td></td>
                 <td data-bind="text: name"></td>
-                <td data-bind="text: score"></td>
+                <td><span class='score' data-bind="text: numCorrect"></span><span class='slash'>/</span><span class="denom">12</span></td>
                 <td data-bind="text: completionTime"></td>
               </tr>
             </tbody>
@@ -68,7 +68,7 @@
     $(function() {
       ko.applyBindings(model);
       RV.SocketIO.start(model);
-      RV.DashboardToggle.start(model);
+      //RV.DashboardToggle.start(model);
       //model.dashboardVisible(false);
       //model.promoVisible(true);
     });

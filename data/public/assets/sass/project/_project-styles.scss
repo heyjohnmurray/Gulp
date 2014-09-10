@@ -325,6 +325,22 @@ $dashboard-bg-color: black;
     background-color: white;
   }
 
+  tr {
+    margin: 10px;
+  }
+
+  table {
+    font-size: 40px;
+  }
+
+  .score {
+    font-size: 64px;
+  }
+
+  .slash, .denom {
+    font-size: 12px;
+  }
+
   .promo {
     margin: auto;
   }
