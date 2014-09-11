@@ -32,11 +32,18 @@ $stmt = $db->prepare("INSERT INTO Users(FirstName, LastName, Email) VALUES (:Fir
 
 foreach($people as $person) {
 	if (!in_array($person['Ticket'], $skipTicketTypes) &&
-		$person['Ticket First Name'] && $person['Ticket Last Name']) {
-		echo $person['Ticket'] . ' ' . $person['Ticket First Name'] . " " . $person['Ticket Last Name'] . $person['Ticket Email'] . "\n";
+		$person['Ticket First Name'] &&
+		$person['Ticket Last Name']) {
+
+		echo $person['Ticket'] . ' ' .
+			$person['Ticket First Name'] . " " .
+			$person['Ticket Last Name'] .
+			$person['Ticket Email'] .
+			"\n";
+
 		$stmt->execute(array(
 			":FirstName" => $person['Ticket First Name'],
-			":LastName" => $person['Ticket Last Name'],
-			":Email" => $person['Ticket Email']));
+			":LastName"  => $person['Ticket Last Name'],
+			":Email"     => $person['Ticket Email']));
 	}
 }
