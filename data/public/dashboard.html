@@ -46,7 +46,10 @@
             <tbody data-bind="foreach: winners">
               <tr>
                 <td></td>
-                <td data-bind="text: name"></td>
+                <td>
+                  <img src="/assets/images/first-place.png" data-bind="visible: $index() == 0">
+                  <span data-bind="text: name"></span>
+                </td>
                 <td><span class='score' data-bind="text: numCorrect"></span><span class='slash'>/</span><span class="denom">12</span></td>
                 <td data-bind="text: completionTime"></td>
               </tr>
