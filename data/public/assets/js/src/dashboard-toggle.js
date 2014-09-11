@@ -1,8 +1,8 @@
 (function(RV) {
   "use strict";
 
-  var DASHBOARD_DURATION = 2000;
-  var PROMO_DURATION = 2000;
+  var DASHBOARD_DURATION = 10000;
+  var PROMO_DURATION = 5000;
 
   function startToggling(model) {
     showDashboard(model);
