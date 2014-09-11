@@ -28,6 +28,10 @@ $dashboard-bg-color: black;
     margin: 10px;
   }
 
+  tbody tr:first-child {
+    background-color: green;
+  }
+
   td {
     vertical-align: middle;
     height: 70px;
