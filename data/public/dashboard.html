@@ -26,7 +26,7 @@
 
 </head>
 <body class="dashboard">
-  <button data-bind="click: toggle">Toggle</button>
+<!--<button data-bind="click: toggle">Toggle</button>-->
   <!-- LEADERBOARD -->
   <div class='anim-wrapper' data-bind="css: { dash: dashboardVisible }" >
       <div class="dashboard">
@@ -68,7 +68,7 @@
     $(function() {
       ko.applyBindings(model);
       RV.SocketIO.start(model);
-      //RV.DashboardToggle.start(model);
+      RV.DashboardToggle.start(model);
       //model.dashboardVisible(false);
       //model.promoVisible(true);
     });
