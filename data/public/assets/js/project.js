@@ -63,7 +63,13 @@ $(function() {
 
   //full screen auto transitioning
   $('.js-start-auto-slides').on('tap', function(e){
-    setSlideCookie($(e.target).attr('href'));
+    e.preventDefault();
+
+    var nextTest = $(this).data('next-test');
+    $(':mobile-pagecontainer').pagecontainer('change', nextTest, { transition: 'slide' });
+
+
+    setSlideCookie(nextTest);
     var nextSlide = $(e.target).data('next-slide');
     var secondSlide = $(e.target).data('second-slide');
 
@@ -83,7 +89,12 @@ $(function() {
 
   //same as above but add more time to show videos
   $('.js-start-video-slide').on('tap', function(e){
-    setSlideCookie($(e.target).attr('href'));
+    e.preventDefault();
+
+    var nextTest = $(this).data('next-test');
+    $(':mobile-pagecontainer').pagecontainer('change', nextTest, { transition: 'slide' });
+
+    setSlideCookie(nextTest);
     var nextSlide = $(e.target).data('next-slide');
     var secondSlide = $(e.target).data('second-slide');
     var vidID = $(e.target).data('video-name');
@@ -117,6 +128,8 @@ $(function() {
 
   // vote choice logic for desktop slides
   $('.js-vote-choice').on('tap', function(e){
+    e.preventDefault();
+
     var choice = $(e.target).data('choice');
     var nextSlide = $(e.target).data('next-slide');
 
@@ -127,7 +140,6 @@ $(function() {
       $(e.target).addClass('answer-confirm');
       $(e.target).parent().parent().siblings().addClass('is-faded');
     }
-    e.preventDefault();
 
     if(nextSlide !== "#slide49"){
       $(':mobile-pagecontainer').pagecontainer('change', nextSlide, {
