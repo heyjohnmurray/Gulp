@@ -18,5 +18,3 @@
 ?>
 <script src="/global_js/jQuery/jquery-1.8.3.min.js"></script>
 <script src="/global_js/modernizr.js"></script>
-<script src="/assets/js/plugins/simplemodal.js"></script>
-<script src="/assets/js/plugins/cycle.min.js"></script>

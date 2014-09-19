@@ -3,21 +3,9 @@
 
 // Base Defaults
 body {
-	@include OpenSans;
+	// styles
 }
 
-.right {
-	float: right;
-}
-
-.left {
-	float: left;
-}
-
-hr {
-	height: 2px;
-	border: none;
-}
 
 // Links 
 a {
@@ -40,9 +28,7 @@ h1 {
 
 // Paragraphs
 p {
-	font-size: 18px;
-	font-weight: 500;
-	line-height: 1.5;
+	// styles
 }
 
 
@@ -54,12 +40,4 @@ ul {
 // Forms
 input[type="text"] {
 	// styles
-}
-
-small {
-	font-size: 10px;
-}
-sup {
-	vertical-align: super;
-	font-size: 80%;
 }

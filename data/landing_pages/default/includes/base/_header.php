@@ -55,7 +55,7 @@
 		 * @example: <input type="text" name="FirstName" class="FirstName">
 		 */
         <?
-        	if(isset($_SESSION['bad_fields'])) {
+        	if($_SESSION['bad_fields']) {
         	
 				foreach($_SESSION['bad_fields'] as $fieldName) {
 		?>

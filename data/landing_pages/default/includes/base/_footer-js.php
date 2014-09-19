@@ -6,25 +6,5 @@
 	 * and add your files there. this file is intended for default files, not experiences files.
 	 */
 ?>
-<script>
-	$(function() {
-		$('.js-providers').cycle('fade');
-
-		$('.check-button').click(function(e){
-            var checkButton = $(this),
-            checkBox = checkButton.prev('input');
-
-            checkButton.toggleClass('checked');
-            if (checkButton.is('.checked')) {
-                    checkBox.attr('checked', 'checked');
-                } else {
-                    checkBox.removeAttr('checked');
-            }
-            e.preventDefault();
-        });
-	//close jquery	
-	});
-</script>
-<script src="/js/ga_events.js"></script>
-<script src="/assets/js/project.min.js"></script>
+<script src="/assets/js/app.min.js"></script>
 <?= RV_LandingPage::try_find_web_tag('js/experience.js','<script src="/##PATH##"></script>'); ?>

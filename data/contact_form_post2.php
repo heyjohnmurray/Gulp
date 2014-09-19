@@ -3,11 +3,18 @@
 	get_id_action();
 	
 	// strip tags from all form vars submitted
-	foreach( $_POST as $field => $value ) {
-		$_POST[$field] = strip_tags($_POST[$field]);
+	foreach( $_REQUEST as $field => $value ) {
+        if (is_scalar($_REQUEST[$field])) {
+    		$_REQUEST[$field] = strip_tags($_REQUEST[$field]);
+        }
 	}
 
-	$_SESSION['Contact'] = $_POST;
+	$_SESSION['ContactArray'] = $_POST;
+    $ref = r3d(trim($_POST['ref']));
+
+    if (strpos($ref, "\0") !== -1) {
+        $ref = '/';
+    }
 
 	//  ////////////////////////
 	//  create a new lead
@@ -24,7 +31,7 @@
         $FormValidator->attach_required_field('Phone1', new RV_Validator_Phone());
         $FormValidator->attach_required_field('ZipCode', new RV_Validator_Zip());
 //        $FormValidator->attach_required_field('City', new RV_Validator_Address());
-        $FormValidator->attach_required_field('Email', new RV_Validator_Email());
+//        $FormValidator->attach_required_field('Email', new RV_Validator_Email());
         
         try {
 
@@ -58,7 +65,7 @@
     	
 	    	$_SESSION['form_rmsg'] = "Please fix the highlighted fields";
 
-	    	header('Location: ' . r3d(trim($_POST['ref'])));
+	    	header('Location: ' . $ref);
 			exit;
     	}
 		
@@ -92,18 +99,17 @@
 
         $leadArray['DialerType']              = 'dialer';
         $leadArray['VisitID']      			  = $_SESSION['Tracker']->visitId;
-
-        /** 
+        // fetch PageID, if applicable
+		$pageId = RV_WebTools::get_pageid_form_value($_REQUEST['PageID']);
+		if($pageId !== false) {
+			$leadArray['PageID']      		  = $pageId;
+		}
+		
+		/** 
          * TCPA Consent Disclosure Fields 
          */  
         $leadArray['ConsentDisclosureID'] = trim($_POST['ConsentDisclosureID']);  
         $leadArray['DisclosureHash']  = trim($_POST['DisclosureHash']);
-        
-        // fetch PageID, if applicable
-		$pageId = RV_WebTools::get_pageid_form_value($_POST['PageID']);
-		if($pageId !== false) {
-			$leadArray['PageID']      		  = $pageId;
-		}
 
 
         if(!$leadObj->process_lead($leadArray)) { // failure :(
@@ -123,26 +129,23 @@
 
         } else {
         	
-            //See if we are after hours and send email if we are
-            $AfterHours = New HI_Helper_Email_AfterHours($leadObj);
-            
             // success
             $leadId = $leadObj->leadId;
-            $_SESSION['Contact']['LeadID'] = $leadId;
-            $_SESSION['Contact']['LeadObj'] = $leadObj;
+            $_SESSION['ContactArray']['LeadID'] = $leadId;
+            $_SESSION['ContactArray']['LeadObj'] = $leadObj;
             if ($_POST['thankyoupage']) {
                 header('Location: ' . $_POST['thankyoupage']);
             	exit;
             }
 
-    		header('Location: contact_thankyou.html');
+    		header('Location: contact-thankyou.html');
     		exit;
     		
         }
 
 	}
 	
-    header('Location: ' . r3d(trim($_POST['ref'])));
+    header('Location: ' . $ref);
 	exit;
 	
 ?>

@@ -1,9 +1,6 @@
 // Project Settings & Variables (Do NOT Remove)
 @import 'project/_project-variables';
 
-//Grid
-@import 'project/globals/_grid';
-
 // Base (Do NOT Remove)
 @import 'project/globals/_mixins';
 @import 'project/_project-fonts';
@@ -13,6 +10,3 @@
 
 // Main Project Specific CSS
 @import 'project/_project-styles'; // Located in the Project Folder
-
-// Helpers
-@import 'project/globals/_helpers';

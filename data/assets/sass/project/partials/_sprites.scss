@@ -1,0 +1,177 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+$app-x: 0px;
+$app-y: 206px;
+$app-offset-x: 0px;
+$app-offset-y: -206px;
+$app-width: 418px;
+$app-height: 94px;
+$app-total-width: 792px;
+$app-total-height: 2181px;
+$app-image: 'assets/images/sprite.png';
+$app: 0px 206px 0px -206px 418px 94px 792px 2181px 'assets/images/sprite.png';
+$car-x: 0px;
+$car-y: 394px;
+$car-offset-x: 0px;
+$car-offset-y: -394px;
+$car-width: 418px;
+$car-height: 94px;
+$car-total-width: 792px;
+$car-total-height: 2181px;
+$car-image: 'assets/images/sprite.png';
+$car: 0px 394px 0px -394px 418px 94px 792px 2181px 'assets/images/sprite.png';
+$chart-x: 0px;
+$chart-y: 300px;
+$chart-offset-x: 0px;
+$chart-offset-y: -300px;
+$chart-width: 418px;
+$chart-height: 94px;
+$chart-total-width: 792px;
+$chart-total-height: 2181px;
+$chart-image: 'assets/images/sprite.png';
+$chart: 0px 300px 0px -300px 418px 94px 792px 2181px 'assets/images/sprite.png';
+$customers-x: 0px;
+$customers-y: 709px;
+$customers-offset-x: 0px;
+$customers-offset-y: -709px;
+$customers-width: 200px;
+$customers-height: 155px;
+$customers-total-width: 792px;
+$customers-total-height: 2181px;
+$customers-image: 'assets/images/sprite.png';
+$customers: 0px 709px 0px -709px 200px 155px 792px 2181px 'assets/images/sprite.png';
+$dark-check-x: 0px;
+$dark-check-y: 14px;
+$dark-check-offset-x: 0px;
+$dark-check-offset-y: -14px;
+$dark-check-width: 19px;
+$dark-check-height: 15px;
+$dark-check-total-width: 792px;
+$dark-check-total-height: 2181px;
+$dark-check-image: 'assets/images/sprite.png';
+$dark-check: 0px 14px 0px -14px 19px 15px 792px 2181px 'assets/images/sprite.png';
+$gift-box-x: 0px;
+$gift-box-y: 113px;
+$gift-box-offset-x: 0px;
+$gift-box-offset-y: -113px;
+$gift-box-width: 88px;
+$gift-box-height: 93px;
+$gift-box-total-width: 792px;
+$gift-box-total-height: 2181px;
+$gift-box-image: 'assets/images/sprite.png';
+$gift-box: 0px 113px 0px -113px 88px 93px 792px 2181px 'assets/images/sprite.png';
+$hand-x: 0px;
+$hand-y: 1056px;
+$hand-offset-x: 0px;
+$hand-offset-y: -1056px;
+$hand-width: 696px;
+$hand-height: 513px;
+$hand-total-width: 792px;
+$hand-total-height: 2181px;
+$hand-image: 'assets/images/sprite.png';
+$hand: 0px 1056px 0px -1056px 696px 513px 792px 2181px 'assets/images/sprite.png';
+$logo-x: 0px;
+$logo-y: 29px;
+$logo-offset-x: 0px;
+$logo-offset-y: -29px;
+$logo-width: 349px;
+$logo-height: 84px;
+$logo-total-width: 792px;
+$logo-total-height: 2181px;
+$logo-image: 'assets/images/sprite.png';
+$logo: 0px 29px 0px -29px 349px 84px 792px 2181px 'assets/images/sprite.png';
+$map-x: 0px;
+$map-y: 1569px;
+$map-offset-x: 0px;
+$map-offset-y: -1569px;
+$map-width: 792px;
+$map-height: 612px;
+$map-total-width: 792px;
+$map-total-height: 2181px;
+$map-image: 'assets/images/sprite.png';
+$map: 0px 1569px 0px -1569px 792px 612px 792px 2181px 'assets/images/sprite.png';
+$money-x: 0px;
+$money-y: 582px;
+$money-offset-x: 0px;
+$money-offset-y: -582px;
+$money-width: 114px;
+$money-height: 127px;
+$money-total-width: 792px;
+$money-total-height: 2181px;
+$money-image: 'assets/images/sprite.png';
+$money: 0px 582px 0px -582px 114px 127px 792px 2181px 'assets/images/sprite.png';
+$repair-x: 0px;
+$repair-y: 488px;
+$repair-offset-x: 0px;
+$repair-offset-y: -488px;
+$repair-width: 418px;
+$repair-height: 94px;
+$repair-total-width: 792px;
+$repair-total-height: 2181px;
+$repair-image: 'assets/images/sprite.png';
+$repair: 0px 488px 0px -488px 418px 94px 792px 2181px 'assets/images/sprite.png';
+$ribbon-x: 0px;
+$ribbon-y: 864px;
+$ribbon-offset-x: 0px;
+$ribbon-offset-y: -864px;
+$ribbon-width: 131px;
+$ribbon-height: 192px;
+$ribbon-total-width: 792px;
+$ribbon-total-height: 2181px;
+$ribbon-image: 'assets/images/sprite.png';
+$ribbon: 0px 864px 0px -864px 131px 192px 792px 2181px 'assets/images/sprite.png';
+$white-check-x: 0px;
+$white-check-y: 0px;
+$white-check-offset-x: 0px;
+$white-check-offset-y: 0px;
+$white-check-width: 19px;
+$white-check-height: 14px;
+$white-check-total-width: 792px;
+$white-check-total-height: 2181px;
+$white-check-image: 'assets/images/sprite.png';
+$white-check: 0px 0px 0px 0px 19px 14px 792px 2181px 'assets/images/sprite.png';
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}

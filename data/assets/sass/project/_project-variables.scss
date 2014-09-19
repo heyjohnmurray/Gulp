@@ -1,13 +1,17 @@
 // Project Variables
-$grey: #dedede;
-$grey-darker: #909090;
-$purple-darkest: #2f0032;
-$purple-darker: #48004b;
-$purple: #46294c; // only used on home page elements
-$purple-interior: #5f184a; // only used on interior pages
-$red: #c04945;
-$orange: #ef7332;
-$yellow: #efd777;
-$blue: #37a6ca;
 
-$sprites: url(/assets/images/site-sprites.png) no-repeat;
+
+// Base Colors
+$light-grey: #999;
+$grey: #555;
+$dark-grey: #111;
+
+
+// Global Colors
+$primary: $light-grey;
+$secondary: $grey;
+$tertiary: $dark-grey;
+
+
+// Other Global Variables
+$variable: 'value';

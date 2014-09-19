@@ -1,9 +1,5 @@
 // Default Mix-ins
 
-//all dropshadows on this site should use this mixin.
-@mixin global-shadow($color: rgba(0,0,0,.25)) {
-	box-shadow: 0 2px 3px 1px $color;
-}
 
 // Clearfix - use @extend %clearfix;
 %clearfix {
@@ -217,13 +213,6 @@
 	}
 }
 
-@mixin OpenSans {
-	font-family: 'Open Sans', sans-serif; //Google Open Sans call
-}
-
-@mixin Raleway {
-	font-family: 'Raleway', sans-serif; //Google Raleway call
-}
 
 // REM Units with px fallback (assumes html is set to font-size: 62.5%)
 @mixin font-size($value: 1.6) {
@@ -238,7 +227,6 @@ $small-tablet: '(min-width: 600px)';
 $tablet: '(min-width: 768px)';
 $device: '(max-width: 959px)'; // All Devices
 $desktop: '(min-width: 960px)';
-$iphone-portrait: '(min-width: 320px)';
 $large-desktop: '(min-width: 1280px)';
 $retina: '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'; // Only Retina Screens
 
