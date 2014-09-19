@@ -1,0 +1,159 @@
+@import '../project-variables';
+
+
+
+/* Adding additional width to outline of chat container */
+.aio-application-container {
+	width: 454px !important;
+	border: 2px solid $purple-darkest !important;
+	border-radius: 5px 5px 0 0 !important;
+
+	&.aio-collapse-container {
+		border-radius: 5px 5px 0 0 !important;
+		width: 302px !important;
+	}
+}
+
+/* removing other icon links in toolbar and styling chat link */
+.aio-toolbar-list .aio-toolbar-item {
+	display:none;
+	margin: 0;
+
+	&:first-child {
+		display: block;
+		width: 100%;
+
+		& .aio-toolbar-link {
+			background: $purple-darkest url(/assets/images/chat/chat-replace-icon.gif) no-repeat center center;
+			border: none;
+		}
+	}
+}
+ 
+.aio-glyphicon-comment {
+	text-indent:-9999px;
+}
+
+/* adjusting chat header tab */
+.ng-scope .aio-application-component-header {
+	background-color: $purple-darkest;
+}
+.aio-application-component-title {
+	background: url(/assets/images/chat/logo-hoi-chat.png) no-repeat 0 3px $purple-darkest !important;
+	width: 368px !important;
+}
+
+/* style changes for alert/directions area above form and chat */
+.aio-alert-info {
+	background: $yellow !important;
+	color:#CCC;
+	border-color: $purple !important;
+	text-shadow: none;
+}
+
+/* pushing backgrounds to gray to match vz brand */
+.aio-application-component-body, .aio-chat-component-alert, .aio-chat-component-messages, .aio-chat-message-item {background-color:#EEE;background-image:none;}
+.aio-chat-component-form {
+	background-color:#DDD;
+}
+
+/*removing connecting please wait messaging */
+.aio-connect {
+	display:none;
+}
+
+/*adding loader graphic */
+.aio-application-container.showloading:before {
+	content:"";
+	display:block;
+	width:40px;
+	height:40px;
+	position:absolute;
+	top:195px;
+	right:200px;
+	background: url(/assets/images/chat/chat-loading.gif) no-repeat top left;;
+    z-index:999;
+}
+
+/* minimize button */
+.aio-btn-default {
+	background-color: #fff !important;
+	border-color: #fff !important;
+}
+.aio-btn-default:hover {
+	background-color: #ccc !important;
+	border-color: #fff !important;
+}
+.aio-glyphicon {
+	color: $purple;
+}
+	
+.aio-toolbar-list {
+	border: 2px solid $purple-darkest !important;
+}
+.aio-alert-text {
+	
+}
+
+/* Start Chat btn */
+input[type="submit"].aio-btn, 
+input[type="reset"].aio-btn, 
+input[type="button"].aio-btn {
+	background-color: $blue;
+	color: #fff;
+	font-weight: bold !important;
+	font-family: 'OpenSansBold' !important;
+	border: none;
+	text-transform: uppercase;
+	padding: 18px 10px;
+	-webkit-appearance: none;
+}
+.aio-application-component-toolbar {
+	background-color: $purple !important;
+}
+/* Reactive */
+@-webkit-keyframes chatBadge {
+	0% {left:-110px}
+	100% {left:10px}
+}
+@keyframes chatBadge {
+	0% {left:-110px}
+	100% {left:10px}
+}
+.chat-cta {
+	position: fixed;
+	top: 50%;
+	left: 10px;
+	width:100px;
+	height: 203px;
+	text-indent: -9999px;
+	background: url(/assets/images/chat/chat-reactive-cta.png);
+	margin-top: -120px;
+	z-index: 9999;
+	-webkit-animation: chatBadge 0.5s ease-out 1.5s both;
+	-moz-animation: chatBadge 0.5s ease-out 1.5s both;
+	animation: chatBadge 0.5s ease-out 1.5s both;
+
+	@media (max-width: 1186px) {
+		display: none;
+	}
+
+}
+
+/* Chat TCPA */
+
+.aio-form-statictext {
+	font-size: 9px;
+}
+
+@media only screen 
+and (max-device-width : 480px) {
+	.chat-cta {
+		display: none;
+	}
+}
+
+/* i know it's a horrible idea to add css styles to js hooks but you leave me no option. this site's semantic blood is on your hands */
+.js-aio-transcript-label, .js-aio-transcript-email, .js-aio-futureoffers{
+	display: none !important;
+}

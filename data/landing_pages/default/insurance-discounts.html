@@ -1,0 +1,67 @@
+<? include_once(RV_LandingPage::find('includes/header.php')); ?>
+
+<?
+/**
+ * Form flow control for people w/o javascript
+ * @author  Colin Mutter <cmutter@redventures.com>
+ */ 
+$hideStep1 = !empty($_SESSION['Contact']);
+$hideStep1Style = $hideStep1 ? 'style="display:none;"' : "";
+
+$hideStep2 = empty($_SESSION['Contact']);
+$hideStep2Style = $hideStep2 ? 'style="display:none;"' : "";
+?>
+
+<body>
+	<div id="header">	
+		<img src="/images/homeowners-insurance.png" alt="Home Insurance Quotes" width="401" height="79" class="logo" />
+		<div class="tollfree"><span class="h-phone"><?=$sitePhone?></span></div>
+		<div class="tagline">Get a quote by phone</div>
+	</div>
+	<!-- close header -->
+	<div id="wrapper">
+		<div class="border">
+			<ul id="tab-nav" class="grey-gradient">
+				<li><a href="step1.php" rel="stepOne" id="stepOneLink" class="tabAnchor <?=!$hideStep1 ? "activeTab" : ""?>">Step 1 <br /> <span>Get Started</span></a></li>
+				<li><a href="#" rel="stepTwo" id="stepTwoLink" class="tabAnchor <?=!$hideStep2 ? "activeTab" : ""?>">Step 2 <br /> <span>1-Minute Quote Request</span></a></li>
+				<li><a href="#" rel="stepThree" id="stepThreeLink" class="tabAnchor">Step 3<br /> <span>Compare Quotes From Top Carriers!</span></a></li>
+			</ul>
+			<br class="clear" />	
+			<div id="tab-wrapper">
+				<!-- step one -->
+				<? include_once( RV_LandingPage::find('includes/_stepOne.html') ); ?>
+				<!-- step two -->
+				<? include_once( RV_LandingPage::find('includes/_stepTwo.html') ); ?>				
+			</div>
+			<!-- close tab-wrapper -->			 
+			<? include_once( RV_LandingPage::find('includes/_logos_bottom.html') ); ?>
+		</div>
+		<!-- close border -->
+		<div class="mainContent">
+			<h1>You Could Qualify For Big Insurance Discounts Today</h1>
+			
+			<p>Many top home insurance providers offer big rewards to responsible policyholders. Check the list below to find out how you could become eligible to start saving on your home insurance policy today.</p>
+			
+			<h2>Ways to save</h2>
+			
+			<p>The easiest, most effective way to save on home insurance is to take a few smart precautions to avoid filing claims on your policy.</p>
+
+			<ul>			
+				<li>Homeowners who have installed smoke alarms can help reduce the chance of fire damage.</li>
+				<li>Homeowners who have installed a security system can help protect valuable possessions from burglars.</li>
+				<li>Policyholders who haven't filed a claim within the last 10 years are considered a lower risk and could enjoy savings.</li>
+				<li>Policyholders who are 55 or older and retired may also be considered a lower risk for filing claims and could be eligible for discounts on the home that is their primary residence.</li>
+				<li>Nonsmokers could save if no one in the insured home uses cigarettes.</li>
+				<li>Some policyholders could start saving by bundling their home and auto policies with the same provider.</li>
+			</ul>
+
+			<p>Licensed agents are best qualified to help you discover the best discounts for you. Discuss your budget and qualifications with a friendly expert to find out if you're eligible to start saving today.</p>
+			
+		</div>
+		<? include_once( RV_LandingPage::find('includes/_footer_content.html') ); ?>
+	</div>
+	<!-- close wrapper-->
+	<? include_once(RV_LandingPage::find('includes/footer.php')); ?>
+	<? include_once(RV_LandingPage::find('includes/_index_js.html')); ?>
+</body>
+</html>

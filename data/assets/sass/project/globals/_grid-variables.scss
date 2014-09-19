@@ -1,0 +1,80 @@
+// RV Grid Settings
+
+
+$grid-box-name: 'box'; // Sets the Class Name for the Grid Columns. Default is 'box'.
+$grid-offset-name: 'offset'; // Sets the Class Name for the Grid Column Offset. Default is 'offset'.
+$grid-boxes: 16; // Sets the Max Number of Grid Columns per Row
+$grid-gutter-width: 10px; // Sets the Gutter Width on Each Side of Each Column
+$grid-normal: 960px; // Sets Container Width
+$grid-wide: 1200px; // Sets Wide Screen Container Width
+$grid-row-with-spacing: 40px; // Extra Spacing Between Rows
+$custom-row-spacing: 10px;
+
+// Set IE Support
+$ie8-support: false;
+
+
+// Media Query Sizes
+$phone: 599px;
+$small-tablet: 600px;
+$tablet: 768px;
+$device: 959px;
+$desktop: 960px;
+$large-desktop: 1280px;
+
+
+
+// Media Queries to Target Device Only
+$small-tablet-only: '(min-width: 600px) and (max-width: 767px)';
+$tablet-only: '(min-width: 768px) and (max-width: 959px)';
+$desktop-only: '(min-width: 960px) and (max-width: 1279px)';
+
+
+// Media Query Mixin
+@mixin media($screen) {
+	@if $screen == phone {
+		@media (max-width: $phone) {
+			@content;
+		}
+	}
+	@else if $screen == small-tablet {
+		@media (min-width: $small-tablet) {
+			@content;
+		}
+	}
+	@else if $screen == tablet {
+		@media (min-width: $tablet) {
+			@content;
+		}
+	}
+	@else if $screen == only-tablet {
+		@media (min-width: $tablet) and (max-width: $device) {
+			@content;
+		}
+	}
+	@else if $screen == device {
+		@media (max-width: $device) {
+			@content;
+		}
+	}
+	@else if $screen == desktop {
+		@media (min-width: $desktop) {
+			@content;
+		}
+		@if $ie8-support == true {
+			.ie8 & {
+				@content;
+			}
+		}
+	}
+	@else if $screen == large-desktop {
+		@media (min-width: $large-desktop) {
+			@content;
+		}
+	}
+	@else if $screen == retina {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+			@content;
+		}
+	}
+}

@@ -1,0 +1,59 @@
+<? include_once(RV_LandingPage::find('includes/header.php')); ?>
+
+<?
+/**
+ * Form flow control for people w/o javascript
+ * @author  Colin Mutter <cmutter@redventures.com>
+ */ 
+$hideStep1 = !empty($_SESSION['Contact']);
+$hideStep1Style = $hideStep1 ? 'style="display:none;"' : "";
+
+$hideStep2 = empty($_SESSION['Contact']);
+$hideStep2Style = $hideStep2 ? 'style="display:none;"' : "";
+?>
+
+<body>
+	<div id="header">	
+		<img src="/images/homeowners-insurance.png" alt="Home Insurance Quotes" width="401" height="79" class="logo" />
+		<div class="tollfree"><span class="h-phone"><?=$sitePhone?></span></div>
+		<div class="tagline">Get a quote by phone</div>
+	</div>
+	<!-- close header -->
+	<div id="wrapper">
+		<div class="border">
+			<ul id="tab-nav" class="grey-gradient">
+				<li><a href="step1.php" rel="stepOne" id="stepOneLink" class="tabAnchor <?=!$hideStep1 ? "activeTab" : ""?>">Step 1 <br /> <span>Get Started</span></a></li>
+				<li><a href="#" rel="stepTwo" id="stepTwoLink" class="tabAnchor <?=!$hideStep2 ? "activeTab" : ""?>">Step 2 <br /> <span>1-Minute Quote Request</span></a></li>
+				<li><a href="#" rel="stepThree" id="stepThreeLink" class="tabAnchor">Step 3<br /> <span>Compare Quotes From Top Carriers!</span></a></li>
+			</ul>
+			<br class="clear" />	
+			<div id="tab-wrapper">
+				<!-- step one -->
+				<? include_once( RV_LandingPage::find('includes/_stepOne.html') ); ?>
+				<!-- step two -->
+				<? include_once( RV_LandingPage::find('includes/_stepTwo.html') ); ?>				
+			</div>
+			<!-- close tab-wrapper -->			 
+			<? include_once( RV_LandingPage::find('includes/_logos_bottom.html') ); ?>
+		</div>
+		<!-- close border -->
+		<div class="mainContent">
+			
+			<h1>Find the Home Insurance Policy You've Been Searching For</h1>
+			
+			<p>Shopping for a home insurance quote doesn't have to be difficult. Gone are the days of wasting time speaking with several agents from various providers. With the help of HomeownersInsurance.com you can receive several quotes at once on insurance policies designed with your needs in mind.</p>
+			
+			<p>Receiving multiple quotes allows you to compare what several carriers have to offer, ensuring that you get the best policy available that's within your budget. What's more, the agent you deal with will be a valuable asset as well. Our agents are neutral parties, able to provide you with unbiased advice regarding each of the quotes you receive.</p>
+			
+			<p>Don't know what each form of coverage protects you from? Curious about how deductibles affect your premiums? Not sure if you should look into supplementary policies for your home? Ask your agent. No matter how many questions you have, your agent is there to help you understand what your options are when it comes to home insurance without being pushy.</p>
+			
+			<p>All of the carriers you are able to receive quotes from are ranked highly in terms of financial stability, and you're guaranteed to have a great shopping experience, so what's not to like? Request quotes for your home today!</p>
+			
+		</div>
+		<? include_once( RV_LandingPage::find('includes/_footer_content.html') ); ?>
+	</div>
+	<!-- close wrapper-->
+	<? include_once(RV_LandingPage::find('includes/footer.php')); ?>
+	<? include_once(RV_LandingPage::find('includes/_index_js.html')); ?>
+</body>
+</html>

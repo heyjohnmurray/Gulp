@@ -1,0 +1,391 @@
+//style placeholders :: didn't combine these into one statement b/c if a browser doesn't read it properly it invalidates all of them
+::-webkit-input-placeholder {
+   color: $purple;
+   font-weight: 500;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $purple;
+   font-weight: 500;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $purple;
+   font-weight: 500;  
+}
+
+:-ms-input-placeholder {  
+   color: $purple;
+   font-weight: 500;  
+}
+
+%input-styles {
+	@include OpenSans;
+	font-size: 20px;
+	font-weight: 500;
+	color: $purple-interior;
+	padding: 16px 20px;
+	width: 100%;
+	border: none;
+	@include box-sizing;
+	@include global-shadow;
+
+	@media #{$small-tablet} {
+		font-size: 14px;
+		padding: 10px;
+	}
+
+	@media #{$tablet} {
+		font-size: 16px;
+	}
+
+	@media #{$desktop} {
+		padding: 10px;
+		font-size: 14px;
+	}
+
+	@media #{$large-desktop} {
+		font-size: 18px;
+	}
+
+	.ie8 & {
+		padding: 10px;
+		font-size: 14px;
+		border: 1px solid $purple;
+	}
+}// form extend that i put here b/c it made more sense to leave it with form styles than with extends
+
+//global form styles
+.invalid-fields {
+	background: $red;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 10px;
+	@include radius;
+}
+
+.form-error {
+	background: $red;
+	color: #fff;
+}
+
+input {
+	@include radius;
+	@extend %input-styles;
+}
+
+select {
+	@extend %input-styles;
+	background: #fff url(/assets/images/select-arrow.png) no-repeat right center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+
+	.ie8 & {
+		background-position-x: 2000px; //hide image on IE
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}//select
+
+.checkbox {
+	float: left;
+	position: relative;
+	width: 100%;
+	margin: 2px 0;	
+
+	.check-button {
+		@extend %input-styles;
+		float: left;		
+		height: 55px;
+		line-height: 55px;
+		width: 100%;
+		letter-spacing: 1px;
+		padding: 0 0 0 40px;
+		@include global-shadow;
+		@include radius();
+		color: #fff;
+		background: lighten($purple, 10%) $sprites no-repeat -1128px -583px;
+		text-decoration: none;
+		
+		&:hover {
+			color: #fff;
+			background: $red $sprites no-repeat -1128px -583px;
+		}
+		
+		&.checked {
+			color: #fff;
+			background: $purple-darker $sprites no-repeat -1128px -409px;
+		}
+
+		.ie8 & {
+			padding: 0 10px 10px 40px;
+		}
+	}
+	
+	input[type='checkbox'],
+	input[type='radio'] {
+		position: absolute;
+		left: -22px;
+		visibility: hidden;
+	}
+}//checkbox
+
+.submit {
+	font-size: 20px;
+	color: #fff;
+	padding: 12px 0;
+	margin-top: 10px;
+	text-align: center;
+	background: $purple;
+
+	&:hover {
+		cursor: pointer;
+		background: darken($blue, 4%);
+	}
+
+	.ie8 & {
+		font-size: 20px;
+	}
+}//submit
+
+.zip-lookup {
+	margin-top: 5px;
+
+	@media #{$desktop} {
+		margin-top: 20px;
+	}
+
+	.ie8 & {
+		margin-top: 20px;
+	}
+}//zip-lookup
+
+.zip {
+	color: $purple;
+	font-weight: 700;
+	font-size: 40px;
+	@include OpenSans;
+	text-align: center;
+	padding: 7px;
+
+	.ie8 & {
+		font-size: 40px;
+	}
+}//zip
+
+form {
+
+	.row.custom-spacing {
+		margin-bottom: 5px;
+	}
+
+	h2 {
+		font-family: 'Vevey';
+		font-size: 34px;
+		color: $purple-interior;
+
+		@media #{$large-desktop} {
+			font-size: 50px;
+		}
+	}
+
+	p {
+		@include OpenSans;
+		font-size: 20px;
+		color: $purple-interior;
+		margin: 5px 0;
+	}
+
+}//form
+
+.form-width-override {
+	@media #{$small-tablet-only} {
+		width: 50%;
+	}
+
+	@media #{$tablet-only} {
+		width: 50%;
+	}
+
+	.ie & {
+		width: 50%;
+	}
+}//form-width override
+
+.serviceable-form {
+	.form-box {
+		@extend %content-box-styles;
+		@extend %clearfix;
+	}
+
+	.basic-info {
+		.form-width-override {
+			width: 100%;
+
+			@media #{$desktop} {
+				width: 33%;
+			}
+
+			.ie8 & {
+				width: 33%;
+			}
+		}
+	}//basic-info
+
+	.submit {
+		font-size: 30px;
+		background: $blue;
+		padding: 25px 0;
+		margin: 0;
+
+		@media #{$desktop} {
+			font-size: 20px;
+			margin-top: 8px;
+		}
+
+		@media #{$large-desktop} {
+			font-size: 30px;
+		}
+
+		.ie8 & {
+			font-size: 20px;
+			margin-top: 8px;
+			border: none;
+		}
+
+		&:hover {
+			background: $purple;
+		}
+	}//submit
+
+	.tooltip {
+		display: block;
+		text-align: center;
+		color: $purple-interior;
+		font-weight: 700;
+
+		@media #{$tablet} {
+			font-weight: 300;
+		}
+
+		@media #{$desktop} {
+			top: -10px;
+		}
+
+		@media #{$large-desktop} {
+			font-weight: 700;
+		}
+
+		.ie8 & {
+			top: -10px;
+		}
+
+		span {
+			font-weight: 300;
+		}
+	}//tooltip
+
+	.form-submit {//override box control on mobile
+		width: 100%;
+
+		@media #{$small-tablet} {
+			width: 50%;
+		}
+
+		.ie8 & {
+			width: 50%;
+		}
+	}
+}//serviceability form
+
+.security-icon {
+	position: relative;
+	width: 100%;
+
+	@media #{$small-tablet} {
+		width: 50%;
+	}
+
+	.ie8 & {
+		width: 50%;
+	}
+
+	img {
+		position: relative;
+		top: 0;
+		left: 0;
+		z-index: 10;
+
+		@media #{$desktop} {
+			position: absolute;
+		}
+
+		.ie8 & {
+			position: absolute;
+		}
+	}//img
+
+	div {
+		position: absolute;
+		top: 8px;
+		left: 30px;
+		width: 90%;
+		z-index: 1;
+		background: $purple;
+		color: #fff;
+		font-size: 20px;
+		line-height: 1.4;
+		@include radius(10px);
+		padding: 10px 20px 10px 90px;
+
+		@media #{$desktop} {
+			left: 58px;
+			width: 80%;
+			padding: 10px 20px 10px 50px;
+		}
+
+		@media #{$large-desktop} {
+			width: 70%;
+		}
+
+		.ie8 & {
+			left: 58px;
+			width: 80%;
+			padding: 10px 20px 10px 50px;
+		}
+	}//div
+}//security-icon
+
+
+/* Auto Complete Carrier Provider */
+
+.ui-autocomplete {
+	width: 500px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	z-index: 100;
+
+	.ui-menu-item {
+		text-indent: 10px;
+		padding: 5px 0;
+
+		&.ui-state-focus {
+			background-color: #efd777;
+		}
+	}
+}
+.ui-helper-hidden-accessible {
+	display: none;
+}
+
+/* TCPA */
+.tcpa {
+	color: #fff;
+	font-weight: normal;
+	font-size: 12px;
+}

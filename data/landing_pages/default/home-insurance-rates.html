@@ -1,0 +1,59 @@
+<? include_once(RV_LandingPage::find('includes/header.php')); ?>
+
+<?
+/**
+ * Form flow control for people w/o javascript
+ * @author  Colin Mutter <cmutter@redventures.com>
+ */ 
+$hideStep1 = !empty($_SESSION['Contact']);
+$hideStep1Style = $hideStep1 ? 'style="display:none;"' : "";
+
+$hideStep2 = empty($_SESSION['Contact']);
+$hideStep2Style = $hideStep2 ? 'style="display:none;"' : "";
+?>
+
+<body>
+	<div id="header">	
+		<img src="/images/homeowners-insurance.png" alt="Home Insurance Quotes" width="401" height="79" class="logo" />
+		<div class="tollfree"><span class="h-phone"><?=$sitePhone?></span></div>
+		<div class="tagline">Get a quote by phone</div>
+	</div>
+	<!-- close header -->
+	<div id="wrapper">
+		<div class="border">
+			<ul id="tab-nav" class="grey-gradient">
+				<li><a href="step1.php" rel="stepOne" id="stepOneLink" class="tabAnchor <?=!$hideStep1 ? "activeTab" : ""?>">Step 1 <br /> <span>Get Started</span></a></li>
+				<li><a href="#" rel="stepTwo" id="stepTwoLink" class="tabAnchor <?=!$hideStep2 ? "activeTab" : ""?>">Step 2 <br /> <span>1-Minute Quote Request</span></a></li>
+				<li><a href="#" rel="stepThree" id="stepThreeLink" class="tabAnchor">Step 3<br /> <span>Compare Quotes From Top Carriers!</span></a></li>
+			</ul>
+			<br class="clear" />	
+			<div id="tab-wrapper">
+				<!-- step one -->
+				<? include_once( RV_LandingPage::find('includes/_stepOne.html') ); ?>
+				<!-- step two -->
+				<? include_once( RV_LandingPage::find('includes/_stepTwo.html') ); ?>				
+			</div>
+			<!-- close tab-wrapper -->			 
+			<? include_once( RV_LandingPage::find('includes/_logos_bottom.html') ); ?>
+		</div>
+		<!-- close border -->
+		<div class="mainContent">
+			<h1>Home Insurance Rates</h1>
+			
+			<p>When shopping for homeowners insurance, one of the top things on your mind is probably price. Everybody wants a low rate on their home insurance. Obviously, one of the best ways to secure a low rate is to compare multiple quotes. While you're looking at these numbers, keep in mind that several factors play a part in determining your quotes. Each of these aspects of your home deems you a high- or low-risk customer. Clients who are less likely to file a claim are awarded with lower insurance rates.</p>
+			
+			<ul>
+				<li><strong>Structure:</strong> Not all homes have the same structural integrity. If you have a well-built home, such as a brick house, you might be able to achieve lower rates.</li>
+				<li><strong>Upkeep:</strong> Perform regular maintenance and your home is less likely to experience damage.</li>
+				<li><strong>Safety installations:</strong> Theft is a covered peril in a standard policy, so you can help lower your rates by installing safety features, such as deadbolts or a home security system.</li>
+				<li><strong>Location:</strong> Some parts of the United States are more susceptible to natural disasters than others. Your agent will ask for your address to help determine if you live in a high-risk area. This information will also help determine average repair costs which will be used to calculate your needed dwelling coverage.</li>
+			</ul>
+			
+		</div>
+		<? include_once( RV_LandingPage::find('includes/_footer_content.html') ); ?>
+	</div>
+	<!-- close wrapper-->
+	<? include_once(RV_LandingPage::find('includes/footer.php')); ?>
+	<? include_once(RV_LandingPage::find('includes/_index_js.html')); ?>
+</body>
+</html>

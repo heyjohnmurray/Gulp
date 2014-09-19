@@ -1,0 +1,54 @@
+.call-now {
+	background: $yellow;
+	color: $purple-interior;
+	text-align: center;
+	margin: 30px 10px;
+	padding: 22px 10px;
+	@include radius;
+	@include global-shadow;
+
+	@media #{$desktop} {
+		padding: 22px 0;
+	}
+
+	.ie8 & {
+		padding: 22px 0;
+	}
+
+	span {
+		font-weight: 700;
+
+		&.phone-number {
+			@media #{$iphone-portrait} {
+				display: inline-block;
+			}
+		}
+	}
+
+	p {
+		@include OpenSans;
+		font-size: 22px;
+
+		@media #{$desktop} {
+			font-size: 32px;
+		}
+
+		@media #{$large-desktop} {
+			font-size: 40px;
+		}
+
+		.ie8 & {
+			font-size: 32px;
+		}
+	}
+}//call now
+
+.cta-banner {
+	background: #2f0032;
+	color: #fff;
+	padding: 20px 0;
+
+	h2 {
+		font-size: 24px;
+	}
+}//cta banner

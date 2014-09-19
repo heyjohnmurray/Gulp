@@ -1,0 +1,286 @@
+.hero {
+	h1 {
+		font-family: 'vevey';
+		color: #fff;
+	}
+
+	h2 {
+		font-family: 'lincoln';
+		color: #fff;
+	}
+}
+
+.hero-landing {
+	background: $purple;
+
+	@media #{$tablet} {
+		background: url(/assets/images/heroes/hero-landing.jpg);
+		background-size: cover;
+	}
+
+	@media #{$desktop} {
+		min-height: 977px;
+		padding-bottom: 50px;
+	}
+
+	.ie8 & {
+		background: url(/assets/images/heroes/hero-landing.jpg) top center no-repeat;
+		min-height: 977px;
+		padding-bottom: 50px;
+	}
+
+	h1 {
+		font-size: 50px;
+		text-align: center;
+		padding: 20px 0 0 0;
+
+
+		@media #{$desktop} {
+			font-size: 170px;
+			text-shadow: 0 8px 0 #551350;
+			padding: 25px 0 0 0;
+		}
+
+		@media #{$large-desktop} {
+			font-size: 220px;
+			padding: 10px 0 0 0;
+		}
+
+		.ie8 & {
+			font-size: 170px;
+			text-shadow: 0 8px 0 #551350;
+			padding: 25px 0 0 0;
+		}
+	}
+
+	hr {
+		display: none;
+
+		@media #{$desktop} {
+			display: block;
+			background: $purple;
+		}
+	}
+
+	h2 {
+		font-size: 40px;
+		text-align: center;
+
+		@media #{$desktop} {
+			font-size: 80px;
+		}
+
+		.ie8 & {
+			font-size: 80px;
+		}
+	}
+
+	h6 {
+		font-family: 'vevey';
+		font-size: 50px;
+		text-align: center;
+		color: $purple;
+	}
+
+	p {//targets the paragraph of text in the left hexagon
+		color: #fff;
+		font-size: 17px;
+		font-weight: 300;
+		line-height: 1.8;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	
+	//override grid margin in home page hero
+	.custom-spacing {
+		 .box-full {
+		 	margin-bottom: 0;
+
+		 	@media #{$small-tablet} {
+		 		margin-bottom: 20px;
+		 	}
+
+		 	.ie8 & {
+		 		margin-bottom: 20px;
+		 	}
+		 }
+	}
+	
+	//specific hexagon styles for the home hero
+	.hexagon-large {
+		@media #{$desktop} {
+			//this lets me fix position issue caused by centering the row so the hexes are in the middle of the page
+			position: relative;
+			top: 20px;
+		}
+
+		.ie8 & {
+			position: relative;
+			top: 20px;
+		}
+	}
+
+	.purple {
+
+		.positioned-content {
+			display: none;
+
+			@media #{$small-tablet} {
+				display: block;
+			}
+
+			@media #{$desktop} {
+				position: absolute;
+				top: 0;
+				padding: 160px 40px;
+			}
+
+			.ie8  & {
+				display: block;
+				position: absolute;
+				top: 0;
+				padding: 160px 40px;
+			}
+		}
+	}//purple
+
+	.yellow {
+		.positioned-content {
+			background: $yellow;
+			padding: 10px;
+			margin: 10px 0;
+
+			@media #{$desktop} {
+				position: absolute;
+				top: 0;
+				background: none;
+				margin: 0;
+				padding: 111px 52px;
+			}
+
+			.ie8 & {
+				position: absolute;
+				top: 0;
+				background: none;
+				margin: 0;
+				padding: 111px 52px;
+			}
+		}
+	}//yellow
+}//hero-landing
+
+//basic hexagon styles in case they're ever used on other pages
+.hexagon-large {
+
+	@media #{$desktop} {
+		background: $sprites;
+		width: 381px;
+		height: 410px;
+	}
+
+	.ie8 & {
+		background: $sprites;
+		width: 381px;
+		height: 410px;
+	}
+
+	&.purple {
+		@media #{$desktop} {
+			background-position: 0 0;
+		}
+
+		.ie8 & {
+			background-position: 0 0;
+		}
+	}
+
+	&.yellow {
+		@media #{$desktop} {
+			background-position: -420px -554px;
+		}
+
+		.ie8 & {
+			background-position: -420px -554px;
+		}
+	}
+}//hexagon-large
+
+//contact thank you hero
+.hero-thank-you {
+
+	h1 {
+		color: $purple-interior;
+		font-size: 50px;
+		padding-top: 40px;
+
+		@media #{$small-tablet} {
+			color: #fff;
+			text-shadow: 1px 6px 0 #551350;
+		}
+
+		@media #{$desktop} {
+			font-size: 120px;			
+		}
+
+		.ie8 & {
+			color: #fff;
+			text-shadow: 1px 6px 0 #551350;
+			font-size: 120px;
+		}
+	}//h1
+}//hero-thank-you
+
+/* Competitor heroes */
+.competitor-hero {
+	.container {
+		padding: 0 10px 20px;
+		@media #{$tablet} {
+
+		}
+	}
+	.hero-landing {
+		min-height: 0;
+	}
+	h1 {
+		font-size: 50px;
+		text-shadow: 0 5px 0 #551350;
+		padding: 20px 0 0 0;
+
+		@media #{$desktop} {
+			font-size: 72px;
+		}
+
+		@media #{$large-desktop} {
+			font-size: 98px;
+		}
+
+		.ie8 & {
+			font-size: 98px;
+			text-shadow: 0 5px 0 #551350;
+			padding: 25px 0 0 0;
+		}
+	}
+
+	h2 {
+		font-size: 38px;
+	} 
+	.zip, 
+	.submit {
+		width: 100%;
+		display: inline-block;
+
+		@media #{$desktop} {
+			width: 48%;
+		}
+	}
+	.submit {
+		padding: 15px 0 10px;
+		font-size: 33px;
+		color: #46294c;
+		background: #efd777;
+
+		@media #{$tablet} {
+			margin-left: 1%;
+		}
+	}
+} // .compitor-hero

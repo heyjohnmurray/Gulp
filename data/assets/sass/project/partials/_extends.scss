@@ -1,0 +1,38 @@
+%legal-styles {
+	font-size: 10px;
+	font-weight: 700;
+}
+
+%sidebar-content-box-styles {
+	margin: 70px 0 20px 0;
+	padding: 20px;
+	@include radius;
+
+	@media #{$small-tablet} {
+		background: none;
+	}
+
+	@media #{$desktop} {
+		background: none;
+		margin-bottom: 40px;
+	}
+
+	.ie8 & {
+		margin-bottom: 40px;
+	}
+}
+
+%content-box-styles {
+	background: rgba(240,240,240,.8);
+	padding: 40px;
+	margin-bottom: 40px;
+	@include radius;
+
+	.ie8 & {
+		background: #fff;
+	}
+
+	@media #{$iphone-portrait} {
+		padding: 20px;
+	}
+}

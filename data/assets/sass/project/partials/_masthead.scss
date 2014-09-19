@@ -1,0 +1,116 @@
+.masthead {
+	background: $purple-interior;
+	padding: 5px 0 0 0;
+
+	.page-index & {
+		background: $purple-darkest;
+	}
+	
+	@media #{$small-tablet} {
+		padding: 20px 0;
+	}
+
+	.ie8 & {
+		padding: 20px 0;
+	}
+
+	.box-half {
+		width: 100%;
+
+		@media #{$tablet} {
+			width: 50%;
+		}
+
+		.ie8 & {
+			width: 50%;
+		}
+	}
+
+	.logo {
+		display: block;
+		@include Raleway;
+		font-size: 20px;
+		font-weight: 700;
+		color: #fff;
+		min-height: 38px;
+		text-align: center;
+		text-decoration: none;
+		padding: 10px 0 0 0;
+
+		@media #{$small-tablet} {
+			font-size: 22px;
+		}
+
+		@media #{$tablet} {
+			background: $sprites;
+			background-position: 0 -1000px;
+			display: inline;
+			text-align: left;
+			padding: 10px 0 0 60px;
+		}
+
+		.ie8 & {
+			font-size: 22px;
+			background: $sprites;
+			background-position: 0 -1000px;
+			display: inline;
+			text-align: left;
+			padding: 10px 0 0 60px;
+		}
+
+		span {
+			font-weight: 200;
+		}
+	}//logo
+
+	.cta {
+		display: block;
+		text-align: center;
+		color: #fff;
+		font-size: 25px;
+		font-weight: 300;
+		@include OpenSans;
+
+		@media #{$small-tablet} {
+			font-size: 20px;
+		}
+
+		@media #{$tablet} {
+			float: right;
+		}
+
+		@media #{$desktop} {
+			font-size: 25px;
+		}
+
+		@media #{$large-desktop} {
+			font-size: 30px;
+		}
+
+		.ie8 & {
+			font-size: 25px;
+		}
+
+		span {
+			display: block;
+			margin-top: 5px;
+			font-size: 35px;
+			text-decoration: none;
+
+			@media #{$desktop} {
+				display: inline;
+				font-size: 25px;
+			}
+
+			.ie8 & {
+				display: inline;
+				font-size: 25px;
+			}
+		}
+	}//cta
+
+	span {
+		font-weight: 700;
+	}
+
+}//masthead

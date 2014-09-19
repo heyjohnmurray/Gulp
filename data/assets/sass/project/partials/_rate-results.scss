@@ -1,0 +1,124 @@
+//quote rate returned by home no touch
+.rate-results {
+	.banner {
+		background: $blue;
+		margin-bottom: 20px;
+		padding: 20px;
+		@include radius;
+
+		span {
+			font-weight: 700;
+		}
+	}
+
+	h2 {
+		color: $purple;
+		font-size: 30px;
+		font-weight: 700;
+		text-align: center;
+		margin: 20px 0;
+	}
+
+	p {
+		text-align: center;
+		color: #fff;
+		font-size: 25px;
+	}
+
+	.content-box {
+		margin-top: 40px;
+		@extend %content-box-styles;
+	}
+}//rate-results
+
+.results-topbar {
+	@extend %clearfix;
+	background: $purple-interior;
+	color: #fff;
+	padding: 20px;
+	font-size: 18px;
+}
+
+//global result box styles
+.result {
+	@extend %clearfix;
+	padding: 20px;
+	border-bottom: 1px solid lighten($grey-darker, 18%);
+
+	.h-phone {
+		display: block;
+		font-size: 30px;
+		font-weight: 700;
+		color: #000;
+		line-height: 1.2;
+	}
+
+	.small {
+		font-size: 11px;
+		font-weight: 700;
+		color: #000;
+		line-height: 1.5;
+
+		span {
+			color: $red;
+		}
+	}
+
+	.price {
+		display: block;
+		font-size: 30px;
+		font-weight: 700;
+		margin-top: 20px;
+	}
+
+	//featured result box styles
+	&.featured {
+		background: $yellow;
+
+		.most-popular {
+			color: $purple-interior;
+			font-weight: 700;
+		}
+
+		.price {
+			color: $purple-interior;
+		}
+
+		.h-phone {
+			color: $purple-interior;
+		}
+	}
+}//result
+
+p.legal {
+	color: $grey-darker;
+	margin-top: 10px;
+	@extend %legal-styles;
+}
+
+.disclaimer {
+	@extend %legal-styles;
+	display: block;
+	line-height: 1.2;
+}
+
+
+//quote lab results on thank you page
+.quote-lab-listings {
+	h1 {
+		text-shadow: none;
+	}
+
+	span {
+		font-size: 130%;
+		font-weight: 700;
+		color: $yellow;
+		text-shadow: 0 2px 0 #000;
+	}
+
+	#max-rows {
+		padding: 20px;
+		background: #fffff5;
+		@include radius;
+	}
+}//quote-lab-listings

@@ -1,0 +1,193 @@
+// RV Grid - Version 1.0
+// Written by: Sean Stopnik
+// Email: thelifemgmt$gmail.com
+
+
+// Box Grid
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	html .row {
+		height: 1%;
+	}
+	
+	@include media(device) {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+
+// Container
+.container {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	
+	.ie8 & {
+		width: $grid-normal;
+	}
+	
+	@include media(device) {
+		padding: 0 10px;
+	}
+	
+	@include media(tablet) {
+		width: 768px;
+	}
+	
+	@include media(desktop) {
+		width: $grid-normal;
+	}
+	
+	@include media(large-desktop) {
+		width: $grid-wide;
+	}
+}
+
+
+// Rows
+.row {
+	display: block;
+	width: 100%;
+	
+	.row {
+		margin: 0 -10px;
+		width: auto;
+	}
+	
+	&.with-spacing {
+		margin-bottom: $grid-row-with-spacing;
+	}
+	
+	&.with-less-spacing {
+		margin-bottom: $grid-row-with-spacing / 2;
+	}
+	
+	&.with-more-spacing {
+		margin-bottom: $grid-row-with-spacing * 2;
+	}
+
+	&.custom-spacing {
+		margin-bottom: $custom-row-spacing;
+	}
+	
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+	
+	&.centered {
+		text-align: center;
+		
+		div {
+			float: none;
+			display: inline-block;
+			text-align: left;
+			margin: 0 -2px;
+		}
+	}
+	
+	&.no-gutters {
+		padding: 0 $grid-gutter-width;
+		
+		[class*="#{$grid-box-name}-"] {
+			padding: 0;
+		}
+	}
+	
+	&.large-gutters {
+		
+		[class*="#{$grid-box-name}-"] {
+			padding: 0 $grid-gutter-width * 2;
+		}
+	}
+	
+	// Auto Clearing
+	&:before,
+	&:after {
+		display: block;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+		content: '';
+	}
+	
+	&:after {
+		clear: both;
+	}
+}
+
+
+// Box Widths - Grid Loop Start
+@for $i from 1 through $grid-boxes {
+	.#{$grid-box-name}-#{$i} {
+		width: 100% / $grid-boxes * $i;
+	}
+}
+// Grid Loop End
+
+
+.#{$grid-box-name}-full {
+	width: 100%;
+}
+
+.#{$grid-box-name}-half {
+	width: 50%;
+}
+
+.#{$grid-box-name}-3rd {
+	width: (100% / 3);
+}
+
+.#{$grid-box-name}-2-3rd {
+	width: (100% / 3) * 2;
+}
+
+.#{$grid-box-name}-5th {
+	width: (100% / 5);
+}
+
+.#{$grid-box-name}-6th {
+	width: (100% / 6);
+}
+
+@include media(phone) {
+	[class^="#{$grid-box-name}-"] {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	
+	.#{$grid-box-name}-half {
+		width: 50%;
+	}
+}
+
+@include media(only-tablet) {
+	[class^="#{$grid-box-name}-"] {
+		width: 100%;
+	}
+	
+	.#{$grid-box-name}-half,
+	.#{$grid-box-name}-5th,
+	.#{$grid-box-name}-6th,
+	.#{$grid-box-name}-8 {
+		width: 50%;
+	}
+}
+
+
+// Box Positioning
+[class^="#{$grid-box-name}-"] {
+	float: left;
+	min-height: 1px;
+	padding: 0 $grid-gutter-width;
+	
+	@for $i from 1 through $grid-boxes {
+		&.#{$grid-offset-name}-#{$i} {
+			margin-left: 100% / $grid-boxes * $i;
+		}
+	}
+}

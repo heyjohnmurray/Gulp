@@ -1,0 +1,76 @@
+// Project Styles
+
+// Banners
+@import 'partials/_banners';
+
+// Masthead
+@import 'partials/_masthead';
+
+//Forms
+@import 'partials/_forms';
+
+//Tooltip
+@import 'partials/_tooltip';
+
+//Modal
+@import 'partials/_modal';
+
+// Heroes
+@import 'partials/_heroes';
+
+//Value Props
+@import 'partials/_value-props';
+
+//Quote Information
+@import 'partials/_rate-results';
+
+//Extends
+@import 'partials/_extends';
+
+// Comparison Table
+@import 'partials/_comparison-table';
+
+//
+@import 'partials/_chat';
+
+.page-step2 {
+	.content-primary {
+		background: #e7dbc1;
+
+		@media #{$tablet} {
+			background: url(/assets/images/bg-swing-kid.jpg) no-repeat;
+			background-size: cover;
+		}
+
+		.ie8 & {
+			background: url(/assets/images/bg-swing-kid.jpg) top center no-repeat;
+		}
+
+		.width-override {
+			@media #{$small-tablet-only} {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.page-contact-thankyou {
+	.content-primary {
+		background: #e7dbc1;
+
+		@media #{$tablet} {
+			background: url(/assets/images/heroes/hero-thank-you.jpg) no-repeat top;
+			background-size: cover;
+		}
+
+		.ie8 & {
+			background: url(/assets/images/heroes/hero-thank-you.jpg) top center no-repeat;
+		}
+	}
+}
+
+//Sidebar
+@import 'partials/_sidebar';
+
+// Footer
+@import 'partials/_footer';
