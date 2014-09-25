@@ -43,7 +43,14 @@ function handleError(err) {
 gulp.task('sass', function(){
 	var stream = gulp.src('data/assets/sass/**/*.scss')
 		.pipe(sass().on('error', handleError))
-		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
+		.pipe(header('/* compiled at ' +
+      currDate.getHours() + ':' +
+      currDate.getMinutes() + ':' +
+      currDate.getSeconds() + ' on ' +
+      (currDate.getMonth()+1) + '-' +
+      currDate.getDate() + '-' +
+      currDate.getFullYear() +
+      ' */' + '\n'))//compiled time stamp
 		.pipe(gulp.dest('data/assets/css/'))
 		.pipe(livereload())
 		.pipe(notify({
