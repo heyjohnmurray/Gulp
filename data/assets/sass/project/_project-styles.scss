@@ -1,40 +1,10 @@
 // Project Styles
 body {
 	background: #ddd;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
 }
 
-.gulp {
-	background: #f00;
-}
-
-.watch {
-	background: #ff0;
-	color: #ccc;
-	text-center: align;
-}
-
-.notify {
-	font-stretch: semi-expanded;
-	margin: 0;
-	height: 0;
-	width: 100%;
-}
-
-.browser-sync {
-	width: 100%;
-	margin-right: auto;
-}
-
-.makemeugly {
-	p {
-		color: green;
-		margin: 10px 0;
-	}
-}
-
-.new-div {
-	p {
-		font-size: 30px;
-		text-align: center;
-	}
+h1 {
+	font-size: 300%;	
 }

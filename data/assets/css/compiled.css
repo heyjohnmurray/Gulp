@@ -1,4 +1,4 @@
-/* compiled at 22:36:9 on 10-8-2014 */
+/* compiled at 22:49:58 on 10-8-2014 */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, main {
   margin: 0;
   padding: 0;
@@ -34,30 +34,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   cursor: default; }
 
 body {
-  background: #ddd; }
+  background: #ddd;
+  font-family: Arial, sans-serif;
+  font-size: 16px; }
 
-.gulp {
-  background: #f00; }
-
-.watch {
-  background: #ff0;
-  color: #ccc;
-  text-center: align; }
-
-.notify {
-  font-stretch: semi-expanded;
-  margin: 0;
-  height: 0;
-  width: 100%; }
-
-.browser-sync {
-  width: 100%;
-  margin-right: auto; }
-
-.makemeugly p {
-  color: green;
-  margin: 10px 0; }
-
-.new-div p {
-  font-size: 30px;
-  text-align: center; }
+h1 {
+  font-size: 300%; }
