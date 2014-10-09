@@ -2,9 +2,11 @@
 @import 'project/_project-variables';
 
 // Base (Do NOT Remove)
-@import 'project/globals/_foundation-block-grid';
+@import "bourbon";
 @import 'project/globals/_foundation-functions';
 @import 'project/globals/_foundation-global';
+@import 'project/globals/_grid';
+@import 'project/globals/_foundation-block-grid';
 @import 'project/_project-fonts';
 @import 'project/globals/_reset';
 @import 'project/globals/_base';

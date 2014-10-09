@@ -17,6 +17,7 @@ var livereload = require('gulp-livereload');
 
 //core plugins
 var sass = require('gulp-sass');
+var bourbon = require('node-bourbon');
 var uglify = require('gulp-uglifyjs');
 var imagemin = require('gulp-imagemin');
 var spritesmith = require("gulp.spritesmith");
@@ -30,7 +31,7 @@ gulp.task('default', ['sass']);
 gulp.task('sass', function(){
 
 	return gulp.src('assets/sass/**/*.scss')
-		.pipe(sass())
+		.pipe(sass({includePaths: require('node-bourbon').includePaths}))
 		.pipe(header('/* compiled at ' + currDate.getHours() + ':' + currDate.getMinutes() + ':' + currDate.getSeconds() + ' on ' + (currDate.getMonth()+1) + '-' + currDate.getDate() + '-' + currDate.getFullYear() + ' */' + '\n'))//compiled time stamp
 		.pipe(gulp.dest('assets/css/'))
 		.pipe(livereload())
