@@ -25,3 +25,8 @@ https://github.com/shakyShane/gulp-browser-sync#usage
 ## Food for Thought
 
 http://yeoman.io/blog/performance-optimization.html
+
+### Interesting Notes:
+When using the Chrome plugin make sure that you toggle the plugin into use on the page. When in use, the little circle in the middle of the extension graphic will turn black. Also, you'll see the following js script reference injected into your source code in the element inspector:
+
+<code><script src="http://127.0.0.1:35729/livereload.js?ext=Chrome&amp;extver=2.0.9"></script></code>
