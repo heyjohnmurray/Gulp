@@ -98,17 +98,6 @@ gulp.task('sprites', function () {
   spriteData.css.pipe(gulp.dest('data/assets/sass/project/partials/'));
 });
 
-// THIS IS THE SYNTAX I WANT BUT IT'S NOT WORKING QUITE RIGHT.
-// gulp.task('sprites', function () {
-//   return gulp.src('assets/images/sprites/')
-//     .pipe(spritesmith({
-//       imgName: 'sprites.png',
-//       cssName: '_sprites.scss'
-//       }))
-//     .pipe(gulp.dest('assets/images/'))
-//     .pipe(gulp.dest('assets/sass/project/partials/'));
-// });
-
 //watch
 gulp.task('watch', function(){
   livereload.listen();
